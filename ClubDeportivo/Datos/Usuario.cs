@@ -10,7 +10,7 @@ namespace ClubDeportivo.Datos
 {
     internal class Usuario
     {
-        public DataTable Login(string User, string Pass)
+        public DataTable Login(string Usuario, string Pass)
         {
             MySqlDataReader resultado;
             DataTable tabla = new DataTable();
@@ -22,8 +22,8 @@ namespace ClubDeportivo.Datos
                 MySqlCommand comando = new MySqlCommand("IngresoLogin", sqlCon);
                 comando.CommandType = CommandType.StoredProcedure;
 
-                comando.Parameters.Add("@Usuario", MySqlDbType.VarChar).Value = User;
-                comando.Parameters.Add("@Pass", MySqlDbType.VarChar).Value = Pass;
+                comando.Parameters.Add("Usuario", MySqlDbType.VarChar).Value = Usuario;
+                comando.Parameters.Add("Pass", MySqlDbType.VarChar).Value = Pass;
 
                 sqlCon.Open();
                 resultado = comando.ExecuteReader();

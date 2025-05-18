@@ -28,7 +28,7 @@ namespace ClubDeportivo
         private void picBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            fMainMenu MainMenu = new fMainMenu();  // Creás una NUEVA instancia
+            fMainMenu MainMenu = new fMainMenu();  
             MainMenu.Show();
             MainMenu.Close();
         }

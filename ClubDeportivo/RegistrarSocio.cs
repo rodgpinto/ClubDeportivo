@@ -38,16 +38,12 @@ namespace ClubDeportivo
                     conexion.Open();
 
 
-                    string validarPersona = @"SELECT COUNT(*) FROM persona 
-                          WHERE LOWER(nombre) = LOWER(@nombre) 
-                            AND LOWER(apellido) = LOWER(@apellido) 
-                            AND dni = @dni";
+                    string validarPersona = "ValidarPersona";
 
                     using (MySqlCommand cmd = new MySqlCommand(validarPersona, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@nombre", txtNombre.Text.Trim().ToLower());
-                        cmd.Parameters.AddWithValue("@apellido", txtApellido.Text.Trim().ToLower());
-                        cmd.Parameters.AddWithValue("@dni", Convert.ToInt32(txtDocumento.Text));
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_dni", Convert.ToInt32(txtDocumento.Text));
 
                         int existe = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -61,41 +57,38 @@ namespace ClubDeportivo
                     }
 
 
-                    string queryPersona = @"INSERT INTO persona(nombre, apellido, dni, direccion, fecha_nacimiento)
-                      VALUES (@nombre, @apellido, @dni, @direccion, @fechaNacimiento);
-                         SELECT LAST_INSERT_ID();";
+                    string InsertarPersona = "InsertarPersona";
 
                     int personaId;
 
-                    using (MySqlCommand cmd = new MySqlCommand(queryPersona, conexion))
-                    {
-                        cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                        cmd.Parameters.AddWithValue("@apellido", txtApellido.Text);
-                        cmd.Parameters.AddWithValue("@dni", Convert.ToInt32(txtDocumento.Text));
-                        cmd.Parameters.AddWithValue("@direccion", txtDireccion.Text);
-                        cmd.Parameters.AddWithValue("@fechaNacimiento", dtpFechaNacimiento.Value);
+                    using (MySqlCommand cmd = new MySqlCommand(InsertarPersona, conexion))
+                    {   cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("nombre", txtNombre.Text);
+                        cmd.Parameters.AddWithValue("apellido", txtApellido.Text);
+                        cmd.Parameters.AddWithValue("dni", Convert.ToInt32(txtDocumento.Text));
+                        cmd.Parameters.AddWithValue("direccion", txtDireccion.Text);
+                        cmd.Parameters.AddWithValue("fechaNacimiento", dtpFechaNacimiento.Value);
 
                         personaId = Convert.ToInt32(cmd.ExecuteScalar());
                     }
 
-                    string querySocio = @"INSERT INTO socios 
-                (persona_id, carnet, ficha_inscripcion, apto_fisico, socio_activo)
-                VALUES (@personaId, 0, false, false, true);
-                SELECT LAST_INSERT_ID();";
+                    string InsertarSocio = "InsertarSocio";
 
                     int socioId;
 
-                    using (MySqlCommand cmd = new MySqlCommand(querySocio, conexion))
-                    {
+                    using (MySqlCommand cmd = new MySqlCommand(InsertarSocio, conexion))
+                    {   cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@personaId", personaId);
                         socioId = Convert.ToInt32(cmd.ExecuteScalar());
                     }
 
-                    string updateCarnet = "UPDATE socios SET carnet = @id WHERE id_socio = @id";
+                                     
+                    string actualizarCarnet = "ActualizarCarnetSocio";
 
-                    using (MySqlCommand cmd = new MySqlCommand(updateCarnet, conexion))
+                    using (MySqlCommand cmd = new MySqlCommand(actualizarCarnet, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@id", socioId);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("socioId", socioId);
                         cmd.ExecuteNonQuery();
                     }
 
@@ -106,16 +99,8 @@ namespace ClubDeportivo
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            finally
-            {
-                txtNombre.Text = "";
-                txtApellido.Text = "";
-                txtDocumento.Text = "";
-                cboTipo.Text = "";
-                txtDireccion.Text = "";
-                dtpFechaNacimiento.Value = DateTime.Now;
-                txtNombre.Focus();
-            }
+            
+      
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -143,6 +128,8 @@ namespace ClubDeportivo
             Application.Exit();
 
         }
+
+       
     }
 
 }
