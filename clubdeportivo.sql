@@ -118,7 +118,7 @@ CREATE TABLE `persona` (
   `direccion` varchar(100) DEFAULT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
   PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,7 +127,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (1,'Juan','Perez',12345678,'Calle Falsa 123','1990-01-01'),(2,'s','s',34,'s','2025-05-16'),(3,'s','s',1,'ad','2025-05-16'),(4,'Juan','Perez',30546523,'La casa','1989-07-19'),(5,'','Perez',30546523,'La casa','1989-07-19'),(6,'asd','asd',3,'asd','2025-05-16'),(7,'asdd','asd',1,'asd','2025-05-16'),(8,'Rodrigo','Pinto',34,'ASd','2000-02-02'),(9,'Ale','Ramirez',35,'Falsa 123','1989-07-12'),(10,'Homero','Thompson',123365,'Av Siempre viva 123','1990-02-08'),(11,'Homero','Simpson',123123,'ad','1989-01-31');
+INSERT INTO `persona` VALUES (1,'Homero','Simpson',2,'Calle Falsa 123','2025-05-18');
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,7 +172,7 @@ CREATE TABLE `socios` (
   PRIMARY KEY (`id_socio`),
   KEY `FK_persona_id` (`persona_id`),
   CONSTRAINT `FK_persona_id` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +181,7 @@ CREATE TABLE `socios` (
 
 LOCK TABLES `socios` WRITE;
 /*!40000 ALTER TABLE `socios` DISABLE KEYS */;
-INSERT INTO `socios` VALUES (1,1,1001,1,1,1),(2,3,2,0,0,1),(3,4,3,0,0,1),(4,5,4,0,0,1),(5,6,5,0,0,1),(6,7,6,0,0,1),(7,8,7,0,0,1),(8,9,8,0,0,1),(9,10,9,0,0,1),(10,11,10,0,0,1);
+INSERT INTO `socios` VALUES (1,1,1,0,0,1);
 /*!40000 ALTER TABLE `socios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,14 +194,14 @@ DROP TABLE IF EXISTS `usuario`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
   `idUser` int NOT NULL AUTO_INCREMENT,
-  `NombreUsuario` varchar(20) DEFAULT NULL,
-  `PassUsuario` varchar(15) DEFAULT NULL,
+  `NombreUsuario` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `PassUsuario` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `RolUsuario` int DEFAULT NULL,
   `Activo` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`idUser`),
   KEY `fk_usuario` (`RolUsuario`),
   CONSTRAINT `fk_usuario` FOREIGN KEY (`RolUsuario`) REFERENCES `roles` (`RolUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -217,6 +217,29 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'clubdeportivo'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `ActualizarCarnetSocio` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ActualizarCarnetSocio`(
+    IN socioId INT
+)
+BEGIN
+    UPDATE socios 
+    SET carnet = socioId 
+    WHERE id_socio = socioId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `IngresoLogin` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -241,6 +264,125 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertarPersona` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarPersona`(
+    IN nombre VARCHAR(100),
+    IN apellido VARCHAR(100),
+    IN dni INT,
+    IN direccion VARCHAR(100),
+    IN fechaNacimiento DATE
+)
+BEGIN
+    INSERT INTO persona (nombre, apellido, dni, direccion, fecha_nacimiento)
+    VALUES (nombre, apellido, dni, direccion, fechaNacimiento);
+
+    SELECT LAST_INSERT_ID();
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertarSocio` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarSocio`(
+    IN personaId INT
+)
+BEGIN
+    INSERT INTO socios (
+        persona_id, carnet, ficha_inscripcion, apto_fisico, socio_activo
+    )
+    VALUES (
+        personaId, 0, FALSE, FALSE, TRUE
+    );
+
+    SELECT LAST_INSERT_ID();
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ValidarEInsertarPersona` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ValidarEInsertarPersona`(
+    IN nombreParam VARCHAR(100),
+    IN apellidoParam VARCHAR(100),
+    IN dniParam INT,
+    IN direccionParam VARCHAR(100),
+    IN fechaNacParam DATE
+)
+BEGIN
+    DECLARE existe INT DEFAULT 0;
+
+    SELECT COUNT(*) INTO existe
+    FROM persona 
+    WHERE LOWER(nombre) = LOWER(nombreParam)
+      AND LOWER(apellido) = LOWER(apellidoParam)
+      AND dni = dniParam;
+
+    IF existe = 0 THEN
+        INSERT INTO persona (nombre, apellido, dni, direccion, fecha_nacimiento)
+        VALUES (nombreParam, apellidoParam, dniParam, direccionParam, fechaNacParam);
+        
+        SELECT LAST_INSERT_ID() AS id_insertado;
+    ELSE
+        SELECT 'Ya existe una persona con esos datos.' AS mensaje;
+    END IF;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ValidarPersona` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ValidarPersona`(
+    IN p_dni INT
+)
+BEGIN
+    SELECT COUNT(*) AS existe
+    FROM persona
+    WHERE dni = p_dni;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -251,4 +393,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-17 20:50:10
+-- Dump completed on 2025-05-18 13:14:19
