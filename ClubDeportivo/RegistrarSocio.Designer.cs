@@ -102,7 +102,7 @@
             txtNombre.Location = new Point(181, 85);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(160, 23);
-            txtNombre.TabIndex = 4;
+            txtNombre.TabIndex = 1;
             // 
             // txtApellido
             // 
@@ -110,7 +110,7 @@
             txtApellido.Location = new Point(181, 120);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(160, 23);
-            txtApellido.TabIndex = 5;
+            txtApellido.TabIndex = 2;
             // 
             // txtDocumento
             // 
@@ -118,7 +118,7 @@
             txtDocumento.Location = new Point(181, 191);
             txtDocumento.Name = "txtDocumento";
             txtDocumento.Size = new Size(160, 23);
-            txtDocumento.TabIndex = 6;
+            txtDocumento.TabIndex = 4;
             // 
             // cboTipo
             // 
@@ -128,7 +128,7 @@
             cboTipo.Location = new Point(181, 157);
             cboTipo.Name = "cboTipo";
             cboTipo.Size = new Size(160, 23);
-            cboTipo.TabIndex = 7;
+            cboTipo.TabIndex = 3;
             // 
             // label1
             // 
@@ -185,7 +185,7 @@
             btnIngresarDato.Location = new Point(50, 338);
             btnIngresarDato.Name = "btnIngresarDato";
             btnIngresarDato.Size = new Size(96, 29);
-            btnIngresarDato.TabIndex = 12;
+            btnIngresarDato.TabIndex = 7;
             btnIngresarDato.Text = "INGRESAR";
             btnIngresarDato.UseVisualStyleBackColor = false;
             btnIngresarDato.Click += btnIngresarDato_Click;
@@ -201,7 +201,7 @@
             btnLimpiar.Location = new Point(182, 338);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(96, 29);
-            btnLimpiar.TabIndex = 13;
+            btnLimpiar.TabIndex = 8;
             btnLimpiar.Text = "LIMPIAR";
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
@@ -217,7 +217,7 @@
             btnVolver.Location = new Point(311, 338);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(96, 29);
-            btnVolver.TabIndex = 14;
+            btnVolver.TabIndex = 9;
             btnVolver.Text = "VOLVER";
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
@@ -237,7 +237,7 @@
             dtpFechaNacimiento.Location = new Point(222, 225);
             dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             dtpFechaNacimiento.Size = new Size(119, 23);
-            dtpFechaNacimiento.TabIndex = 16;
+            dtpFechaNacimiento.TabIndex = 5;
             // 
             // lblDireccion
             // 
@@ -255,7 +255,7 @@
             txtDireccion.Location = new Point(182, 260);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(160, 23);
-            txtDireccion.TabIndex = 18;
+            txtDireccion.TabIndex = 6;
             // 
             // label7
             // 
@@ -302,6 +302,7 @@
             // 
             // fRegistrarSocio
             // 
+            AcceptButton = btnIngresarDato;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
