@@ -186,7 +186,7 @@
             btnIngresarDato.FlatStyle = FlatStyle.Flat;
             btnIngresarDato.Font = new Font("Segoe UI", 10F);
             btnIngresarDato.ForeColor = SystemColors.ButtonHighlight;
-            btnIngresarDato.Location = new Point(51, 414);
+            btnIngresarDato.Location = new Point(50, 657);
             btnIngresarDato.Name = "btnIngresarDato";
             btnIngresarDato.Size = new Size(96, 29);
             btnIngresarDato.TabIndex = 7;
@@ -202,7 +202,7 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Segoe UI", 10F);
             btnLimpiar.ForeColor = SystemColors.ButtonHighlight;
-            btnLimpiar.Location = new Point(182, 414);
+            btnLimpiar.Location = new Point(181, 657);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(96, 29);
             btnLimpiar.TabIndex = 8;
@@ -218,7 +218,7 @@
             btnVolver.FlatStyle = FlatStyle.Flat;
             btnVolver.Font = new Font("Segoe UI", 10F);
             btnVolver.ForeColor = SystemColors.ButtonHighlight;
-            btnVolver.Location = new Point(312, 414);
+            btnVolver.Location = new Point(311, 657);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(96, 29);
             btnVolver.TabIndex = 9;
@@ -348,7 +348,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
-            ClientSize = new Size(452, 522);
+            ClientSize = new Size(452, 712);
             Controls.Add(lblFichaInscripcion);
             Controls.Add(checkBox1);
             Controls.Add(lblApto);
