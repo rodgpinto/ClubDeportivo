@@ -9,8 +9,6 @@ namespace ClubDeportivo.Entidades
     public class E_Socio
     {
         
-        public E_Socio() { }
-
         public E_Socio(int personaId, int carnet, bool fichaInscripcion, bool aptoFisico, bool socioActivo)
         {
             PersonaId = personaId;

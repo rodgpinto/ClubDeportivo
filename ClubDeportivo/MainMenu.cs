@@ -12,16 +12,24 @@ namespace ClubDeportivo
 {
     public partial class fMainMenu : Form
     {
-        
+
         public fMainMenu()
         {
             InitializeComponent();
         }
 
+        internal string? rol;
+        internal string? user;
+
+        private void fMainMenu_Load(object sender, EventArgs e)
+        {
+            lblIngreso.Text = "USUARIO: " + user + " (" + rol + ")";
+        }
+
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form Registrar = new fRegistrar();
+            fRegistrar Registrar = new fRegistrar();
             Registrar.ShowDialog();
             this.Show();
         }
@@ -30,6 +38,14 @@ namespace ClubDeportivo
         {
             Application.Exit();
 
+        }
+
+        private void btnListarSocios_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fListarSocios ListarSocios = new fListarSocios();
+            ListarSocios.ShowDialog();
+            this.Show();
         }
     }
 }

@@ -40,3 +40,4 @@ C:\Users\Driscoll\Desktop\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDe
 C:\Users\Driscoll\Desktop\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.Properties.Resources.resources
 C:\Users\Driscoll\Desktop\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.fRegistrarSocio.resources
 C:\Users\Driscoll\Desktop\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.sourcelink.json
+C:\Users\Driscoll\Desktop\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.fListarSocios.resources

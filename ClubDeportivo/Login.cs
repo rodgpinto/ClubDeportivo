@@ -35,9 +35,14 @@ namespace ClubDeportivo
             {
                 MessageBox.Show("Bienvenido/a " + txtUser.Text, "Ingreso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information); 
                 this.Hide();
-                Form MainMenu = new fMainMenu();
-                MainMenu.ShowDialog();
+                fMainMenu MainMenu = new fMainMenu();
+
+                MainMenu.user = Convert.ToString(txtUser.Text);
+                MainMenu.rol = Convert.ToString(tablaLogin.Rows[0][0]);
                 
+                MainMenu.ShowDialog();
+
+
             }
             else
             {

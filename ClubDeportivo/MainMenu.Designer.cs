@@ -33,8 +33,9 @@
             btnRegistrarPago = new Button();
             btnListarSocios = new Button();
             btnListarVencimientos = new Button();
-            picAtras = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)picAtras).BeginInit();
+            picCerrar = new PictureBox();
+            lblIngreso = new Label();
+            ((System.ComponentModel.ISupportInitialize)picCerrar).BeginInit();
             SuspendLayout();
             // 
             // btnRegistrar
@@ -85,6 +86,7 @@
             btnListarSocios.TabIndex = 5;
             btnListarSocios.Text = "Listar socios";
             btnListarSocios.UseVisualStyleBackColor = false;
+            btnListarSocios.Click += btnListarSocios_Click;
             // 
             // btnListarVencimientos
             // 
@@ -102,16 +104,24 @@
             btnListarVencimientos.Text = "Listar vencimientos";
             btnListarVencimientos.UseVisualStyleBackColor = false;
             // 
-            // picAtras
+            // picCerrar
             // 
-            picAtras.BackgroundImage = (Image)resources.GetObject("picAtras.BackgroundImage");
-            picAtras.BackgroundImageLayout = ImageLayout.Zoom;
-            picAtras.Location = new Point(418, 12);
-            picAtras.Name = "picAtras";
-            picAtras.Size = new Size(41, 30);
-            picAtras.TabIndex = 7;
-            picAtras.TabStop = false;
-            picAtras.Click += picAtras_Click;
+            picCerrar.BackgroundImage = (Image)resources.GetObject("picCerrar.BackgroundImage");
+            picCerrar.BackgroundImageLayout = ImageLayout.Zoom;
+            picCerrar.Location = new Point(418, 12);
+            picCerrar.Name = "picCerrar";
+            picCerrar.Size = new Size(41, 30);
+            picCerrar.TabIndex = 7;
+            picCerrar.TabStop = false;
+            picCerrar.Click += picAtras_Click;
+            // 
+            // lblIngreso
+            // 
+            lblIngreso.AutoSize = true;
+            lblIngreso.Location = new Point(12, 12);
+            lblIngreso.Name = "lblIngreso";
+            lblIngreso.Size = new Size(0, 15);
+            lblIngreso.TabIndex = 8;
             // 
             // fMainMenu
             // 
@@ -119,7 +129,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(471, 348);
-            Controls.Add(picAtras);
+            Controls.Add(lblIngreso);
+            Controls.Add(picCerrar);
             Controls.Add(btnListarVencimientos);
             Controls.Add(btnListarSocios);
             Controls.Add(btnRegistrarPago);
@@ -129,8 +140,10 @@
             Name = "fMainMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MENU PRINCIPAL";
-            ((System.ComponentModel.ISupportInitialize)picAtras).EndInit();
+            Load += fMainMenu_Load;
+            ((System.ComponentModel.ISupportInitialize)picCerrar).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -139,6 +152,7 @@
         private Button btnRegistrarPago;
         private Button btnListarSocios;
         private Button btnListarVencimientos;
-        private PictureBox picAtras;
+        private PictureBox picCerrar;
+        private Label lblIngreso;
     }
 }

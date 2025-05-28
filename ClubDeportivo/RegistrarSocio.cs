@@ -19,7 +19,11 @@ namespace ClubDeportivo
             InitializeComponent();
         }
 
+        private void picCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
 
+        }
 
         private void btnIngresarDato_Click(object sender, EventArgs e)
         {
@@ -56,13 +60,13 @@ namespace ClubDeportivo
                         }
                     }
 
-
                     string InsertarPersona = "InsertarPersona";
 
                     int personaId;
 
                     using (MySqlCommand cmd = new MySqlCommand(InsertarPersona, conexion))
-                    {   cmd.CommandType = CommandType.StoredProcedure;
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("nombre", txtNombre.Text);
                         cmd.Parameters.AddWithValue("apellido", txtApellido.Text);
                         cmd.Parameters.AddWithValue("dni", Convert.ToInt32(txtDocumento.Text));
@@ -77,12 +81,12 @@ namespace ClubDeportivo
                     int socioId;
 
                     using (MySqlCommand cmd = new MySqlCommand(InsertarSocio, conexion))
-                    {   cmd.CommandType = CommandType.StoredProcedure;
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@personaId", personaId);
                         socioId = Convert.ToInt32(cmd.ExecuteScalar());
                     }
 
-                                     
                     string actualizarCarnet = "ActualizarCarnetSocio";
 
                     using (MySqlCommand cmd = new MySqlCommand(actualizarCarnet, conexion))
@@ -91,7 +95,6 @@ namespace ClubDeportivo
                         cmd.Parameters.AddWithValue("socioId", socioId);
                         cmd.ExecuteNonQuery();
                     }
-
                     MessageBox.Show("¡Socio registrado correctamente!");
                 }
             }
@@ -99,8 +102,6 @@ namespace ClubDeportivo
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            
-      
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -119,18 +120,9 @@ namespace ClubDeportivo
             fRegistrar Registrar = new fRegistrar();
             Registrar.Show();
             Registrar.Close();
-
-
         }
 
-        private void picAtras_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-
-        }
-
-       
+      
     }
-
 }
 

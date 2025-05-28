@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fRegistrar));
             btnRegistrarSocio = new Button();
             btnRegistrarNoSocio = new Button();
-            picBack = new PictureBox();
             picAtras = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)picBack).BeginInit();
+            picCerrar = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)picAtras).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picCerrar).BeginInit();
             SuspendLayout();
             // 
             // btnRegistrarSocio
@@ -70,27 +70,27 @@
             btnRegistrarNoSocio.Text = "Registrar No Socio";
             btnRegistrarNoSocio.UseVisualStyleBackColor = false;
             // 
-            // picBack
-            // 
-            picBack.BackgroundImage = (Image)resources.GetObject("picBack.BackgroundImage");
-            picBack.BackgroundImageLayout = ImageLayout.Zoom;
-            picBack.Location = new Point(12, 12);
-            picBack.Name = "picBack";
-            picBack.Size = new Size(41, 30);
-            picBack.TabIndex = 8;
-            picBack.TabStop = false;
-            picBack.Click += picBack_Click;
-            // 
             // picAtras
             // 
             picAtras.BackgroundImage = (Image)resources.GetObject("picAtras.BackgroundImage");
             picAtras.BackgroundImageLayout = ImageLayout.Zoom;
-            picAtras.Location = new Point(287, 12);
+            picAtras.Location = new Point(12, 12);
             picAtras.Name = "picAtras";
             picAtras.Size = new Size(41, 30);
-            picAtras.TabIndex = 23;
+            picAtras.TabIndex = 8;
             picAtras.TabStop = false;
-            picAtras.Click += picAtras_Click;
+            picAtras.Click += picBack_Click;
+            // 
+            // picCerrar
+            // 
+            picCerrar.BackgroundImage = (Image)resources.GetObject("picCerrar.BackgroundImage");
+            picCerrar.BackgroundImageLayout = ImageLayout.Zoom;
+            picCerrar.Location = new Point(287, 12);
+            picCerrar.Name = "picCerrar";
+            picCerrar.Size = new Size(41, 30);
+            picCerrar.TabIndex = 23;
+            picCerrar.TabStop = false;
+            picCerrar.Click += picAtras_Click;
             // 
             // fRegistrar
             // 
@@ -98,16 +98,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(340, 294);
+            Controls.Add(picCerrar);
             Controls.Add(picAtras);
-            Controls.Add(picBack);
             Controls.Add(btnRegistrarNoSocio);
             Controls.Add(btnRegistrarSocio);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "fRegistrar";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "REGISTRAR";
-            ((System.ComponentModel.ISupportInitialize)picBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)picAtras).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picCerrar).EndInit();
             ResumeLayout(false);
         }
 
@@ -115,7 +115,7 @@
 
         private Button btnRegistrarSocio;
         private Button btnRegistrarNoSocio;
-        private PictureBox picBack;
         private PictureBox picAtras;
+        private PictureBox picCerrar;
     }
 }

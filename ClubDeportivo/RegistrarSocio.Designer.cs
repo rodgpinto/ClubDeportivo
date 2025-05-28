@@ -51,9 +51,13 @@
             label7 = new Label();
             label8 = new Label();
             pictureBoxSocio = new PictureBox();
-            picAtras = new PictureBox();
+            picCerrar = new PictureBox();
+            chkApto = new CheckBox();
+            lblApto = new Label();
+            lblFichaInscripcion = new Label();
+            checkBox1 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxSocio).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picAtras).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picCerrar).BeginInit();
             SuspendLayout();
             // 
             // lblNombre
@@ -62,9 +66,9 @@
             lblNombre.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblNombre.Location = new Point(69, 85);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(65, 19);
+            lblNombre.Size = new Size(69, 19);
             lblNombre.TabIndex = 0;
-            lblNombre.Text = "Nombre";
+            lblNombre.Text = "Nombre:";
             // 
             // lblApellido
             // 
@@ -72,9 +76,9 @@
             lblApellido.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblApellido.Location = new Point(69, 119);
             lblApellido.Name = "lblApellido";
-            lblApellido.Size = new Size(66, 19);
+            lblApellido.Size = new Size(70, 19);
             lblApellido.TabIndex = 1;
-            lblApellido.Text = "Apellido";
+            lblApellido.Text = "Apellido:";
             // 
             // label3
             // 
@@ -82,19 +86,19 @@
             label3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label3.Location = new Point(70, 156);
             label3.Name = "label3";
-            label3.Size = new Size(39, 19);
+            label3.Size = new Size(43, 19);
             label3.TabIndex = 2;
-            label3.Text = "Tipo";
+            label3.Text = "Tipo:";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label4.Location = new Point(69, 194);
+            label4.Location = new Point(70, 191);
             label4.Name = "label4";
-            label4.Size = new Size(86, 19);
+            label4.Size = new Size(90, 19);
             label4.TabIndex = 3;
-            label4.Text = "Documento";
+            label4.Text = "Documento:";
             // 
             // txtNombre
             // 
@@ -182,7 +186,7 @@
             btnIngresarDato.FlatStyle = FlatStyle.Flat;
             btnIngresarDato.Font = new Font("Segoe UI", 10F);
             btnIngresarDato.ForeColor = SystemColors.ButtonHighlight;
-            btnIngresarDato.Location = new Point(50, 338);
+            btnIngresarDato.Location = new Point(51, 414);
             btnIngresarDato.Name = "btnIngresarDato";
             btnIngresarDato.Size = new Size(96, 29);
             btnIngresarDato.TabIndex = 7;
@@ -198,7 +202,7 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Segoe UI", 10F);
             btnLimpiar.ForeColor = SystemColors.ButtonHighlight;
-            btnLimpiar.Location = new Point(182, 338);
+            btnLimpiar.Location = new Point(182, 414);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(96, 29);
             btnLimpiar.TabIndex = 8;
@@ -214,7 +218,7 @@
             btnVolver.FlatStyle = FlatStyle.Flat;
             btnVolver.Font = new Font("Segoe UI", 10F);
             btnVolver.ForeColor = SystemColors.ButtonHighlight;
-            btnVolver.Location = new Point(311, 338);
+            btnVolver.Location = new Point(312, 414);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(96, 29);
             btnVolver.TabIndex = 9;
@@ -228,9 +232,9 @@
             lblFechaNacimiento.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblFechaNacimiento.Location = new Point(70, 229);
             lblFechaNacimiento.Name = "lblFechaNacimiento";
-            lblFechaNacimiento.Size = new Size(146, 19);
+            lblFechaNacimiento.Size = new Size(150, 19);
             lblFechaNacimiento.TabIndex = 15;
-            lblFechaNacimiento.Text = "Fecha de nacimiento";
+            lblFechaNacimiento.Text = "Fecha de nacimiento:";
             // 
             // dtpFechaNacimiento
             // 
@@ -245,9 +249,9 @@
             lblDireccion.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblDireccion.Location = new Point(70, 261);
             lblDireccion.Name = "lblDireccion";
-            lblDireccion.Size = new Size(72, 19);
+            lblDireccion.Size = new Size(76, 19);
             lblDireccion.TabIndex = 17;
-            lblDireccion.Text = "Dirección";
+            lblDireccion.Text = "Dirección:";
             // 
             // txtDireccion
             // 
@@ -289,16 +293,54 @@
             pictureBoxSocio.TabIndex = 21;
             pictureBoxSocio.TabStop = false;
             // 
-            // picAtras
+            // picCerrar
             // 
-            picAtras.BackgroundImage = (Image)resources.GetObject("picAtras.BackgroundImage");
-            picAtras.BackgroundImageLayout = ImageLayout.Zoom;
-            picAtras.Location = new Point(389, 12);
-            picAtras.Name = "picAtras";
-            picAtras.Size = new Size(41, 30);
-            picAtras.TabIndex = 22;
-            picAtras.TabStop = false;
-            picAtras.Click += picAtras_Click;
+            picCerrar.BackgroundImage = (Image)resources.GetObject("picCerrar.BackgroundImage");
+            picCerrar.BackgroundImageLayout = ImageLayout.Zoom;
+            picCerrar.Location = new Point(389, 12);
+            picCerrar.Name = "picCerrar";
+            picCerrar.Size = new Size(41, 30);
+            picCerrar.TabIndex = 22;
+            picCerrar.TabStop = false;
+            picCerrar.Click += picCerrar_Click;
+            // 
+            // chkApto
+            // 
+            chkApto.AutoSize = true;
+            chkApto.Location = new Point(195, 329);
+            chkApto.Name = "chkApto";
+            chkApto.Size = new Size(15, 14);
+            chkApto.TabIndex = 23;
+            chkApto.UseVisualStyleBackColor = true;
+            // 
+            // lblApto
+            // 
+            lblApto.AutoSize = true;
+            lblApto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblApto.Location = new Point(266, 298);
+            lblApto.Name = "lblApto";
+            lblApto.Size = new Size(96, 19);
+            lblApto.TabIndex = 24;
+            lblApto.Text = "Apto médico";
+            // 
+            // lblFichaInscripcion
+            // 
+            lblFichaInscripcion.AutoSize = true;
+            lblFichaInscripcion.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblFichaInscripcion.Location = new Point(70, 298);
+            lblFichaInscripcion.Name = "lblFichaInscripcion";
+            lblFichaInscripcion.Size = new Size(140, 19);
+            lblFichaInscripcion.TabIndex = 26;
+            lblFichaInscripcion.Text = "Ficha de inscripción";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(347, 329);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(15, 14);
+            checkBox1.TabIndex = 25;
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // fRegistrarSocio
             // 
@@ -306,8 +348,12 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
-            ClientSize = new Size(442, 385);
-            Controls.Add(picAtras);
+            ClientSize = new Size(452, 522);
+            Controls.Add(lblFichaInscripcion);
+            Controls.Add(checkBox1);
+            Controls.Add(lblApto);
+            Controls.Add(chkApto);
+            Controls.Add(picCerrar);
             Controls.Add(pictureBoxSocio);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -335,7 +381,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "REGISTRAR SOCIO";
             ((System.ComponentModel.ISupportInitialize)pictureBoxSocio).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picAtras).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picCerrar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -364,6 +410,10 @@
         private Label label7;
         private Label label8;
         private PictureBox pictureBoxSocio;
-        private PictureBox picAtras;
+        private PictureBox picCerrar;
+        private CheckBox chkApto;
+        private Label lblApto;
+        private Label lblFichaInscripcion;
+        private CheckBox checkBox1;
     }
 }

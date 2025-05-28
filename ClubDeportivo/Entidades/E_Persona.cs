@@ -9,8 +9,6 @@ namespace ClubDeportivo.Entidades
     public class E_Persona
     {
        
-        public E_Persona() { }
-
         public E_Persona(int codigo, string nombre, string apellido, int dni, string direccion, DateTime fechaNacimiento)
         {
             Codigo = codigo;
