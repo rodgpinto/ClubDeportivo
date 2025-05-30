@@ -15,6 +15,8 @@ namespace ClubDeportivo
         public fRegistrar()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+
         }
 
         private void btnRegistrarSocio_Click(object sender, EventArgs e)

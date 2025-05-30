@@ -1,0 +1,176 @@
+﻿using System;
+using System.Windows.Forms;
+using System.IO;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Kernel.Geom;
+using iText.Layout.Properties;
+using iText.IO.Font.Constants;
+using iText.Kernel.Font;
+
+namespace ClubDeportivo
+{
+    public partial class fComprobantePago : Form
+    {
+        public fComprobantePago(string nombreCompleto, string dni, string formaPago, string fechaPago, string vencimiento, string monto)
+        {
+            InitializeComponent();
+
+            lblNombreCompleto2.Text = nombreCompleto;
+            lblDni2.Text = dni;
+            lblFormaPago2.Text = formaPago;
+            lblFechaPago2.Text = fechaPago;
+            lblFechaVencimiento2.Text = vencimiento;
+            lblMonto2.Text = monto;
+        }
+
+        private void fComprobantePago_Load(object sender, EventArgs e)
+        {
+            lblFechaInscripcion.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            fRegistrar Registrar = new fRegistrar();
+            Registrar.Show();
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+            
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+                // Crear nombre único para evitar conflictos
+                string fileName = $"comprobante_pago_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+                string filePath = System.IO.Path.Combine(desktopPath, fileName);
+
+         
+                // Crear el PDF
+                using (var writer = new PdfWriter(filePath))
+                using (var pdf = new PdfDocument(writer))
+                using (var doc = new Document(pdf, PageSize.A4))
+                {
+                    doc.SetMargins(40, 40, 40, 40);
+
+                    // Crear fuentes
+                    PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+                    PdfFont normalFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
+
+                    // Título
+                    Paragraph titulo = new Paragraph("CLUB DEPORTIVO")
+                        .SetTextAlignment(TextAlignment.CENTER)
+                        .SetFont(boldFont)
+                        .SetFontSize(18)
+                        .SetMarginBottom(10);
+                    doc.Add(titulo);
+
+                    Paragraph subtitulo = new Paragraph("Comprobante de Pago de Inscripción")
+                        .SetTextAlignment(TextAlignment.CENTER)
+                        .SetFont(boldFont)
+                        .SetFontSize(14)
+                        .SetMarginBottom(20);
+                    doc.Add(subtitulo);
+
+                    // Fecha y número de comprobante
+                    Paragraph fecha = new Paragraph($"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm}")
+                        .SetTextAlignment(TextAlignment.RIGHT)
+                        .SetFont(normalFont)
+                        .SetFontSize(10)
+                        .SetMarginBottom(20);
+                    doc.Add(fecha);
+
+                    // Crear tabla con los datos
+                    Table table = new Table(2);
+                    table.SetWidth(UnitValue.CreatePercentValue(100));
+                    table.SetMarginBottom(20);
+
+                    // Estilo para las celdas
+                    var cellStyle = new Style()
+                        .SetPadding(8)
+                        .SetBorder(iText.Layout.Borders.Border.NO_BORDER)
+                        .SetMarginBottom(5);
+
+                    // Agregar filas a la tabla
+                    AddTableRow(table, "Nombre y Apellido:", lblNombreCompleto2.Text, boldFont, normalFont);
+                    AddTableRow(table, "DNI:", lblDni2.Text, boldFont, normalFont);
+                    AddTableRow(table, "Forma de pago:", lblFormaPago2.Text, boldFont, normalFont);
+                    AddTableRow(table, "Fecha de pago:", lblFechaPago2.Text, boldFont, normalFont);
+                    AddTableRow(table, "Vencimiento cuota:", lblFechaVencimiento2.Text, boldFont, normalFont);
+                    AddTableRow(table, "Monto abonado:", lblMonto2.Text, boldFont, normalFont);
+
+                    doc.Add(table);
+
+                    // Línea separadora
+                    doc.Add(new Paragraph("_".PadRight(80, '_'))
+                        .SetTextAlignment(TextAlignment.CENTER)
+                        .SetMarginTop(20)
+                        .SetMarginBottom(20));
+
+                    // Mensaje final
+                    doc.Add(new Paragraph("Gracias por su inscripción")
+                        .SetTextAlignment(TextAlignment.CENTER)
+                        .SetFont(normalFont)
+                        .SetFontSize(12)
+                        .SetMarginTop(20));
+
+                    doc.Add(new Paragraph("Conserve este comprobante")
+                        .SetTextAlignment(TextAlignment.CENTER)
+                        .SetFont(normalFont)
+                        .SetFontSize(10)
+                        .SetMarginTop(10));
+                }
+
+                MessageBox.Show($"PDF generado correctamente:\n{filePath}", "Éxito",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Opcional: Abrir el PDF automáticamente
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                {
+                    FileName = filePath,
+                    UseShellExecute = true
+                });
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("No tiene permisos para escribir en el escritorio. Intente ejecutar como administrador.",
+                              "Error de permisos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (System.IO.DirectoryNotFoundException)
+            {
+                MessageBox.Show("No se puede encontrar el directorio del escritorio.",
+                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (System.IO.IOException ioEx)
+            {
+                MessageBox.Show($"Error de entrada/salida: {ioEx.Message}\nVerifique que el archivo no esté abierto en otro programa.",
+                              "Error de archivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado al generar el PDF:\n{ex.Message}\n\nDetalles técnicos:\n{ex.GetType().Name}",
+                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void AddTableRow(Table table, string label, string value, PdfFont boldFont, PdfFont normalFont)
+        {
+            var labelCell = new Cell()
+                .Add(new Paragraph(label).SetFont(boldFont).SetFontSize(11))
+                .SetBorder(iText.Layout.Borders.Border.NO_BORDER)
+                .SetPadding(5)
+                .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.LIGHT_GRAY);
+
+            var valueCell = new Cell()
+                .Add(new Paragraph(value ?? "N/A").SetFont(normalFont).SetFontSize(11))
+                .SetBorder(iText.Layout.Borders.Border.NO_BORDER)
+                .SetPadding(5);
+
+            table.AddCell(labelCell);
+            table.AddCell(valueCell);
+        }
+    }
+}

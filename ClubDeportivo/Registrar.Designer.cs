@@ -33,8 +33,11 @@
             btnRegistrarNoSocio = new Button();
             picAtras = new PictureBox();
             picCerrar = new PictureBox();
+            lblRegistrar = new Label();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)picAtras).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picCerrar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnRegistrarSocio
@@ -46,7 +49,7 @@
             btnRegistrarSocio.Font = new Font("Segoe UI", 10F);
             btnRegistrarSocio.ForeColor = SystemColors.ButtonHighlight;
             btnRegistrarSocio.ImeMode = ImeMode.NoControl;
-            btnRegistrarSocio.Location = new Point(114, 43);
+            btnRegistrarSocio.Location = new Point(114, 68);
             btnRegistrarSocio.Name = "btnRegistrarSocio";
             btnRegistrarSocio.Size = new Size(100, 52);
             btnRegistrarSocio.TabIndex = 4;
@@ -63,7 +66,7 @@
             btnRegistrarNoSocio.Font = new Font("Segoe UI", 10F);
             btnRegistrarNoSocio.ForeColor = SystemColors.ButtonHighlight;
             btnRegistrarNoSocio.ImeMode = ImeMode.NoControl;
-            btnRegistrarNoSocio.Location = new Point(114, 146);
+            btnRegistrarNoSocio.Location = new Point(114, 171);
             btnRegistrarNoSocio.Name = "btnRegistrarNoSocio";
             btnRegistrarNoSocio.Size = new Size(100, 52);
             btnRegistrarNoSocio.TabIndex = 5;
@@ -74,7 +77,7 @@
             // 
             picAtras.BackgroundImage = (Image)resources.GetObject("picAtras.BackgroundImage");
             picAtras.BackgroundImageLayout = ImageLayout.Zoom;
-            picAtras.Location = new Point(12, 12);
+            picAtras.Location = new Point(249, 9);
             picAtras.Name = "picAtras";
             picAtras.Size = new Size(41, 30);
             picAtras.TabIndex = 8;
@@ -85,19 +88,41 @@
             // 
             picCerrar.BackgroundImage = (Image)resources.GetObject("picCerrar.BackgroundImage");
             picCerrar.BackgroundImageLayout = ImageLayout.Zoom;
-            picCerrar.Location = new Point(287, 12);
+            picCerrar.Location = new Point(296, 9);
             picCerrar.Name = "picCerrar";
             picCerrar.Size = new Size(41, 30);
             picCerrar.TabIndex = 23;
             picCerrar.TabStop = false;
             picCerrar.Click += picAtras_Click;
             // 
+            // lblRegistrar
+            // 
+            lblRegistrar.AutoSize = true;
+            lblRegistrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblRegistrar.Location = new Point(35, 9);
+            lblRegistrar.Name = "lblRegistrar";
+            lblRegistrar.Size = new Size(94, 21);
+            lblRegistrar.TabIndex = 24;
+            lblRegistrar.Text = "REGISTRAR";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(9, 10);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(20, 20);
+            pictureBox1.TabIndex = 25;
+            pictureBox1.TabStop = false;
+            // 
             // fRegistrar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
-            ClientSize = new Size(340, 294);
+            ClientSize = new Size(340, 257);
+            Controls.Add(pictureBox1);
+            Controls.Add(lblRegistrar);
             Controls.Add(picCerrar);
             Controls.Add(picAtras);
             Controls.Add(btnRegistrarNoSocio);
@@ -108,7 +133,9 @@
             Text = "REGISTRAR";
             ((System.ComponentModel.ISupportInitialize)picAtras).EndInit();
             ((System.ComponentModel.ISupportInitialize)picCerrar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -117,5 +144,7 @@
         private Button btnRegistrarNoSocio;
         private PictureBox picAtras;
         private PictureBox picCerrar;
+        private Label lblRegistrar;
+        private PictureBox pictureBox1;
     }
 }
