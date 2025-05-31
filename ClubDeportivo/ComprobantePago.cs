@@ -41,14 +41,14 @@ namespace ClubDeportivo
         {
             try
             {
-            
+
                 string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
                 // Crear nombre único para evitar conflictos
                 string fileName = $"comprobante_pago_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
                 string filePath = System.IO.Path.Combine(desktopPath, fileName);
 
-         
+
                 // Crear el PDF
                 using (var writer = new PdfWriter(filePath))
                 using (var pdf = new PdfDocument(writer))
@@ -95,12 +95,12 @@ namespace ClubDeportivo
                         .SetMarginBottom(5);
 
                     // Agregar filas a la tabla
-                    AddTableRow(table, "Nombre y Apellido:", lblNombreCompleto2.Text, boldFont, normalFont);
-                    AddTableRow(table, "DNI:", lblDni2.Text, boldFont, normalFont);
-                    AddTableRow(table, "Forma de pago:", lblFormaPago2.Text, boldFont, normalFont);
-                    AddTableRow(table, "Fecha de pago:", lblFechaPago2.Text, boldFont, normalFont);
-                    AddTableRow(table, "Vencimiento cuota:", lblFechaVencimiento2.Text, boldFont, normalFont);
-                    AddTableRow(table, "Monto abonado:", lblMonto2.Text, boldFont, normalFont);
+                    AddTableRow(table, "Nombre y Apellido:", lblNombreCompleto2.Text, boldFont, boldFont);
+                    AddTableRow(table, "DNI:", lblDni2.Text, boldFont, boldFont);
+                    AddTableRow(table, "Forma de pago:", lblFormaPago2.Text, boldFont, boldFont);
+                    AddTableRow(table, "Fecha de pago:", lblFechaPago2.Text, boldFont, boldFont);
+                    AddTableRow(table, "Vencimiento cuota:", lblFechaVencimiento2.Text, boldFont, boldFont);
+                    AddTableRow(table, "Monto abonado:", lblMonto2.Text, boldFont, boldFont);
 
                     doc.Add(table);
 
@@ -133,21 +133,6 @@ namespace ClubDeportivo
                     FileName = filePath,
                     UseShellExecute = true
                 });
-            }
-            catch (UnauthorizedAccessException)
-            {
-                MessageBox.Show("No tiene permisos para escribir en el escritorio. Intente ejecutar como administrador.",
-                              "Error de permisos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (System.IO.DirectoryNotFoundException)
-            {
-                MessageBox.Show("No se puede encontrar el directorio del escritorio.",
-                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (System.IO.IOException ioEx)
-            {
-                MessageBox.Show($"Error de entrada/salida: {ioEx.Message}\nVerifique que el archivo no esté abierto en otro programa.",
-                              "Error de archivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {

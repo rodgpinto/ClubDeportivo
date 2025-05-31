@@ -38,6 +38,8 @@
             lblSocioDesde = new Label();
             lblSocioDesde2 = new Label();
             grpbDatos = new GroupBox();
+            lblIdSocio2 = new Label();
+            lblIdSocio = new Label();
             lblFechaNacimiento2 = new Label();
             lblFechaNacimiento = new Label();
             picFoto = new PictureBox();
@@ -128,6 +130,8 @@
             // 
             // grpbDatos
             // 
+            grpbDatos.Controls.Add(lblIdSocio2);
+            grpbDatos.Controls.Add(lblIdSocio);
             grpbDatos.Controls.Add(lblFechaNacimiento2);
             grpbDatos.Controls.Add(lblFechaNacimiento);
             grpbDatos.Controls.Add(lblNombre);
@@ -139,9 +143,29 @@
             grpbDatos.FlatStyle = FlatStyle.Flat;
             grpbDatos.Location = new Point(153, 43);
             grpbDatos.Name = "grpbDatos";
-            grpbDatos.Size = new Size(262, 115);
+            grpbDatos.Size = new Size(262, 126);
             grpbDatos.TabIndex = 7;
             grpbDatos.TabStop = false;
+            // 
+            // lblIdSocio2
+            // 
+            lblIdSocio2.AutoSize = true;
+            lblIdSocio2.Font = new Font("Segoe UI", 10F);
+            lblIdSocio2.Location = new Point(148, 95);
+            lblIdSocio2.Name = "lblIdSocio2";
+            lblIdSocio2.Size = new Size(23, 19);
+            lblIdSocio2.TabIndex = 10;
+            lblIdSocio2.Text = "ID";
+            // 
+            // lblIdSocio
+            // 
+            lblIdSocio.AutoSize = true;
+            lblIdSocio.Font = new Font("Segoe UI", 10F);
+            lblIdSocio.Location = new Point(6, 95);
+            lblIdSocio.Name = "lblIdSocio";
+            lblIdSocio.Size = new Size(26, 19);
+            lblIdSocio.TabIndex = 9;
+            lblIdSocio.Text = "ID:";
             // 
             // lblFechaNacimiento2
             // 
@@ -165,11 +189,11 @@
             // 
             // picFoto
             // 
-            picFoto.BackgroundImage = (Image)resources.GetObject("picFoto.BackgroundImage");
-            picFoto.BackgroundImageLayout = ImageLayout.Zoom;
+            picFoto.BackgroundImageLayout = ImageLayout.None;
+            picFoto.BorderStyle = BorderStyle.FixedSingle;
             picFoto.Location = new Point(12, 43);
             picFoto.Name = "picFoto";
-            picFoto.Size = new Size(135, 115);
+            picFoto.Size = new Size(120, 120);
             picFoto.TabIndex = 8;
             picFoto.TabStop = false;
             // 
@@ -185,8 +209,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Carnet";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Carnet";
-            Load += Carnet_Load;
+            Text = "VISTA PREVIA CARNET";
             panelSuperior.ResumeLayout(false);
             panelSuperior.PerformLayout();
             grpbDatos.ResumeLayout(false);
@@ -209,5 +232,7 @@
         private PictureBox picFoto;
         private Label lblFechaNacimiento;
         private Label lblFechaNacimiento2;
+        private Label lblIdSocio2;
+        private Label lblIdSocio;
     }
 }

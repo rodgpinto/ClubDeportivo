@@ -42,7 +42,7 @@
             // 
             picCerrar.BackgroundImage = (Image)resources.GetObject("picCerrar.BackgroundImage");
             picCerrar.BackgroundImageLayout = ImageLayout.Zoom;
-            picCerrar.Location = new Point(817, 12);
+            picCerrar.Location = new Point(917, 12);
             picCerrar.Name = "picCerrar";
             picCerrar.Size = new Size(41, 30);
             picCerrar.TabIndex = 8;
@@ -66,8 +66,9 @@
             dtgvRegistros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvRegistros.Location = new Point(14, 59);
             dtgvRegistros.Name = "dtgvRegistros";
-            dtgvRegistros.Size = new Size(844, 379);
+            dtgvRegistros.Size = new Size(944, 379);
             dtgvRegistros.TabIndex = 10;
+            dtgvRegistros.CellClick += dtgvRegistros_CellClick;
             // 
             // label1
             // 
@@ -77,7 +78,7 @@
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ButtonHighlight;
             label1.ImageAlign = ContentAlignment.BottomLeft;
-            label1.Location = new Point(376, 21);
+            label1.Location = new Point(416, 21);
             label1.Name = "label1";
             label1.Size = new Size(137, 21);
             label1.TabIndex = 11;
@@ -88,7 +89,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
-            ClientSize = new Size(870, 450);
+            ClientSize = new Size(970, 450);
             Controls.Add(label1);
             Controls.Add(dtgvRegistros);
             Controls.Add(picAtras);
