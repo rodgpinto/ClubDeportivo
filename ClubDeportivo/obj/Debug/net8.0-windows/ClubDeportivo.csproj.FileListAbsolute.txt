@@ -107,3 +107,4 @@ C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado
 C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
 C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\bin\Debug\net8.0-windows\itext.bouncy-castle-adapter.dll
+C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.Carnet.resources

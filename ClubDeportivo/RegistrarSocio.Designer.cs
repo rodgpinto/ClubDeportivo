@@ -73,6 +73,7 @@
             lblRegistrar = new Label();
             grpbDatos = new GroupBox();
             grpbPago = new GroupBox();
+            btnCarnet = new Button();
             cboTipo = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxSocio).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picCerrar).BeginInit();
@@ -212,7 +213,7 @@
             btnIngresarDato.FlatStyle = FlatStyle.Flat;
             btnIngresarDato.Font = new Font("Segoe UI", 10F);
             btnIngresarDato.ForeColor = SystemColors.ButtonHighlight;
-            btnIngresarDato.Location = new Point(88, 580);
+            btnIngresarDato.Location = new Point(94, 580);
             btnIngresarDato.Name = "btnIngresarDato";
             btnIngresarDato.Size = new Size(96, 29);
             btnIngresarDato.TabIndex = 12;
@@ -228,7 +229,7 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Segoe UI", 10F);
             btnLimpiar.ForeColor = SystemColors.ButtonHighlight;
-            btnLimpiar.Location = new Point(219, 580);
+            btnLimpiar.Location = new Point(342, 580);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(96, 29);
             btnLimpiar.TabIndex = 13;
@@ -244,7 +245,7 @@
             btnVolver.FlatStyle = FlatStyle.Flat;
             btnVolver.Font = new Font("Segoe UI", 10F);
             btnVolver.ForeColor = SystemColors.ButtonHighlight;
-            btnVolver.Location = new Point(349, 580);
+            btnVolver.Location = new Point(94, 615);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(96, 29);
             btnVolver.TabIndex = 14;
@@ -352,6 +353,7 @@
             lblApto.Size = new Size(96, 19);
             lblApto.TabIndex = 24;
             lblApto.Text = "Apto médico";
+            lblApto.Click += lblApto_Click;
             // 
             // lblFichaInscripcion
             // 
@@ -362,6 +364,7 @@
             lblFichaInscripcion.Size = new Size(140, 19);
             lblFichaInscripcion.TabIndex = 26;
             lblFichaInscripcion.Text = "Ficha de inscripción";
+            lblFichaInscripcion.Click += lblFichaInscripcion_Click;
             // 
             // chkApto
             // 
@@ -584,6 +587,22 @@
             grpbPago.TabStop = false;
             grpbPago.Text = "Pago";
             // 
+            // btnCarnet
+            // 
+            btnCarnet.BackColor = Color.FromArgb(54, 116, 181);
+            btnCarnet.Cursor = Cursors.Hand;
+            btnCarnet.FlatAppearance.BorderSize = 0;
+            btnCarnet.FlatStyle = FlatStyle.Flat;
+            btnCarnet.Font = new Font("Segoe UI", 10F);
+            btnCarnet.ForeColor = SystemColors.ButtonHighlight;
+            btnCarnet.Location = new Point(196, 580);
+            btnCarnet.Name = "btnCarnet";
+            btnCarnet.Size = new Size(140, 29);
+            btnCarnet.TabIndex = 45;
+            btnCarnet.Text = "GENERAR CARNET";
+            btnCarnet.UseVisualStyleBackColor = false;
+            btnCarnet.Click += btnCarnet_Click;
+            // 
             // fRegistrarSocio
             // 
             AcceptButton = btnIngresarDato;
@@ -591,6 +610,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(496, 674);
+            Controls.Add(btnCarnet);
             Controls.Add(grpbPago);
             Controls.Add(grpbDatos);
             Controls.Add(lblRegistrar);
@@ -661,5 +681,6 @@
         private Label lblRegistrar;
         private GroupBox grpbDatos;
         private GroupBox grpbPago;
+        private Button btnCarnet;
     }
 }

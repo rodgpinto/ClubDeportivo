@@ -31,7 +31,20 @@ namespace ClubDeportivo
             Application.Exit();
 
         }
+        private void lblFichaInscripcion_Click(object sender, EventArgs e)
+        {
+            chkFicha.Checked = !chkFicha.Checked;
+        }
 
+        private void lblApto_Click(object sender, EventArgs e)
+        {
+            chkApto.Checked = !chkApto.Checked;
+        }
+
+        private void dtpFechaPago_ValueChanged(object sender, EventArgs e)
+        {
+            txtFechaVencimiento.Text = dtpFechaPago.Value.AddMonths(1).ToString("yyyy-MM-dd");
+        }
         private void btnIngresarDato_Click(object sender, EventArgs e)
         {
             if (txtNombre.Text == "" || txtApellido.Text == "" || txtDocumento.Text == ""
@@ -143,13 +156,14 @@ namespace ClubDeportivo
                     fComprobantePago comprobantePago = new fComprobantePago(nombreCompleto, dni, formaPago, fechaPago, vencimiento, monto);
                     comprobantePago.ShowDialog();
                 }
-                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -172,13 +186,15 @@ namespace ClubDeportivo
             Registrar.Close();
         }
 
-
-        private void dtpFechaPago_ValueChanged(object sender, EventArgs e)
+        private void btnCarnet_Click(object sender, EventArgs e)
         {
-            txtFechaVencimiento.Text = dtpFechaPago.Value.AddMonths(1).ToString("yyyy-MM-dd");
+            string nombreCompleto = txtNombre.Text + " " + txtApellido.Text;
+            string dni = txtDocumento.Text;
+            string fechaNacimiento = dtpFechaNacimiento.Value.ToString("dd/MM/yyyy");
+            string fechaPago = dtpFechaPago.Value.ToString("dd/MM/yyyy");
+            Carnet carnet = new Carnet(nombreCompleto, dni, fechaNacimiento, fechaPago);
+            carnet.ShowDialog();
         }
-
-       
     }
 }
 

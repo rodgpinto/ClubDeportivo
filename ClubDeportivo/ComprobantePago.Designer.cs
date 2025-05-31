@@ -64,10 +64,9 @@
             // 
             panelSuperior.BorderStyle = BorderStyle.FixedSingle;
             panelSuperior.Controls.Add(lblComprobante);
-            panelSuperior.Dock = DockStyle.Top;
-            panelSuperior.Location = new Point(0, 0);
+            panelSuperior.Location = new Point(12, 0);
             panelSuperior.Name = "panelSuperior";
-            panelSuperior.Size = new Size(404, 32);
+            panelSuperior.Size = new Size(380, 32);
             panelSuperior.TabIndex = 0;
             // 
             // lblComprobante
@@ -75,7 +74,7 @@
             lblComprobante.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblComprobante.AutoSize = true;
             lblComprobante.Font = new Font("Segoe UI", 10F);
-            lblComprobante.Location = new Point(112, 8);
+            lblComprobante.Location = new Point(108, 8);
             lblComprobante.Name = "lblComprobante";
             lblComprobante.Size = new Size(172, 19);
             lblComprobante.TabIndex = 0;
@@ -86,16 +85,16 @@
             panelIzquierdo.BorderStyle = BorderStyle.FixedSingle;
             panelIzquierdo.Controls.Add(pictureBox1);
             panelIzquierdo.Controls.Add(lblClubDeportivo);
-            panelIzquierdo.Location = new Point(0, 35);
+            panelIzquierdo.Location = new Point(12, 35);
             panelIzquierdo.Name = "panelIzquierdo";
-            panelIzquierdo.Size = new Size(199, 75);
+            panelIzquierdo.Size = new Size(187, 75);
             panelIzquierdo.TabIndex = 1;
             // 
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(130, 3);
+            pictureBox1.Location = new Point(120, 2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(66, 69);
             pictureBox1.TabIndex = 1;
@@ -118,7 +117,7 @@
             panelDerecho.Controls.Add(lblFecha);
             panelDerecho.Location = new Point(205, 35);
             panelDerecho.Name = "panelDerecho";
-            panelDerecho.Size = new Size(199, 75);
+            panelDerecho.Size = new Size(187, 75);
             panelDerecho.TabIndex = 2;
             // 
             // lblFechaInscripcion
@@ -143,7 +142,7 @@
             // 
             // panelDatos
             // 
-            panelDatos.BorderStyle = BorderStyle.Fixed3D;
+            panelDatos.BorderStyle = BorderStyle.FixedSingle;
             panelDatos.Controls.Add(lblDni2);
             panelDatos.Controls.Add(lblDni);
             panelDatos.Controls.Add(lblNombreCompleto2);
@@ -157,9 +156,9 @@
             panelDatos.Controls.Add(lblFechaPago2);
             panelDatos.Controls.Add(lblFechaPago);
             panelDatos.Controls.Add(lblNombreCompleto);
-            panelDatos.Location = new Point(0, 116);
+            panelDatos.Location = new Point(12, 116);
             panelDatos.Name = "panelDatos";
-            panelDatos.Size = new Size(404, 177);
+            panelDatos.Size = new Size(380, 177);
             panelDatos.TabIndex = 3;
             // 
             // lblDni2
@@ -286,7 +285,7 @@
             btnCerrar.FlatStyle = FlatStyle.Flat;
             btnCerrar.Font = new Font("Segoe UI", 10F);
             btnCerrar.ForeColor = SystemColors.ButtonHighlight;
-            btnCerrar.Location = new Point(95, 323);
+            btnCerrar.Location = new Point(96, 313);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(75, 31);
             btnCerrar.TabIndex = 4;
@@ -301,7 +300,7 @@
             btnImprimir.FlatStyle = FlatStyle.Flat;
             btnImprimir.Font = new Font("Segoe UI", 10F);
             btnImprimir.ForeColor = SystemColors.ButtonHighlight;
-            btnImprimir.Location = new Point(221, 323);
+            btnImprimir.Location = new Point(222, 313);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(84, 31);
             btnImprimir.TabIndex = 5;
