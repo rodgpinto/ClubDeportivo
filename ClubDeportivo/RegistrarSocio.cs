@@ -25,6 +25,7 @@ namespace ClubDeportivo
             dtpFechaPago.CustomFormat = "dd/MM/yyyy";
             dtpFechaNacimiento.Format = DateTimePickerFormat.Custom;
             dtpFechaNacimiento.CustomFormat = "dd/MM/yyyy";
+
         }
 
         private byte[]? fotoBytes;

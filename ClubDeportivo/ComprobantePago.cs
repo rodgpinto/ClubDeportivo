@@ -75,7 +75,6 @@ namespace ClubDeportivo
                         .SetMarginBottom(20);
                     doc.Add(subtitulo);
 
-                    // Fecha y número de comprobante
                     Paragraph fecha = new Paragraph($"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm}")
                         .SetTextAlignment(TextAlignment.RIGHT)
                         .SetFont(normalFont)
@@ -83,18 +82,16 @@ namespace ClubDeportivo
                         .SetMarginBottom(20);
                     doc.Add(fecha);
 
-                    // Crear tabla con los datos
                     Table table = new Table(2);
-                    table.SetWidth(UnitValue.CreatePercentValue(100));
+                    table.SetWidth(UnitValue.CreatePercentValue(50));
                     table.SetMarginBottom(20);
+                    table.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
 
-                    // Estilo para las celdas
                     var cellStyle = new Style()
                         .SetPadding(8)
                         .SetBorder(iText.Layout.Borders.Border.NO_BORDER)
                         .SetMarginBottom(5);
 
-                    // Agregar filas a la tabla
                     AddTableRow(table, "Nombre y Apellido:", lblNombreCompleto2.Text, boldFont, boldFont);
                     AddTableRow(table, "DNI:", lblDni2.Text, boldFont, boldFont);
                     AddTableRow(table, "Forma de pago:", lblFormaPago2.Text, boldFont, boldFont);
@@ -104,13 +101,11 @@ namespace ClubDeportivo
 
                     doc.Add(table);
 
-                    // Línea separadora
                     doc.Add(new Paragraph("_".PadRight(80, '_'))
                         .SetTextAlignment(TextAlignment.CENTER)
                         .SetMarginTop(20)
                         .SetMarginBottom(20));
 
-                    // Mensaje final
                     doc.Add(new Paragraph("Gracias por su inscripción")
                         .SetTextAlignment(TextAlignment.CENTER)
                         .SetFont(normalFont)
@@ -127,7 +122,7 @@ namespace ClubDeportivo
                 MessageBox.Show($"PDF generado correctamente:\n{filePath}", "Éxito",
                               MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Opcional: Abrir el PDF automáticamente
+                // Abrir el PDF automáticamente
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
                 {
                     FileName = filePath,
@@ -152,7 +147,8 @@ namespace ClubDeportivo
             var valueCell = new Cell()
                 .Add(new Paragraph(value ?? "N/A").SetFont(normalFont).SetFontSize(11))
                 .SetBorder(iText.Layout.Borders.Border.NO_BORDER)
-                .SetPadding(5);
+                .SetPadding(5)
+                .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.LIGHT_GRAY);
 
             table.AddCell(labelCell);
             table.AddCell(valueCell);
