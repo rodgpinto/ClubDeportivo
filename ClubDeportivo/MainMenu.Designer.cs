@@ -33,9 +33,8 @@
             btnRegistrarPago = new Button();
             btnListarSocios = new Button();
             btnListarVencimientos = new Button();
-            picCerrar = new PictureBox();
             lblIngreso = new Label();
-            ((System.ComponentModel.ISupportInitialize)picCerrar).BeginInit();
+            btnCerrar = new Button();
             SuspendLayout();
             // 
             // btnRegistrar
@@ -105,17 +104,6 @@
             btnListarVencimientos.Text = "Listar vencimientos";
             btnListarVencimientos.UseVisualStyleBackColor = false;
             // 
-            // picCerrar
-            // 
-            picCerrar.BackgroundImage = (Image)resources.GetObject("picCerrar.BackgroundImage");
-            picCerrar.BackgroundImageLayout = ImageLayout.Zoom;
-            picCerrar.Location = new Point(418, 12);
-            picCerrar.Name = "picCerrar";
-            picCerrar.Size = new Size(41, 30);
-            picCerrar.TabIndex = 7;
-            picCerrar.TabStop = false;
-            picCerrar.Click += picAtras_Click;
-            // 
             // lblIngreso
             // 
             lblIngreso.AutoSize = true;
@@ -124,14 +112,30 @@
             lblIngreso.Size = new Size(0, 15);
             lblIngreso.TabIndex = 8;
             // 
+            // btnCerrar
+            // 
+            btnCerrar.BackColor = Color.FromArgb(201, 241, 253);
+            btnCerrar.BackgroundImage = (Image)resources.GetObject("btnCerrar.BackgroundImage");
+            btnCerrar.BackgroundImageLayout = ImageLayout.Zoom;
+            btnCerrar.Cursor = Cursors.Hand;
+            btnCerrar.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
+            btnCerrar.FlatAppearance.BorderSize = 0;
+            btnCerrar.FlatStyle = FlatStyle.Flat;
+            btnCerrar.Location = new Point(426, 12);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(33, 29);
+            btnCerrar.TabIndex = 34;
+            btnCerrar.UseVisualStyleBackColor = false;
+            btnCerrar.Click += btnCerrar_Click;
+            // 
             // fMainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(471, 348);
+            Controls.Add(btnCerrar);
             Controls.Add(lblIngreso);
-            Controls.Add(picCerrar);
             Controls.Add(btnListarVencimientos);
             Controls.Add(btnListarSocios);
             Controls.Add(btnRegistrarPago);
@@ -142,7 +146,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MENU PRINCIPAL";
             Load += fMainMenu_Load;
-            ((System.ComponentModel.ISupportInitialize)picCerrar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -153,7 +156,7 @@
         private Button btnRegistrarPago;
         private Button btnListarSocios;
         private Button btnListarVencimientos;
-        private PictureBox picCerrar;
         private Label lblIngreso;
+        private Button btnCerrar;
     }
 }

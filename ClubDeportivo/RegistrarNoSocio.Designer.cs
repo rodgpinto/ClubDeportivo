@@ -51,10 +51,10 @@
             label7 = new Label();
             chkFicha = new CheckBox();
             label8 = new Label();
-            picCerrar = new PictureBox();
             lblRegistrar = new Label();
             pictureBox1 = new PictureBox();
             grpbPago = new GroupBox();
+            dtpFechaVencimiento = new DateTimePicker();
             label13 = new Label();
             cboActividad = new ComboBox();
             lblActividad = new Label();
@@ -72,10 +72,9 @@
             btnIngresarDato = new Button();
             btnLimpiar = new Button();
             btnVolver = new Button();
-            dtpFechaVencimiento = new DateTimePicker();
+            btnCerrar = new Button();
             cboTipo = new ComboBox();
             grpbDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picCerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             grpbPago.SuspendLayout();
             SuspendLayout();
@@ -327,18 +326,6 @@
             label8.TabIndex = 20;
             label8.Text = "*";
             // 
-            // picCerrar
-            // 
-            picCerrar.BackgroundImage = (Image)resources.GetObject("picCerrar.BackgroundImage");
-            picCerrar.BackgroundImageLayout = ImageLayout.Zoom;
-            picCerrar.Cursor = Cursors.Hand;
-            picCerrar.Location = new Point(443, 12);
-            picCerrar.Name = "picCerrar";
-            picCerrar.Size = new Size(41, 30);
-            picCerrar.TabIndex = 23;
-            picCerrar.TabStop = false;
-            picCerrar.Click += picCerrar_Click;
-            // 
             // lblRegistrar
             // 
             lblRegistrar.AutoSize = true;
@@ -383,6 +370,16 @@
             grpbPago.TabIndex = 9;
             grpbPago.TabStop = false;
             grpbPago.Text = "Pago de actividad";
+            // 
+            // dtpFechaVencimiento
+            // 
+            dtpFechaVencimiento.Cursor = Cursors.Hand;
+            dtpFechaVencimiento.Format = DateTimePickerFormat.Short;
+            dtpFechaVencimiento.Location = new Point(171, 147);
+            dtpFechaVencimiento.Name = "dtpFechaVencimiento";
+            dtpFechaVencimiento.Size = new Size(129, 25);
+            dtpFechaVencimiento.TabIndex = 44;
+            dtpFechaVencimiento.Value = new DateTime(2025, 5, 30, 12, 13, 25, 0);
             // 
             // label13
             // 
@@ -576,15 +573,21 @@
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
-            // dtpFechaVencimiento
+            // btnCerrar
             // 
-            dtpFechaVencimiento.Cursor = Cursors.Hand;
-            dtpFechaVencimiento.Format = DateTimePickerFormat.Short;
-            dtpFechaVencimiento.Location = new Point(171, 147);
-            dtpFechaVencimiento.Name = "dtpFechaVencimiento";
-            dtpFechaVencimiento.Size = new Size(129, 25);
-            dtpFechaVencimiento.TabIndex = 44;
-            dtpFechaVencimiento.Value = new DateTime(2025, 5, 30, 12, 13, 25, 0);
+            btnCerrar.BackColor = Color.FromArgb(201, 241, 253);
+            btnCerrar.BackgroundImage = (Image)resources.GetObject("btnCerrar.BackgroundImage");
+            btnCerrar.BackgroundImageLayout = ImageLayout.Zoom;
+            btnCerrar.Cursor = Cursors.Hand;
+            btnCerrar.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
+            btnCerrar.FlatAppearance.BorderSize = 0;
+            btnCerrar.FlatStyle = FlatStyle.Flat;
+            btnCerrar.Location = new Point(451, 12);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(33, 29);
+            btnCerrar.TabIndex = 51;
+            btnCerrar.UseVisualStyleBackColor = false;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // RegistrarNoSocio
             // 
@@ -592,13 +595,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(496, 724);
+            Controls.Add(btnCerrar);
             Controls.Add(btnVolver);
             Controls.Add(btnLimpiar);
             Controls.Add(btnIngresarDato);
             Controls.Add(grpbPago);
             Controls.Add(lblRegistrar);
             Controls.Add(pictureBox1);
-            Controls.Add(picCerrar);
             Controls.Add(grpbDatos);
             ForeColor = SystemColors.ControlText;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -607,7 +610,6 @@
             Text = "REGISTRAR NO SOCIO";
             grpbDatos.ResumeLayout(false);
             grpbDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picCerrar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             grpbPago.ResumeLayout(false);
             grpbPago.PerformLayout();
@@ -638,7 +640,6 @@
         private Label label7;
         private CheckBox chkFicha;
         private Label label8;
-        private PictureBox picCerrar;
         private Label lblRegistrar;
         private PictureBox pictureBox1;
         private GroupBox grpbPago;
@@ -660,5 +661,6 @@
         private Button btnVolver;
         private Label label13;
         private DateTimePicker dtpFechaVencimiento;
+        private Button btnCerrar;
     }
 }

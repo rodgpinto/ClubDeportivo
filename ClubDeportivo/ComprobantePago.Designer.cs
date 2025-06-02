@@ -35,7 +35,7 @@
             pictureBox1 = new PictureBox();
             lblClubDeportivo = new Label();
             panelDerecho = new Panel();
-            lblFechaInscripcion = new Label();
+            lblFechaActual = new Label();
             lblFecha = new Label();
             panelDatos = new Panel();
             lblDni2 = new Label();
@@ -113,22 +113,22 @@
             // panelDerecho
             // 
             panelDerecho.BorderStyle = BorderStyle.FixedSingle;
-            panelDerecho.Controls.Add(lblFechaInscripcion);
+            panelDerecho.Controls.Add(lblFechaActual);
             panelDerecho.Controls.Add(lblFecha);
             panelDerecho.Location = new Point(205, 35);
             panelDerecho.Name = "panelDerecho";
             panelDerecho.Size = new Size(187, 75);
             panelDerecho.TabIndex = 2;
             // 
-            // lblFechaInscripcion
+            // lblFechaActual
             // 
-            lblFechaInscripcion.AutoSize = true;
-            lblFechaInscripcion.Font = new Font("Segoe UI", 10F);
-            lblFechaInscripcion.Location = new Point(63, 13);
-            lblFechaInscripcion.Name = "lblFechaInscripcion";
-            lblFechaInscripcion.Size = new Size(109, 19);
-            lblFechaInscripcion.TabIndex = 1;
-            lblFechaInscripcion.Text = "FechaInscripcion";
+            lblFechaActual.AutoSize = true;
+            lblFechaActual.Font = new Font("Segoe UI", 10F);
+            lblFechaActual.Location = new Point(63, 13);
+            lblFechaActual.Name = "lblFechaActual";
+            lblFechaActual.Size = new Size(82, 19);
+            lblFechaActual.TabIndex = 1;
+            lblFechaActual.Text = "FechaActual";
             // 
             // lblFecha
             // 
@@ -345,7 +345,7 @@
         private PictureBox pictureBox1;
         private Label lblClubDeportivo;
         private Panel panelDerecho;
-        private Label lblFechaInscripcion;
+        private Label lblFechaActual;
         private Label lblFecha;
         private Panel panelDatos;
         private Label lblFechaPago2;

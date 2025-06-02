@@ -344,6 +344,7 @@
             Controls.Add(panelSuperior);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ComprobanteActividad";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Comprobante Actividad";
             panelDatos.ResumeLayout(false);
             panelDatos.PerformLayout();

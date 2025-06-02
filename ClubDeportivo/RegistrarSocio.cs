@@ -32,10 +32,11 @@ namespace ClubDeportivo
 
         private byte[]? fotoBytes;
 
-
-        private void picCerrar_Click(object sender, EventArgs e)
+      
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+
         }
 
         private void lblFichaInscripcion_Click(object sender, EventArgs e)
@@ -237,6 +238,6 @@ namespace ClubDeportivo
             }
         }
 
-    
+       
     }
 }

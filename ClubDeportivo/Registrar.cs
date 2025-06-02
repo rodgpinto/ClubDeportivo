@@ -18,19 +18,20 @@ namespace ClubDeportivo
             this.FormBorderStyle = FormBorderStyle.None;
 
         }
-        private void picAtras_Click(object sender, EventArgs e)
+
+        private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
             fMainMenu MainMenu = new fMainMenu();
             MainMenu.Show();
             MainMenu.Close();
         }
-        private void picCerrar_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
 
         }
-
+      
         private void btnRegistrarSocio_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -39,7 +40,7 @@ namespace ClubDeportivo
             this.Show();
         }
 
-       
+
 
         private void btnRegistrarNoSocio_Click(object sender, EventArgs e)
         {

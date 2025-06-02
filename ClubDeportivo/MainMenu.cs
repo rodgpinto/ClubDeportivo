@@ -33,13 +33,12 @@ namespace ClubDeportivo
             Registrar.ShowDialog();
             this.Show();
         }
-
-        private void picAtras_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
 
         }
-
+      
         private void btnListarSocios_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -55,5 +54,7 @@ namespace ClubDeportivo
             registrarPago.ShowDialog();
             this.Show();
         }
+
+        
     }
 }

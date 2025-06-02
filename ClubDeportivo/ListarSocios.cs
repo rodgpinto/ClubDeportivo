@@ -17,6 +17,20 @@ namespace ClubDeportivo
         {
             InitializeComponent();
         }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            fMainMenu MainMenu = new fMainMenu();
+            MainMenu.Show();
+            MainMenu.Close();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
         private void fListarSocios_Load(object sender, EventArgs e)
         {
             try
@@ -31,20 +45,6 @@ namespace ClubDeportivo
             }
 
         }
-
-        private void picAtras_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            fMainMenu MainMenu = new fMainMenu();
-            MainMenu.Show();
-            MainMenu.Close();
-        }
-
-        private void picCerrar_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void dtgvRegistros_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -85,5 +85,6 @@ namespace ClubDeportivo
             }
         }
 
+        
     }
 }

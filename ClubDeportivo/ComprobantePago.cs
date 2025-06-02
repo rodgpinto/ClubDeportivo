@@ -17,6 +17,7 @@ namespace ClubDeportivo
         {
             InitializeComponent();
 
+            lblFechaActual.Text = DateTime.Now.ToString("dd/MM/yyyy");
             lblNombreCompleto2.Text = nombreCompleto;
             lblDni2.Text = dni;
             lblFormaPago2.Text = formaPago;
@@ -27,7 +28,7 @@ namespace ClubDeportivo
 
         private void fComprobantePago_Load(object sender, EventArgs e)
         {
-            lblFechaInscripcion.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblFechaActual.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

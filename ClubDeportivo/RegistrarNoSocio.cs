@@ -20,7 +20,7 @@ namespace ClubDeportivo
 
             this.FormBorderStyle = FormBorderStyle.None;
 
-            
+
             dtpFechaNacimiento.Format = DateTimePickerFormat.Custom;
             dtpFechaNacimiento.CustomFormat = "dd/MM/yyyy";
             dtpFechaPago.Format = DateTimePickerFormat.Custom;
@@ -30,9 +30,11 @@ namespace ClubDeportivo
             dtpFechaVencimiento.CustomFormat = "dd/MM/yyyy";
             dtpFechaVencimiento.Value = DateTime.Now.AddDays(1);
         }
-        private void picCerrar_Click(object sender, EventArgs e)
+     
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+
         }
         private void lblFichaInscripcion_Click(object sender, EventArgs e)
         {
@@ -40,7 +42,7 @@ namespace ClubDeportivo
 
         }
 
-      
+
 
         private void btnIngresarDato_Click(object sender, EventArgs e)
         {
@@ -97,7 +99,7 @@ namespace ClubDeportivo
 
                         noSocioId = Convert.ToInt32(cmd.ExecuteScalar());
                     }
-                    
+
 
                     int idPagoActividad;
                     using (MySqlCommand cmd = new MySqlCommand("InsertarPagoActividad", conexion))
@@ -158,5 +160,7 @@ namespace ClubDeportivo
             Registrar.Show();
             Registrar.Close();
         }
+
+       
     }
 }

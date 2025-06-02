@@ -51,7 +51,6 @@
             label7 = new Label();
             label8 = new Label();
             picFoto = new PictureBox();
-            picCerrar = new PictureBox();
             chkFicha = new CheckBox();
             lblApto = new Label();
             lblFichaInscripcion = new Label();
@@ -75,9 +74,9 @@
             btnSubirFoto = new Button();
             grpbPago = new GroupBox();
             btnCarnet = new Button();
+            btnCerrar = new Button();
             cboTipo = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)picFoto).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picCerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             grpbDatos.SuspendLayout();
             grpbPago.SuspendLayout();
@@ -322,18 +321,6 @@
             picFoto.Size = new Size(64, 67);
             picFoto.TabIndex = 21;
             picFoto.TabStop = false;
-            // 
-            // picCerrar
-            // 
-            picCerrar.BackgroundImage = (Image)resources.GetObject("picCerrar.BackgroundImage");
-            picCerrar.BackgroundImageLayout = ImageLayout.Zoom;
-            picCerrar.Cursor = Cursors.Hand;
-            picCerrar.Location = new Point(435, 12);
-            picCerrar.Name = "picCerrar";
-            picCerrar.Size = new Size(41, 30);
-            picCerrar.TabIndex = 22;
-            picCerrar.TabStop = false;
-            picCerrar.Click += picCerrar_Click;
             // 
             // chkFicha
             // 
@@ -622,6 +609,22 @@
             btnCarnet.UseVisualStyleBackColor = false;
             btnCarnet.Click += btnCarnet_Click;
             // 
+            // btnCerrar
+            // 
+            btnCerrar.BackColor = Color.FromArgb(201, 241, 253);
+            btnCerrar.BackgroundImage = (Image)resources.GetObject("btnCerrar.BackgroundImage");
+            btnCerrar.BackgroundImageLayout = ImageLayout.Zoom;
+            btnCerrar.Cursor = Cursors.Hand;
+            btnCerrar.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
+            btnCerrar.FlatAppearance.BorderSize = 0;
+            btnCerrar.FlatStyle = FlatStyle.Flat;
+            btnCerrar.Location = new Point(451, 12);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(33, 29);
+            btnCerrar.TabIndex = 52;
+            btnCerrar.UseVisualStyleBackColor = false;
+            btnCerrar.Click += btnCerrar_Click;
+            // 
             // fRegistrarSocio
             // 
             AcceptButton = btnIngresarDato;
@@ -629,12 +632,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(496, 724);
+            Controls.Add(btnCerrar);
             Controls.Add(btnCarnet);
             Controls.Add(grpbPago);
             Controls.Add(grpbDatos);
             Controls.Add(lblRegistrar);
             Controls.Add(pictureBox1);
-            Controls.Add(picCerrar);
             Controls.Add(picFoto);
             Controls.Add(btnVolver);
             Controls.Add(btnLimpiar);
@@ -644,7 +647,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "REGISTRAR SOCIO";
             ((System.ComponentModel.ISupportInitialize)picFoto).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picCerrar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             grpbDatos.ResumeLayout(false);
             grpbDatos.PerformLayout();
@@ -677,7 +679,6 @@
         private Label label7;
         private Label label8;
         private PictureBox picFoto;
-        private PictureBox picCerrar;
         private CheckBox chkFicha;
         private Label lblApto;
         private Label lblFichaInscripcion;
@@ -701,5 +702,6 @@
         private GroupBox grpbPago;
         private Button btnCarnet;
         private Button btnSubirFoto;
+        private Button btnCerrar;
     }
 }

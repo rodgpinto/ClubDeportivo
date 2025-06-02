@@ -19,15 +19,15 @@ namespace ClubDeportivo
 
         }
 
-        private void picAtras_Click(object sender, EventArgs e)
+
+        private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
             fRegistrar Registrar = new fRegistrar();
             Registrar.Show();
-
         }
 
-        private void picCerrar_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
 

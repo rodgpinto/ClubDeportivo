@@ -29,37 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fListarSocios));
-            picCerrar = new PictureBox();
-            picAtras = new PictureBox();
             dtgvRegistros = new DataGridView();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)picCerrar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picAtras).BeginInit();
+            btnCerrar = new Button();
+            btnAtras = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvRegistros).BeginInit();
             SuspendLayout();
-            // 
-            // picCerrar
-            // 
-            picCerrar.BackgroundImage = (Image)resources.GetObject("picCerrar.BackgroundImage");
-            picCerrar.BackgroundImageLayout = ImageLayout.Zoom;
-            picCerrar.Location = new Point(917, 12);
-            picCerrar.Name = "picCerrar";
-            picCerrar.Size = new Size(41, 30);
-            picCerrar.TabIndex = 8;
-            picCerrar.TabStop = false;
-            picCerrar.Click += picCerrar_Click;
-            // 
-            // picAtras
-            // 
-            picAtras.BackgroundImage = (Image)resources.GetObject("picAtras.BackgroundImage");
-            picAtras.BackgroundImageLayout = ImageLayout.Zoom;
-            picAtras.Location = new Point(12, 12);
-            picAtras.Name = "picAtras";
-            picAtras.Size = new Size(41, 30);
-            picAtras.SizeMode = PictureBoxSizeMode.Zoom;
-            picAtras.TabIndex = 9;
-            picAtras.TabStop = false;
-            picAtras.Click += picAtras_Click;
             // 
             // dtgvRegistros
             // 
@@ -84,33 +59,62 @@
             label1.TabIndex = 11;
             label1.Text = "Socios Registrados";
             // 
+            // btnCerrar
+            // 
+            btnCerrar.BackColor = Color.FromArgb(201, 241, 253);
+            btnCerrar.BackgroundImage = (Image)resources.GetObject("btnCerrar.BackgroundImage");
+            btnCerrar.BackgroundImageLayout = ImageLayout.Zoom;
+            btnCerrar.Cursor = Cursors.Hand;
+            btnCerrar.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
+            btnCerrar.FlatAppearance.BorderSize = 0;
+            btnCerrar.FlatStyle = FlatStyle.Flat;
+            btnCerrar.Location = new Point(920, 13);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(33, 29);
+            btnCerrar.TabIndex = 35;
+            btnCerrar.UseVisualStyleBackColor = false;
+            btnCerrar.Click += btnCerrar_Click;
+            // 
+            // btnAtras
+            // 
+            btnAtras.BackColor = Color.FromArgb(201, 241, 253);
+            btnAtras.BackgroundImage = (Image)resources.GetObject("btnAtras.BackgroundImage");
+            btnAtras.BackgroundImageLayout = ImageLayout.Zoom;
+            btnAtras.Cursor = Cursors.Hand;
+            btnAtras.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
+            btnAtras.FlatAppearance.BorderSize = 0;
+            btnAtras.FlatStyle = FlatStyle.Flat;
+            btnAtras.Location = new Point(879, 13);
+            btnAtras.Name = "btnAtras";
+            btnAtras.Size = new Size(33, 29);
+            btnAtras.TabIndex = 34;
+            btnAtras.UseVisualStyleBackColor = false;
+            btnAtras.Click += btnAtras_Click;
+            // 
             // fListarSocios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(970, 450);
+            Controls.Add(btnCerrar);
+            Controls.Add(btnAtras);
             Controls.Add(label1);
             Controls.Add(dtgvRegistros);
-            Controls.Add(picAtras);
-            Controls.Add(picCerrar);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "fListarSocios";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ListarSocios";
             Load += fListarSocios_Load;
-            ((System.ComponentModel.ISupportInitialize)picCerrar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picAtras).EndInit();
             ((System.ComponentModel.ISupportInitialize)dtgvRegistros).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private PictureBox picCerrar;
-        private PictureBox picAtras;
         private DataGridView dtgvRegistros;
         private Label label1;
+        private Button btnCerrar;
+        private Button btnAtras;
     }
 }

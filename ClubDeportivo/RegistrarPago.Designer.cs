@@ -31,13 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarPago));
             pictureBox1 = new PictureBox();
             lblRegistrarPago = new Label();
-            picCerrar = new PictureBox();
-            picAtras = new PictureBox();
             btnRegistrarPagoNoSocio = new Button();
             btnRegistrarPagoSocio = new Button();
+            btnAtras = new Button();
+            btnCerrar = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picCerrar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picAtras).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -59,28 +57,6 @@
             lblRegistrarPago.Size = new Size(141, 21);
             lblRegistrarPago.TabIndex = 30;
             lblRegistrarPago.Text = "REGISTRAR PAGO";
-            // 
-            // picCerrar
-            // 
-            picCerrar.BackgroundImage = (Image)resources.GetObject("picCerrar.BackgroundImage");
-            picCerrar.BackgroundImageLayout = ImageLayout.Zoom;
-            picCerrar.Location = new Point(293, 21);
-            picCerrar.Name = "picCerrar";
-            picCerrar.Size = new Size(41, 30);
-            picCerrar.TabIndex = 29;
-            picCerrar.TabStop = false;
-            picCerrar.Click += picCerrar_Click;
-            // 
-            // picAtras
-            // 
-            picAtras.BackgroundImage = (Image)resources.GetObject("picAtras.BackgroundImage");
-            picAtras.BackgroundImageLayout = ImageLayout.Zoom;
-            picAtras.Location = new Point(246, 21);
-            picAtras.Name = "picAtras";
-            picAtras.Size = new Size(41, 30);
-            picAtras.TabIndex = 28;
-            picAtras.TabStop = false;
-            picAtras.Click += picAtras_Click;
             // 
             // btnRegistrarPagoNoSocio
             // 
@@ -114,16 +90,48 @@
             btnRegistrarPagoSocio.Text = "Registrar Pago Socio";
             btnRegistrarPagoSocio.UseVisualStyleBackColor = false;
             // 
+            // btnAtras
+            // 
+            btnAtras.BackColor = Color.FromArgb(201, 241, 253);
+            btnAtras.BackgroundImage = (Image)resources.GetObject("btnAtras.BackgroundImage");
+            btnAtras.BackgroundImageLayout = ImageLayout.Zoom;
+            btnAtras.Cursor = Cursors.Hand;
+            btnAtras.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
+            btnAtras.FlatAppearance.BorderSize = 0;
+            btnAtras.FlatStyle = FlatStyle.Flat;
+            btnAtras.Location = new Point(254, 22);
+            btnAtras.Name = "btnAtras";
+            btnAtras.Size = new Size(33, 29);
+            btnAtras.TabIndex = 32;
+            btnAtras.UseVisualStyleBackColor = false;
+            btnAtras.Click += btnAtras_Click;
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.BackColor = Color.FromArgb(201, 241, 253);
+            btnCerrar.BackgroundImage = (Image)resources.GetObject("btnCerrar.BackgroundImage");
+            btnCerrar.BackgroundImageLayout = ImageLayout.Zoom;
+            btnCerrar.Cursor = Cursors.Hand;
+            btnCerrar.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
+            btnCerrar.FlatAppearance.BorderSize = 0;
+            btnCerrar.FlatStyle = FlatStyle.Flat;
+            btnCerrar.Location = new Point(295, 22);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(33, 29);
+            btnCerrar.TabIndex = 33;
+            btnCerrar.UseVisualStyleBackColor = false;
+            btnCerrar.Click += btnCerrar_Click;
+            // 
             // RegistrarPago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(340, 257);
+            Controls.Add(btnCerrar);
+            Controls.Add(btnAtras);
             Controls.Add(pictureBox1);
             Controls.Add(lblRegistrarPago);
-            Controls.Add(picCerrar);
-            Controls.Add(picAtras);
             Controls.Add(btnRegistrarPagoNoSocio);
             Controls.Add(btnRegistrarPagoSocio);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -131,8 +139,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "REGISTRAR PAGO";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picCerrar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picAtras).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -141,9 +147,9 @@
 
         private PictureBox pictureBox1;
         private Label lblRegistrarPago;
-        private PictureBox picCerrar;
-        private PictureBox picAtras;
         private Button btnRegistrarPagoNoSocio;
         private Button btnRegistrarPagoSocio;
+        private Button btnAtras;
+        private Button btnCerrar;
     }
 }
