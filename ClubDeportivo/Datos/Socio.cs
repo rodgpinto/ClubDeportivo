@@ -10,7 +10,7 @@ namespace ClubDeportivo.Datos
 {
     internal class Socio
     {
-        
+
 
         public DataTable ListarSocios()
         {
@@ -40,7 +40,7 @@ namespace ClubDeportivo.Datos
         }
         public byte[] ObtenerFotoPorSocioId(int socioId)
         {
-            byte[] foto = Array.Empty<byte>(); 
+            byte[] foto = Array.Empty<byte>();
             using (MySqlConnection conn = Conexion.getInstancia().CrearConexion())
             {
                 conn.Open();
@@ -59,6 +59,29 @@ namespace ClubDeportivo.Datos
             }
             return foto;
         }
+        public int? ObtenerIdSocioPorDNI(string dni)
+        {
+            int? socioId = null;
+
+            using (MySqlConnection conn = Conexion.getInstancia().CrearConexion())
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(@"
+            SELECT s.id_socio
+            FROM socios s
+            INNER JOIN persona p ON s.persona_id = p.Codigo
+            WHERE p.dni = @dni;", conn))
+                {
+                    cmd.Parameters.AddWithValue("@dni", dni);
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                        socioId = Convert.ToInt32(result);
+                }
+            }
+
+            return socioId;
+        }
+
     }
 }
 

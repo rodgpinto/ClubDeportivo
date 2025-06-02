@@ -72,6 +72,7 @@
             btnRegistrarNoSocio.TabIndex = 5;
             btnRegistrarNoSocio.Text = "Registrar No Socio";
             btnRegistrarNoSocio.UseVisualStyleBackColor = false;
+            btnRegistrarNoSocio.Click += btnRegistrarNoSocio_Click;
             // 
             // picAtras
             // 
@@ -82,7 +83,7 @@
             picAtras.Size = new Size(41, 30);
             picAtras.TabIndex = 8;
             picAtras.TabStop = false;
-            picAtras.Click += picBack_Click;
+            picAtras.Click += picAtras_Click;
             // 
             // picCerrar
             // 
@@ -93,7 +94,7 @@
             picCerrar.Size = new Size(41, 30);
             picCerrar.TabIndex = 23;
             picCerrar.TabStop = false;
-            picCerrar.Click += picAtras_Click;
+            picCerrar.Click += picCerrar_Click;
             // 
             // lblRegistrar
             // 

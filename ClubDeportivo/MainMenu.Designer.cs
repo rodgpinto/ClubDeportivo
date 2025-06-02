@@ -70,6 +70,7 @@
             btnRegistrarPago.TabIndex = 4;
             btnRegistrarPago.Text = "Registrar pago";
             btnRegistrarPago.UseVisualStyleBackColor = false;
+            btnRegistrarPago.Click += btnRegistrarPago_Click;
             // 
             // btnListarSocios
             // 

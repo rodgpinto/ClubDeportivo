@@ -25,6 +25,8 @@ namespace ClubDeportivo
             dtpFechaPago.CustomFormat = "dd/MM/yyyy";
             dtpFechaNacimiento.Format = DateTimePickerFormat.Custom;
             dtpFechaNacimiento.CustomFormat = "dd/MM/yyyy";
+            dtpFechaPago.Value = DateTime.Now;
+
 
         }
 
@@ -117,8 +119,6 @@ namespace ClubDeportivo
                         socioId = Convert.ToInt32(cmd.ExecuteScalar());
                     }
 
-                    dtpFechaPago.Value = DateTime.Now;
-
                     using (MySqlCommand cmd = new MySqlCommand("RegistrarPagoCuota", conexion))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -137,7 +137,6 @@ namespace ClubDeportivo
                         cmd.ExecuteNonQuery();
                     }
 
-                    // Insertar imagen en la tabla carnet
                     using (MySqlCommand cmd = new MySqlCommand("INSERT INTO carnet (socioId, foto) VALUES (@socioId, @foto)", conexion))
                     {
                         cmd.Parameters.AddWithValue("@socioId", socioId);
@@ -205,7 +204,7 @@ namespace ClubDeportivo
             Image foto = picFoto.Image;
 
 
-            Carnet carnet = new Carnet(nombreCompleto, dni, fechaNacimiento, fechaPago,  fotoBytes);
+            Carnet carnet = new Carnet(nombreCompleto, dni, fechaNacimiento, fechaPago, fotoBytes);
             carnet.ShowDialog();
         }
 
@@ -238,5 +237,6 @@ namespace ClubDeportivo
             }
         }
 
+    
     }
 }

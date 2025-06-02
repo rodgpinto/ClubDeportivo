@@ -1,33 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
-using iText.Kernel.Geom;
-using iText.Layout.Properties;
 using iText.IO.Font.Constants;
 using iText.Kernel.Font;
+using iText.Kernel.Geom;
+using iText.Kernel.Pdf;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using iText.Layout;
 
 namespace ClubDeportivo
 {
-    public partial class fComprobantePago : Form
+    public partial class ComprobanteActividad : Form
     {
-        public fComprobantePago(string nombreCompleto, string dni, string formaPago, string fechaPago, string vencimiento, string monto)
+        public ComprobanteActividad(string nombreCompleto, string dni, string formaPago, string fechaPago, string vencimiento, string monto, string actividad)
         {
             InitializeComponent();
 
             lblNombreCompleto2.Text = nombreCompleto;
             lblDni2.Text = dni;
             lblFormaPago2.Text = formaPago;
+            lblFechaActual.Text = DateTime.Now.ToString("dd/MM/yyyy");
             lblFechaPago2.Text = fechaPago;
             lblFechaVencimiento2.Text = vencimiento;
             lblMonto2.Text = monto;
-        }
-
-        private void fComprobantePago_Load(object sender, EventArgs e)
-        {
-            lblFechaInscripcion.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblActividad2.Text = actividad;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -44,7 +48,7 @@ namespace ClubDeportivo
 
                 string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-                string fileName = $"comprobante_pago_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+                string fileName = $"comprobante_pago_actividad{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
                 string filePath = System.IO.Path.Combine(desktopPath, fileName);
 
 
@@ -64,7 +68,7 @@ namespace ClubDeportivo
                         .SetMarginBottom(10);
                     doc.Add(titulo);
 
-                    Paragraph subtitulo = new Paragraph("Comprobante de Pago de Inscripción")
+                    Paragraph subtitulo = new Paragraph("Comprobante de Pago de Actividad")
                         .SetTextAlignment(TextAlignment.CENTER)
                         .SetFont(boldFont)
                         .SetFontSize(14)
@@ -92,8 +96,9 @@ namespace ClubDeportivo
                     AddTableRow(table, "DNI:", lblDni2.Text, boldFont, boldFont);
                     AddTableRow(table, "Forma de pago:", lblFormaPago2.Text, boldFont, boldFont);
                     AddTableRow(table, "Fecha de pago:", lblFechaPago2.Text, boldFont, boldFont);
-                    AddTableRow(table, "Vencimiento cuota:", lblFechaVencimiento2.Text, boldFont, boldFont);
+                    AddTableRow(table, "Vencimiento:", lblFechaVencimiento2.Text, boldFont, boldFont);
                     AddTableRow(table, "Monto abonado:", lblMonto2.Text, boldFont, boldFont);
+                    AddTableRow(table, "Actividad:", lblActividad2.Text, boldFont, boldFont);
 
                     doc.Add(table);
 
@@ -148,5 +153,6 @@ namespace ClubDeportivo
             table.AddCell(labelCell);
             table.AddCell(valueCell);
         }
-    }
-}
+    } }
+    
+
