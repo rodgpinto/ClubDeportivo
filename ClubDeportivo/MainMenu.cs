@@ -16,6 +16,8 @@ namespace ClubDeportivo
         public fMainMenu()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+
         }
 
         internal string? rol;

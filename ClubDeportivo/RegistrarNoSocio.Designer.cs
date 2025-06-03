@@ -330,7 +330,7 @@
             // 
             lblRegistrar.AutoSize = true;
             lblRegistrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblRegistrar.Location = new Point(32, 9);
+            lblRegistrar.Location = new Point(32, 20);
             lblRegistrar.Name = "lblRegistrar";
             lblRegistrar.Size = new Size(175, 21);
             lblRegistrar.TabIndex = 46;
@@ -340,7 +340,7 @@
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(6, 10);
+            pictureBox1.Location = new Point(6, 20);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(20, 20);
             pictureBox1.TabIndex = 45;

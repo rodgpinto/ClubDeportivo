@@ -35,6 +35,9 @@
             btnListarVencimientos = new Button();
             lblIngreso = new Label();
             btnCerrar = new Button();
+            lblRegistrar = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnRegistrar
@@ -46,7 +49,7 @@
             btnRegistrar.Font = new Font("Segoe UI", 10F);
             btnRegistrar.ForeColor = SystemColors.ButtonHighlight;
             btnRegistrar.ImeMode = ImeMode.NoControl;
-            btnRegistrar.Location = new Point(83, 74);
+            btnRegistrar.Location = new Point(82, 106);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(100, 69);
             btnRegistrar.TabIndex = 3;
@@ -63,7 +66,7 @@
             btnRegistrarPago.Font = new Font("Segoe UI", 10F);
             btnRegistrarPago.ForeColor = SystemColors.ButtonHighlight;
             btnRegistrarPago.ImeMode = ImeMode.NoControl;
-            btnRegistrarPago.Location = new Point(279, 74);
+            btnRegistrarPago.Location = new Point(278, 106);
             btnRegistrarPago.Name = "btnRegistrarPago";
             btnRegistrarPago.Size = new Size(100, 69);
             btnRegistrarPago.TabIndex = 4;
@@ -80,7 +83,7 @@
             btnListarSocios.Font = new Font("Segoe UI", 10F);
             btnListarSocios.ForeColor = SystemColors.ButtonHighlight;
             btnListarSocios.ImeMode = ImeMode.NoControl;
-            btnListarSocios.Location = new Point(83, 171);
+            btnListarSocios.Location = new Point(82, 203);
             btnListarSocios.Name = "btnListarSocios";
             btnListarSocios.Size = new Size(100, 69);
             btnListarSocios.TabIndex = 5;
@@ -97,7 +100,7 @@
             btnListarVencimientos.Font = new Font("Segoe UI", 10F);
             btnListarVencimientos.ForeColor = SystemColors.ButtonHighlight;
             btnListarVencimientos.ImeMode = ImeMode.NoControl;
-            btnListarVencimientos.Location = new Point(279, 171);
+            btnListarVencimientos.Location = new Point(278, 203);
             btnListarVencimientos.Name = "btnListarVencimientos";
             btnListarVencimientos.Size = new Size(100, 69);
             btnListarVencimientos.TabIndex = 6;
@@ -107,10 +110,11 @@
             // lblIngreso
             // 
             lblIngreso.AutoSize = true;
-            lblIngreso.Location = new Point(12, 12);
+            lblIngreso.Location = new Point(38, 52);
             lblIngreso.Name = "lblIngreso";
-            lblIngreso.Size = new Size(0, 15);
+            lblIngreso.Size = new Size(56, 15);
             lblIngreso.TabIndex = 8;
+            lblIngreso.Text = "USUARIO";
             // 
             // btnCerrar
             // 
@@ -128,12 +132,34 @@
             btnCerrar.UseVisualStyleBackColor = false;
             btnCerrar.Click += btnCerrar_Click;
             // 
+            // lblRegistrar
+            // 
+            lblRegistrar.AutoSize = true;
+            lblRegistrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblRegistrar.Location = new Point(38, 12);
+            lblRegistrar.Name = "lblRegistrar";
+            lblRegistrar.Size = new Size(144, 21);
+            lblRegistrar.TabIndex = 46;
+            lblRegistrar.Text = "MENU PRINCIPAL";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(20, 20);
+            pictureBox1.TabIndex = 45;
+            pictureBox1.TabStop = false;
+            // 
             // fMainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
-            ClientSize = new Size(471, 348);
+            ClientSize = new Size(471, 354);
+            Controls.Add(lblRegistrar);
+            Controls.Add(pictureBox1);
             Controls.Add(btnCerrar);
             Controls.Add(lblIngreso);
             Controls.Add(btnListarVencimientos);
@@ -146,6 +172,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MENU PRINCIPAL";
             Load += fMainMenu_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -158,5 +185,7 @@
         private Button btnListarVencimientos;
         private Label lblIngreso;
         private Button btnCerrar;
+        private Label lblRegistrar;
+        private PictureBox pictureBox1;
     }
 }

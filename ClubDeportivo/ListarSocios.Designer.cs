@@ -33,7 +33,10 @@
             label1 = new Label();
             btnCerrar = new Button();
             btnAtras = new Button();
+            lblRegistrar = new Label();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dtgvRegistros).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // dtgvRegistros
@@ -91,12 +94,34 @@
             btnAtras.UseVisualStyleBackColor = false;
             btnAtras.Click += btnAtras_Click;
             // 
+            // lblRegistrar
+            // 
+            lblRegistrar.AutoSize = true;
+            lblRegistrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblRegistrar.Location = new Point(38, 8);
+            lblRegistrar.Name = "lblRegistrar";
+            lblRegistrar.Size = new Size(122, 21);
+            lblRegistrar.TabIndex = 46;
+            lblRegistrar.Text = "LISTAR SOCIOS";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(12, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(20, 20);
+            pictureBox1.TabIndex = 45;
+            pictureBox1.TabStop = false;
+            // 
             // fListarSocios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(970, 450);
+            Controls.Add(lblRegistrar);
+            Controls.Add(pictureBox1);
             Controls.Add(btnCerrar);
             Controls.Add(btnAtras);
             Controls.Add(label1);
@@ -107,6 +132,7 @@
             Text = "ListarSocios";
             Load += fListarSocios_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvRegistros).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -116,5 +142,7 @@
         private Label label1;
         private Button btnCerrar;
         private Button btnAtras;
+        private Label lblRegistrar;
+        private PictureBox pictureBox1;
     }
 }

@@ -65,7 +65,7 @@ namespace ClubDeportivo
                         .SetMarginBottom(10);
                     doc.Add(titulo);
 
-                    Paragraph subtitulo = new Paragraph("Comprobante de Pago de Inscripción")
+                    Paragraph subtitulo = new Paragraph("Comprobante de Pago")
                         .SetTextAlignment(TextAlignment.CENTER)
                         .SetFont(boldFont)
                         .SetFontSize(14)
@@ -103,7 +103,7 @@ namespace ClubDeportivo
                         .SetMarginTop(20)
                         .SetMarginBottom(20));
 
-                    doc.Add(new Paragraph("Gracias por su inscripción")
+                    doc.Add(new Paragraph("Gracias por elegirnos")
                         .SetTextAlignment(TextAlignment.CENTER)
                         .SetFont(normalFont)
                         .SetFontSize(12)

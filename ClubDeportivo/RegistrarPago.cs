@@ -32,5 +32,13 @@ namespace ClubDeportivo
             Application.Exit();
 
         }
+
+        private void btnRegistrarPagoSocio_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegistrarPagoSocio registrarPagoSocio = new RegistrarPagoSocio();
+            registrarPagoSocio.ShowDialog();
+            this.Show();
+        }
     }
 }

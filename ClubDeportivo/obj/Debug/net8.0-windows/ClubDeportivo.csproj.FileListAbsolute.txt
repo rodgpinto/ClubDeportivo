@@ -111,3 +111,5 @@ C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado
 C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.RegistrarNoSocio.resources
 C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.ComprobanteActividad.resources
 C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.RegistrarPago.resources
+C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.RegistrarPagoSocio.resources
+C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.HistorialPagosSocios.resources

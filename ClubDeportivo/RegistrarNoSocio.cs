@@ -55,6 +55,35 @@ namespace ClubDeportivo
                 MessageBoxIcon.Error);
                 return;
             }
+
+            else if (txtActividad.Text == "0")
+            {
+                MessageBox.Show("El monto de la cuota no puede ser 0.",
+                "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+            }
+            else if (!int.TryParse(txtDocumento.Text, out _))
+            {
+                MessageBox.Show("El DNI debe ser un número válido.",
+                "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(txtActividad.Text) || !decimal.TryParse(txtActividad.Text, out _))
+            {
+                MessageBox.Show("El monto de la cuota debe ser un número válido.",
+                "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+            }
+            else if (cboFormaDePago.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar una forma de pago.",
+                "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 using (MySqlConnection conexion = Conexion.getInstancia().CrearConexion())

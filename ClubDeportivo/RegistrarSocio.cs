@@ -9,6 +9,7 @@ using ClubDeportivo.Datos;
 using MySql.Data.MySqlClient;
 using System.IO;
 using System.Drawing.Imaging;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace ClubDeportivo
@@ -61,6 +62,34 @@ namespace ClubDeportivo
                 || chkFicha.Checked == false || chkApto.Checked == false)
             {
                 MessageBox.Show("Debe completar datos requeridos (*) ",
+                "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+            }
+            else if (txtCuota.Text == "0")
+            {
+                MessageBox.Show("El monto de la cuota no puede ser 0.",
+                "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+            }
+            else if (!int.TryParse(txtDocumento.Text, out _))
+            {
+                MessageBox.Show("El DNI debe ser un número válido.",
+                "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(txtCuota.Text) || !decimal.TryParse(txtCuota.Text, out _))
+            {
+                MessageBox.Show("El monto de la cuota debe ser un número válido.",
+                "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+            }
+            else if (cboFormaDePago.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar una forma de pago.",
                 "AVISO DEL SISTEMA", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
                 return;

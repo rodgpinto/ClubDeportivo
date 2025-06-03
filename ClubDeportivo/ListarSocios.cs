@@ -16,6 +16,8 @@ namespace ClubDeportivo
         public fListarSocios()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+
         }
 
         private void btnAtras_Click(object sender, EventArgs e)

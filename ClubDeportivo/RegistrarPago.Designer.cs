@@ -89,6 +89,7 @@
             btnRegistrarPagoSocio.TabIndex = 26;
             btnRegistrarPagoSocio.Text = "Registrar Pago Socio";
             btnRegistrarPagoSocio.UseVisualStyleBackColor = false;
+            btnRegistrarPagoSocio.Click += btnRegistrarPagoSocio_Click;
             // 
             // btnAtras
             // 
