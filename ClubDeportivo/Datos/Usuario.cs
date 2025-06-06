@@ -8,8 +8,11 @@ using MySql.Data.MySqlClient;
 
 namespace ClubDeportivo.Datos
 {
+    // Clase Usuario para manejar el inicio de sesión
     internal class Usuario
     {
+
+        // Constructor de la clase Usuario
         public DataTable Login(string Usuario, string Pass)
         {
             MySqlDataReader resultado;
@@ -18,6 +21,7 @@ namespace ClubDeportivo.Datos
 
             try
             {
+                // Creamos la conexión a la base de datos Utilizamos el Store 'Procedure IngresoLogin'
                 sqlCon = Conexion.getInstancia().CrearConexion();
                 MySqlCommand comando = new MySqlCommand("IngresoLogin", sqlCon);
                 comando.CommandType = CommandType.StoredProcedure;
@@ -34,6 +38,7 @@ namespace ClubDeportivo.Datos
             {
                 throw new Exception("Error al intentar iniciar sesión: " + ex.Message);
             }
+            // cerramos la conexión
             finally
             {
                 if (sqlCon.State == ConnectionState.Open)

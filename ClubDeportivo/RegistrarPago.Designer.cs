@@ -34,7 +34,6 @@
             btnRegistrarPagoNoSocio = new Button();
             btnRegistrarPagoSocio = new Button();
             btnAtras = new Button();
-            btnCerrar = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -73,6 +72,7 @@
             btnRegistrarPagoNoSocio.TabIndex = 27;
             btnRegistrarPagoNoSocio.Text = "Registrar Pago No Socio";
             btnRegistrarPagoNoSocio.UseVisualStyleBackColor = false;
+            btnRegistrarPagoNoSocio.Click += btnRegistrarPagoNoSocio_Click;
             // 
             // btnRegistrarPagoSocio
             // 
@@ -100,28 +100,12 @@
             btnAtras.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
             btnAtras.FlatAppearance.BorderSize = 0;
             btnAtras.FlatStyle = FlatStyle.Flat;
-            btnAtras.Location = new Point(254, 22);
+            btnAtras.Location = new Point(295, 12);
             btnAtras.Name = "btnAtras";
             btnAtras.Size = new Size(33, 29);
             btnAtras.TabIndex = 32;
             btnAtras.UseVisualStyleBackColor = false;
             btnAtras.Click += btnAtras_Click;
-            // 
-            // btnCerrar
-            // 
-            btnCerrar.BackColor = Color.FromArgb(201, 241, 253);
-            btnCerrar.BackgroundImage = (Image)resources.GetObject("btnCerrar.BackgroundImage");
-            btnCerrar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnCerrar.Cursor = Cursors.Hand;
-            btnCerrar.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
-            btnCerrar.FlatAppearance.BorderSize = 0;
-            btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.Location = new Point(295, 22);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(33, 29);
-            btnCerrar.TabIndex = 33;
-            btnCerrar.UseVisualStyleBackColor = false;
-            btnCerrar.Click += btnCerrar_Click;
             // 
             // RegistrarPago
             // 
@@ -129,7 +113,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(340, 257);
-            Controls.Add(btnCerrar);
             Controls.Add(btnAtras);
             Controls.Add(pictureBox1);
             Controls.Add(lblRegistrarPago);
@@ -151,6 +134,5 @@
         private Button btnRegistrarPagoNoSocio;
         private Button btnRegistrarPagoSocio;
         private Button btnAtras;
-        private Button btnCerrar;
     }
 }

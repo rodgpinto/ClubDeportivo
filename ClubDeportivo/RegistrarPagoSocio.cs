@@ -18,6 +18,7 @@ namespace ClubDeportivo
         {
             InitializeComponent();
 
+            // Deshabilitar los controles del grupo de pago al inicio
             grpbPago.Enabled = false;
             btnIngresarPago.Enabled = false;
             btnLimpiar.Enabled = false;
@@ -26,24 +27,26 @@ namespace ClubDeportivo
 
             this.FormBorderStyle = FormBorderStyle.None;
 
+            // Modificamos el formato de los DateTimePicker para que muestren la fecha en el formato "dd/MM/yyyy"
             dtpFechaPago.Format = DateTimePickerFormat.Custom;
             dtpFechaPago.CustomFormat = "dd/MM/yyyy";
             dtpFechaPago.Value = DateTime.Now;
+            dtpFechaVencimiento.Format = DateTimePickerFormat.Custom;
+            dtpFechaVencimiento.CustomFormat = "dd/MM/yyyy";
+            dtpFechaVencimiento.Value = DateTime.Now.AddMonths(1);
+
 
         }
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
+
+        // Evento que cierra el formulario actual y regresa al formulario anterior
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
-            RegistrarPago registrarPago = new RegistrarPago();
-            registrarPago.Show();
-            
+         
         }
 
+        // Evento que busca al socio por su DNI ingresado y habilita los controles de pago si el socio existe
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string dni = txtDNI.Text.Trim();
@@ -55,16 +58,17 @@ namespace ClubDeportivo
             }
 
             Socio socio = new Socio();
-            int? socioId = socio.ObtenerIdSocioPorDNI(dni);
+            int? socioId = socio.ObtenerIdPorDNI(dni);
 
             if (socioId == null)
             {
+                // Si el socio no existe, mostramos un mensaje y preguntamos si desea registrarlo
                 DialogResult resultado = MessageBox.Show(
                     "El socio no existe. ¿Desea registrarlo ahora?",
                     "Socio no encontrado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 grpbPago.Enabled = false;
 
-
+                // Si el usuario acepta, cerramos el formulario actual y abrimos el formulario de registro de socio
                 if (resultado == DialogResult.Yes)
                 {
                     this.Close();
@@ -74,6 +78,7 @@ namespace ClubDeportivo
             }
             else
             {
+                // Si el socio existe, habilitamos los controles de pago
                 lblSocioID2.Text = socioId.ToString();
                 MessageBox.Show("Socio encontrado. Puede continuar con el pago.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 grpbPago.Enabled = true;
@@ -86,11 +91,7 @@ namespace ClubDeportivo
 
 
 
-        private void dtpFechaPago_ValueChanged(object sender, EventArgs e)
-        {
-            txtFechaVencimiento.Text = dtpFechaPago.Value.AddMonths(1).ToString("yyyy-MM-dd");
-
-        }
+        // Evento que valida los datos ingresados y registra el pago de la cuota del socio
         private void btnIngresarPago_Click(object sender, EventArgs e)
         {
             try
@@ -106,12 +107,8 @@ namespace ClubDeportivo
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(txtFechaVencimiento.Text))
-                {
-                    MessageBox.Show("Por favor, ingrese una fecha de vencimiento válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
 
+                // Registrar el pago en la base de datos usando el Store Procedure 'RegistrarPagoCuota'
                 using (MySqlConnection conexion = Conexion.getInstancia().CrearConexion())
                 {
                     conexion.Open();
@@ -122,7 +119,7 @@ namespace ClubDeportivo
                         cmd.Parameters.AddWithValue("@socioId", lblSocioID2.Text);
                         cmd.Parameters.AddWithValue("@precio", Convert.ToDecimal(txtCuota.Text));
                         cmd.Parameters.AddWithValue("@formaDePago", cboFormaDePago.SelectedItem.ToString());
-                        cmd.Parameters.AddWithValue("@fechaVencimiento", txtFechaVencimiento.Text);
+                        cmd.Parameters.AddWithValue("@fechaVencimiento", dtpFechaVencimiento.Value);
                         cmd.Parameters.AddWithValue("@fechaDePago", dtpFechaPago.Value.Date);
 
                         cmd.ExecuteNonQuery();
@@ -143,13 +140,14 @@ namespace ClubDeportivo
                             }
                         }
                     }
-
+                    // Generar el comprobante de pago
                     string nombreCompleto = nombre + " " + apellido;
                     string dni = txtDNI.Text;
                     string formaPago = cboFormaDePago.Text;
                     string fechaPago = dtpFechaPago.Value.ToString("dd/MM/yyyy");
-                    string vencimiento = txtFechaVencimiento.Text;
+                    string vencimiento = dtpFechaVencimiento.Value.ToString("dd/MM/yyyy"); ;
                     string monto = txtCuota.Text;
+                    // Mostrar el comprobante de pago en un nuevo formulario
                     fComprobantePago comprobante = new fComprobantePago(nombreCompleto, dni, formaPago, fechaPago, vencimiento, monto);
                     comprobante.ShowDialog();
 
@@ -162,6 +160,8 @@ namespace ClubDeportivo
             }
         }
 
+
+        // Evento que limpia los campos del formulario y deshabilita los controles de pago
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtDNI.Text = "";
@@ -176,6 +176,7 @@ namespace ClubDeportivo
             btnConsultarPagos.Enabled = false;
         }
 
+        // Evento que consulta los pagos realizados por el socio ingresado y muestra el historial en un nuevo formulario
         private void btnConsultarPagos_Click(object sender, EventArgs e)
         {
             string dni = txtDNI.Text.Trim();
@@ -189,7 +190,7 @@ namespace ClubDeportivo
             try
             {
                 Socio socio = new Socio();
-                int? socioId = socio.ObtenerIdSocioPorDNI(dni);
+                int? socioId = socio.ObtenerIdPorDNI(dni);
 
                 if (socioId == null)
                 {

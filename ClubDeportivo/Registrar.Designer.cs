@@ -33,7 +33,6 @@
             btnRegistrarNoSocio = new Button();
             lblRegistrar = new Label();
             pictureBox1 = new PictureBox();
-            btnCerrar = new Button();
             btnAtras = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -49,7 +48,7 @@
             btnRegistrarSocio.ImeMode = ImeMode.NoControl;
             btnRegistrarSocio.Location = new Point(114, 68);
             btnRegistrarSocio.Name = "btnRegistrarSocio";
-            btnRegistrarSocio.Size = new Size(100, 52);
+            btnRegistrarSocio.Size = new Size(100, 61);
             btnRegistrarSocio.TabIndex = 4;
             btnRegistrarSocio.Text = "Registrar Socio";
             btnRegistrarSocio.UseVisualStyleBackColor = false;
@@ -66,7 +65,7 @@
             btnRegistrarNoSocio.ImeMode = ImeMode.NoControl;
             btnRegistrarNoSocio.Location = new Point(114, 171);
             btnRegistrarNoSocio.Name = "btnRegistrarNoSocio";
-            btnRegistrarNoSocio.Size = new Size(100, 52);
+            btnRegistrarNoSocio.Size = new Size(100, 58);
             btnRegistrarNoSocio.TabIndex = 5;
             btnRegistrarNoSocio.Text = "Registrar No Socio";
             btnRegistrarNoSocio.UseVisualStyleBackColor = false;
@@ -92,22 +91,6 @@
             pictureBox1.TabIndex = 25;
             pictureBox1.TabStop = false;
             // 
-            // btnCerrar
-            // 
-            btnCerrar.BackColor = Color.FromArgb(201, 241, 253);
-            btnCerrar.BackgroundImage = (Image)resources.GetObject("btnCerrar.BackgroundImage");
-            btnCerrar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnCerrar.Cursor = Cursors.Hand;
-            btnCerrar.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
-            btnCerrar.FlatAppearance.BorderSize = 0;
-            btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.Location = new Point(295, 10);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(33, 29);
-            btnCerrar.TabIndex = 35;
-            btnCerrar.UseVisualStyleBackColor = false;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
             // btnAtras
             // 
             btnAtras.BackColor = Color.FromArgb(201, 241, 253);
@@ -117,7 +100,7 @@
             btnAtras.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
             btnAtras.FlatAppearance.BorderSize = 0;
             btnAtras.FlatStyle = FlatStyle.Flat;
-            btnAtras.Location = new Point(256, 10);
+            btnAtras.Location = new Point(295, 7);
             btnAtras.Name = "btnAtras";
             btnAtras.Size = new Size(33, 29);
             btnAtras.TabIndex = 34;
@@ -130,7 +113,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(340, 257);
-            Controls.Add(btnCerrar);
             Controls.Add(btnAtras);
             Controls.Add(pictureBox1);
             Controls.Add(lblRegistrar);
@@ -151,7 +133,6 @@
         private Button btnRegistrarNoSocio;
         private Label lblRegistrar;
         private PictureBox pictureBox1;
-        private Button btnCerrar;
         private Button btnAtras;
     }
 }

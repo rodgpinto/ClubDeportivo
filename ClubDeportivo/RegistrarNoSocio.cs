@@ -20,7 +20,7 @@ namespace ClubDeportivo
 
             this.FormBorderStyle = FormBorderStyle.None;
 
-
+            // Modificamos el formato de los DateTimePicker para que muestren la fecha en el formato "dd/MM/yyyy"
             dtpFechaNacimiento.Format = DateTimePickerFormat.Custom;
             dtpFechaNacimiento.CustomFormat = "dd/MM/yyyy";
             dtpFechaPago.Format = DateTimePickerFormat.Custom;
@@ -30,12 +30,8 @@ namespace ClubDeportivo
             dtpFechaVencimiento.CustomFormat = "dd/MM/yyyy";
             dtpFechaVencimiento.Value = DateTime.Now.AddDays(1);
         }
-     
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
 
-        }
+        // Evento que da check a la casilla de verificación al hacer clic en la etiqueta "lblFichaInscripcion"
         private void lblFichaInscripcion_Click(object sender, EventArgs e)
         {
             chkFicha.Checked = !chkFicha.Checked;
@@ -43,9 +39,10 @@ namespace ClubDeportivo
         }
 
 
-
+        // Evento que valida los datos ingresados y registra al no socio en la base de datos
         private void btnIngresarDato_Click(object sender, EventArgs e)
         {
+            // Validación de campos requeridos
             if (txtNombre.Text == "" || txtApellido.Text == "" || txtDocumento.Text == ""
                 || txtDireccion.Text == "" || txtActividad.Text == ""
                 || chkFicha.Checked == false || cboActividad.Text == "")
@@ -86,10 +83,11 @@ namespace ClubDeportivo
             }
             try
             {
+                // Conexión a la base de datos y ejecución de procedimientos almacenados
                 using (MySqlConnection conexion = Conexion.getInstancia().CrearConexion())
                 {
                     conexion.Open();
-
+                    // Validación de existencia de persona con el mismo DNI
                     string validarPersona = "ValidarPersona";
 
                     using (MySqlCommand cmd = new MySqlCommand(validarPersona, conexion))
@@ -107,7 +105,7 @@ namespace ClubDeportivo
                             return;
                         }
                     }
-
+                    // Inserción de datos en las tablas Persona, NoSocio y PagoActividad
                     int personaId;
                     using (MySqlCommand cmd = new MySqlCommand("InsertarPersona", conexion))
                     {
@@ -143,7 +141,7 @@ namespace ClubDeportivo
 
                         idPagoActividad = Convert.ToInt32(cmd.ExecuteScalar());
                     }
-
+                    // Si todo sale bien, mostramos un mensaje de éxito y el comprobante de pago
                     string nombreCompleto = txtNombre.Text + " " + txtApellido.Text;
                     string dni = txtDocumento.Text;
                     string formaPago = cboFormaDePago.Text;
@@ -167,7 +165,7 @@ namespace ClubDeportivo
             }
 
         }
-
+        // Evento que limpia los campos del formulario al hacer clic en el botón "Limpiar"
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtNombre.Text = "";
@@ -181,7 +179,7 @@ namespace ClubDeportivo
             cboActividad.SelectedIndex = -1;
             txtNombre.Focus();
         }
-
+        // Evento que cierra el formulario y regresa al formulario anterior al hacer clic en el botón "Volver"
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -15,6 +15,8 @@ namespace ClubDeportivo
             InitializeComponent();
         }
 
+        // Evento para mostrar/ocultar la contraseña
+
         private void txtPass_Enter(object sender, EventArgs e)
         {
             txtPass.UseSystemPasswordChar = true;
@@ -26,6 +28,7 @@ namespace ClubDeportivo
 
         }
 
+        // Evento para iniciar sesión al hacer clic en el botón "Ingresar", valida las credenciales ingresadas
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             DataTable tablaLogin = new DataTable();

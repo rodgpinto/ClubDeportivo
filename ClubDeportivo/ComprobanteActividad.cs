@@ -20,6 +20,7 @@ namespace ClubDeportivo
 {
     public partial class ComprobanteActividad : Form
     {
+
         public ComprobanteActividad(string nombreCompleto, string dni, string formaPago, string fechaPago, string vencimiento, string monto, string actividad)
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace ClubDeportivo
             lblActividad2.Text = actividad;
         }
 
+        // Evento que cierra el formulario y regresa al formulario anterior
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -41,17 +43,20 @@ namespace ClubDeportivo
             Registrar.Show();
         }
 
+        // Evento que imprime el comprobante de pago en formato PDF y luego lo abre
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             try
             {
-
+                // Obtener la ruta del escritorio del usuario actual
                 string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
+
+                // Genera un nombre de archivo único basado en la fecha y hora actual
                 string fileName = $"comprobante_pago_actividad{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
                 string filePath = System.IO.Path.Combine(desktopPath, fileName);
 
-
+                // Crea el documento PDF y configura sus propiedades
                 using (var writer = new PdfWriter(filePath))
                 using (var pdf = new PdfDocument(writer))
                 using (var doc = new Document(pdf, PageSize.A4))
@@ -92,6 +97,7 @@ namespace ClubDeportivo
                         .SetBorder(iText.Layout.Borders.Border.NO_BORDER)
                         .SetMarginBottom(5);
 
+                    // Agrega las filas a la tabla con los datos del comprobante
                     AddTableRow(table, "Nombre y Apellido:", lblNombreCompleto2.Text, boldFont, boldFont);
                     AddTableRow(table, "DNI:", lblDni2.Text, boldFont, boldFont);
                     AddTableRow(table, "Forma de pago:", lblFormaPago2.Text, boldFont, boldFont);
@@ -123,6 +129,7 @@ namespace ClubDeportivo
                 MessageBox.Show($"PDF generado correctamente:\n{filePath}", "Éxito",
                               MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                // Abre el PDF generado
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
                 {
                     FileName = filePath,
@@ -136,6 +143,8 @@ namespace ClubDeportivo
             }
         }
 
+
+        // Método para agregar una fila a la tabla del comprobante
         private void AddTableRow(Table table, string label, string value, PdfFont boldFont, PdfFont normalFont)
         {
             var labelCell = new Cell()

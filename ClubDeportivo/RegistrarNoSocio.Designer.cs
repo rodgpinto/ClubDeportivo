@@ -72,7 +72,6 @@
             btnIngresarDato = new Button();
             btnLimpiar = new Button();
             btnVolver = new Button();
-            btnCerrar = new Button();
             cboTipo = new ComboBox();
             grpbDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -573,29 +572,12 @@
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
-            // btnCerrar
-            // 
-            btnCerrar.BackColor = Color.FromArgb(201, 241, 253);
-            btnCerrar.BackgroundImage = (Image)resources.GetObject("btnCerrar.BackgroundImage");
-            btnCerrar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnCerrar.Cursor = Cursors.Hand;
-            btnCerrar.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
-            btnCerrar.FlatAppearance.BorderSize = 0;
-            btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.Location = new Point(451, 12);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(33, 29);
-            btnCerrar.TabIndex = 51;
-            btnCerrar.UseVisualStyleBackColor = false;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
             // RegistrarNoSocio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(496, 724);
-            Controls.Add(btnCerrar);
             Controls.Add(btnVolver);
             Controls.Add(btnLimpiar);
             Controls.Add(btnIngresarDato);
@@ -661,6 +643,5 @@
         private Button btnVolver;
         private Label label13;
         private DateTimePicker dtpFechaVencimiento;
-        private Button btnCerrar;
     }
 }

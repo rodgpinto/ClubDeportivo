@@ -13,6 +13,7 @@ namespace ClubDeportivo
 {
     public partial class fComprobantePago : Form
     {
+
         public fComprobantePago(string nombreCompleto, string dni, string formaPago, string fechaPago, string vencimiento, string monto)
         {
             InitializeComponent();
@@ -30,25 +31,26 @@ namespace ClubDeportivo
         {
             lblFechaActual.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
-
+        // Evento para cerrar el formulario y regresar al formulario anterior
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
             fRegistrar Registrar = new fRegistrar();
             Registrar.Show();
         }
-
+        // Evento para generar el comprobante de pago en formato PDF y abrirlo
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             try
             {
-
+                // Obtener la ruta del escritorio del usuario actual
                 string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
+                // Genera un nombre de archivo único basado en la fecha y hora actual
                 string fileName = $"comprobante_pago_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
                 string filePath = System.IO.Path.Combine(desktopPath, fileName);
 
-
+                // Crea el documento PDF y configura sus propiedades
                 using (var writer = new PdfWriter(filePath))
                 using (var pdf = new PdfDocument(writer))
                 using (var doc = new Document(pdf, PageSize.A4))
@@ -115,10 +117,12 @@ namespace ClubDeportivo
                         .SetFontSize(10)
                         .SetMarginTop(10));
                 }
-
+                
                 MessageBox.Show($"PDF generado correctamente:\n{filePath}", "Éxito",
                               MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
+                // Abre el PDF generado
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
                 {
                     FileName = filePath,
@@ -131,7 +135,7 @@ namespace ClubDeportivo
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // Método para agregar una fila a la tabla del comprobante de pago
         private void AddTableRow(Table table, string label, string value, PdfFont boldFont, PdfFont normalFont)
         {
             var labelCell = new Cell()

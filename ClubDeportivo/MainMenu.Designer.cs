@@ -37,6 +37,7 @@
             btnCerrar = new Button();
             lblRegistrar = new Label();
             pictureBox1 = new PictureBox();
+            btnModificarRegistros = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             btnRegistrar.Font = new Font("Segoe UI", 10F);
             btnRegistrar.ForeColor = SystemColors.ButtonHighlight;
             btnRegistrar.ImeMode = ImeMode.NoControl;
-            btnRegistrar.Location = new Point(82, 106);
+            btnRegistrar.Location = new Point(82, 85);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(100, 69);
             btnRegistrar.TabIndex = 3;
@@ -66,7 +67,7 @@
             btnRegistrarPago.Font = new Font("Segoe UI", 10F);
             btnRegistrarPago.ForeColor = SystemColors.ButtonHighlight;
             btnRegistrarPago.ImeMode = ImeMode.NoControl;
-            btnRegistrarPago.Location = new Point(278, 106);
+            btnRegistrarPago.Location = new Point(278, 85);
             btnRegistrarPago.Name = "btnRegistrarPago";
             btnRegistrarPago.Size = new Size(100, 69);
             btnRegistrarPago.TabIndex = 4;
@@ -83,7 +84,7 @@
             btnListarSocios.Font = new Font("Segoe UI", 10F);
             btnListarSocios.ForeColor = SystemColors.ButtonHighlight;
             btnListarSocios.ImeMode = ImeMode.NoControl;
-            btnListarSocios.Location = new Point(82, 203);
+            btnListarSocios.Location = new Point(82, 182);
             btnListarSocios.Name = "btnListarSocios";
             btnListarSocios.Size = new Size(100, 69);
             btnListarSocios.TabIndex = 5;
@@ -100,12 +101,13 @@
             btnListarVencimientos.Font = new Font("Segoe UI", 10F);
             btnListarVencimientos.ForeColor = SystemColors.ButtonHighlight;
             btnListarVencimientos.ImeMode = ImeMode.NoControl;
-            btnListarVencimientos.Location = new Point(278, 203);
+            btnListarVencimientos.Location = new Point(278, 182);
             btnListarVencimientos.Name = "btnListarVencimientos";
             btnListarVencimientos.Size = new Size(100, 69);
             btnListarVencimientos.TabIndex = 6;
             btnListarVencimientos.Text = "Listar vencimientos";
             btnListarVencimientos.UseVisualStyleBackColor = false;
+            btnListarVencimientos.Click += btnListarVencimientos_Click;
             // 
             // lblIngreso
             // 
@@ -152,12 +154,30 @@
             pictureBox1.TabIndex = 45;
             pictureBox1.TabStop = false;
             // 
+            // btnModificarRegistros
+            // 
+            btnModificarRegistros.BackColor = Color.FromArgb(54, 116, 181);
+            btnModificarRegistros.Cursor = Cursors.Hand;
+            btnModificarRegistros.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
+            btnModificarRegistros.FlatStyle = FlatStyle.Popup;
+            btnModificarRegistros.Font = new Font("Segoe UI", 10F);
+            btnModificarRegistros.ForeColor = SystemColors.ButtonHighlight;
+            btnModificarRegistros.ImeMode = ImeMode.NoControl;
+            btnModificarRegistros.Location = new Point(82, 273);
+            btnModificarRegistros.Name = "btnModificarRegistros";
+            btnModificarRegistros.Size = new Size(100, 69);
+            btnModificarRegistros.TabIndex = 47;
+            btnModificarRegistros.Text = "Modificar registros";
+            btnModificarRegistros.UseVisualStyleBackColor = false;
+            btnModificarRegistros.Click += btnModificarRegistros_Click;
+            // 
             // fMainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(471, 354);
+            Controls.Add(btnModificarRegistros);
             Controls.Add(lblRegistrar);
             Controls.Add(pictureBox1);
             Controls.Add(btnCerrar);
@@ -187,5 +207,6 @@
         private Button btnCerrar;
         private Label lblRegistrar;
         private PictureBox pictureBox1;
+        private Button btnModificarRegistros;
     }
 }

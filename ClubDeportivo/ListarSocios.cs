@@ -20,6 +20,7 @@ namespace ClubDeportivo
 
         }
 
+        // Evento que cierra el formulario actual y abre el menú principal
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -28,11 +29,7 @@ namespace ClubDeportivo
             MainMenu.Close();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-
-        }
+        // Evento que se ejecuta al cargar el formulario y trata de listar los socios en el DataGridView
         private void fListarSocios_Load(object sender, EventArgs e)
         {
             try
@@ -47,6 +44,7 @@ namespace ClubDeportivo
             }
 
         }
+        // Evento que se ejecuta al hacer clic en una celda del DataGridView y muestra el carnet del socio seleccionado
         private void dtgvRegistros_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -66,19 +64,23 @@ namespace ClubDeportivo
                     {
                         return;
                     }
-
+                    // Obtener los datos del socio seleccionado
                     int socioId = Convert.ToInt32(fila.Cells["id_socio"].Value);
                     string nombre = fila.Cells["nombre"].Value.ToString() ?? string.Empty;
                     string apellido = fila.Cells["apellido"].Value.ToString() ?? string.Empty;
                     string nombreCompleto = nombre + " " + apellido;
-                    string dni = fila.Cells["dni"].Value.ToString() ?? string.Empty;
+                    int dni = Convert.ToInt32(fila.Cells["dni"].Value.ToString() ?? string.Empty);
                     string fechaNacimiento = Convert.ToDateTime(fila.Cells["fecha_nacimiento"].Value).ToString("dd/MM/yyyy");
                     string fechaInscripcion = Convert.ToDateTime(fila.Cells["fecha_pago"].Value).ToString("dd/MM/yyyy");
 
+
+                    // Mostrar el carnet del socio
                     Socio socio = new Socio();
                     byte[] fotoBytes = socio.ObtenerFotoPorSocioId(socioId);
 
-                    Carnet carnet = new Carnet(nombreCompleto, dni, fechaNacimiento, fechaInscripcion, socioId, fotoBytes);
+
+                    // Crear una instancia del formulario Carnet y pasar los datos del socio
+                    Carnet carnet = new Carnet(dni);
                     carnet.ShowDialog();
                 }
             }
@@ -86,6 +88,8 @@ namespace ClubDeportivo
             {
             }
         }
+
+
 
         
     }

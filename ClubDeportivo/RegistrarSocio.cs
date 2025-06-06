@@ -22,41 +22,44 @@ namespace ClubDeportivo
 
             this.FormBorderStyle = FormBorderStyle.None;
 
-            dtpFechaPago.Format = DateTimePickerFormat.Custom;
-            dtpFechaPago.CustomFormat = "dd/MM/yyyy";
+            // Modificamos el formato de los DateTimePicker para que muestren la fecha en el formato "dd/MM/yyyy"
             dtpFechaNacimiento.Format = DateTimePickerFormat.Custom;
             dtpFechaNacimiento.CustomFormat = "dd/MM/yyyy";
+            dtpFechaPago.Format = DateTimePickerFormat.Custom;
+            dtpFechaPago.CustomFormat = "dd/MM/yyyy";
             dtpFechaPago.Value = DateTime.Now;
-
+            dtpFechaVencimiento.Format = DateTimePickerFormat.Custom;
+            dtpFechaVencimiento.CustomFormat = "dd/MM/yyyy";
+            // Establecemos la fecha de vencimiento como un mes a partir de hoy
+            dtpFechaVencimiento.Value = DateTime.Now.AddMonths(1);
+            btnCarnet.Visible = false;
 
         }
 
         private byte[]? fotoBytes;
 
-      
+        // Evento que cierra el formulario actual y regresa al formulario anterior
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
 
         }
-
+        // Evento que da check a la casilla de verificación al hacer clic en la etiqueta "lblFichaInscripcion"
         private void lblFichaInscripcion_Click(object sender, EventArgs e)
         {
             chkFicha.Checked = !chkFicha.Checked;
         }
-
+        // Evento que da check a la casilla de verificación al hacer clic en la etiqueta "lblApto"
         private void lblApto_Click(object sender, EventArgs e)
         {
             chkApto.Checked = !chkApto.Checked;
         }
 
-        private void dtpFechaPago_ValueChanged(object sender, EventArgs e)
-        {
-            txtFechaVencimiento.Text = dtpFechaPago.Value.AddMonths(1).ToString("yyyy-MM-dd");
-        }
 
+        // Evento que valida los datos ingresados y registra al socio en la base de datos
         private void btnIngresarDato_Click(object sender, EventArgs e)
         {
+            // Validación de campos requeridos
             if (txtNombre.Text == "" || txtApellido.Text == "" || txtDocumento.Text == ""
                 || txtDireccion.Text == "" || txtCuota.Text == ""
                 || chkFicha.Checked == false || chkApto.Checked == false)
@@ -104,7 +107,7 @@ namespace ClubDeportivo
             }
 
             try
-            {
+            { // Verificar si ya existe una persona con el mismo DNI
                 using (MySqlConnection conexion = Conexion.getInstancia().CrearConexion())
                 {
                     conexion.Open();
@@ -126,7 +129,7 @@ namespace ClubDeportivo
                             return;
                         }
                     }
-
+                    // Insertar persona y socio en la base de datos
                     int personaId;
                     using (MySqlCommand cmd = new MySqlCommand("InsertarPersona", conexion))
                     {
@@ -148,7 +151,7 @@ namespace ClubDeportivo
                         cmd.Parameters.AddWithValue("aptoFisico", chkApto.Checked);
                         socioId = Convert.ToInt32(cmd.ExecuteScalar());
                     }
-
+                    // Registrar el pago de la cuota del socio
                     using (MySqlCommand cmd = new MySqlCommand("RegistrarPagoCuota", conexion))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -156,17 +159,17 @@ namespace ClubDeportivo
                         cmd.Parameters.AddWithValue("precio", txtCuota.Text);
                         cmd.Parameters.AddWithValue("formaDePago", cboFormaDePago.Text);
                         cmd.Parameters.AddWithValue("fechaDePago", dtpFechaPago.Value);
-                        cmd.Parameters.AddWithValue("fechaVencimiento", txtFechaVencimiento.Text);
+                        cmd.Parameters.AddWithValue("fechaVencimiento", dtpFechaVencimiento.Value);
                         cmd.ExecuteNonQuery();
                     }
-
+                    // Actualizar el carnet del socio con la foto subida
                     using (MySqlCommand cmd = new MySqlCommand("ActualizarCarnetSocio", conexion))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("socioId", socioId);
                         cmd.ExecuteNonQuery();
                     }
-
+                    // Insertar la foto en la tabla carnet
                     using (MySqlCommand cmd = new MySqlCommand("INSERT INTO carnet (socioId, foto) VALUES (@socioId, @foto)", conexion))
                     {
                         cmd.Parameters.AddWithValue("@socioId", socioId);
@@ -179,12 +182,16 @@ namespace ClubDeportivo
                     string dni = txtDocumento.Text;
                     string formaPago = cboFormaDePago.Text;
                     string fechaPago = dtpFechaPago.Value.ToString("dd/MM/yyyy");
-                    string vencimiento = txtFechaVencimiento.Text;
+                    string vencimiento = dtpFechaVencimiento.Value.ToString("dd/MM/yyyy");
                     string monto = txtCuota.Text;
 
                     MessageBox.Show("¡Socio registrado correctamente!");
+
+                    //  Mostrar el comprobante de pago en un nuevo formulario
                     fComprobantePago comprobantePago = new fComprobantePago(nombreCompleto, dni, formaPago, fechaPago, vencimiento, monto);
                     comprobantePago.ShowDialog();
+                    btnCarnet.Visible = true;
+
                 }
             }
             catch (Exception ex)
@@ -193,8 +200,10 @@ namespace ClubDeportivo
             }
         }
 
+        // Evento que limpia los campos del formulario
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            txtNombre.Focus();
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtDocumento.Text = "";
@@ -206,9 +215,10 @@ namespace ClubDeportivo
             cboFormaDePago.SelectedIndex = 0;
             picFoto.Image = null;
             fotoBytes = null;
-            txtNombre.Focus();
-        }
+            btnCarnet.Visible = false;
 
+        }
+        // Evento que cierra el formulario actual y regresa al formulario anterior
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -216,30 +226,40 @@ namespace ClubDeportivo
             Registrar.Show();
             Registrar.Close();
         }
-
+        // Evento que genera el carnet del socio con la foto subida
         private void btnCarnet_Click(object sender, EventArgs e)
         {
-            if (fotoBytes == null)
-            {
-                MessageBox.Show("Debe subir una foto antes de generar el carnet.",
-                                "AVISO DEL SISTEMA", MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return;
+            try
+            { // Verificar si se ha subido una foto
+                if (fotoBytes == null)
+                {
+                    MessageBox.Show("Debe subir una foto antes de generar el carnet.",
+                                    "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+                // Generar el carnet del socio
+                string nombreCompleto = txtNombre.Text + " " + txtApellido.Text;
+                int dni = Convert.ToInt32(txtDocumento.Text);
+                string fechaNacimiento = dtpFechaNacimiento.Value.ToString("dd/MM/yyyy");
+                string fechaPago = dtpFechaPago.Value.ToString("dd/MM/yyyy");
+
+                Image foto = picFoto.Image;
+
+                // Crear una instancia del formulario Carnet y le pasa los datos necesarios
+                Carnet carnet = new Carnet(dni);
+                carnet.ShowDialog();
             }
-
-            string nombreCompleto = txtNombre.Text + " " + txtApellido.Text;
-            string dni = txtDocumento.Text;
-            string fechaNacimiento = dtpFechaNacimiento.Value.ToString("dd/MM/yyyy");
-            string fechaPago = dtpFechaPago.Value.ToString("dd/MM/yyyy");
-            Image foto = picFoto.Image;
-
-
-            Carnet carnet = new Carnet(nombreCompleto, dni, fechaNacimiento, fechaPago, fotoBytes);
-            carnet.ShowDialog();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
+        // Evento que permite al usuario subir una foto para el carnet del socio
         private void btnSubirFoto_Click(object sender, EventArgs e)
         {
+            // Abrir un diálogo para seleccionar una imagen
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp";
 
@@ -252,21 +272,24 @@ namespace ClubDeportivo
 
                 // Guardar la imagen en memoria sin perder calidad (mismo formato que la original)
                 using (MemoryStream ms = new MemoryStream())
-                {
+                {// Determinar el formato de la imagen y guardarla en un array de bytes
                     string extension = Path.GetExtension(ofd.FileName).ToLower();
                     ImageFormat formato = ImageFormat.Jpeg;
-
+                    // dependiendo de la extensión, establecer el formato correcto
                     if (extension == ".png")
                         formato = ImageFormat.Png;
                     else if (extension == ".bmp")
                         formato = ImageFormat.Bmp;
-
+                    // si es JPEG o JPG, se deja como está
+                    else if (extension == ".jpeg" || extension == ".jpg")
+                        formato = ImageFormat.Jpeg;
+                    // Guardar la imagen en el MemoryStream con el formato adecuado
                     img.Save(ms, formato);
                     fotoBytes = ms.ToArray();
                 }
             }
         }
 
-       
+
     }
 }

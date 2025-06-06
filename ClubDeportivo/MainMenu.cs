@@ -28,6 +28,12 @@ namespace ClubDeportivo
             lblIngreso.Text = "USUARIO: " + user + " (" + rol + ")";
         }
 
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
+
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -35,12 +41,8 @@ namespace ClubDeportivo
             Registrar.ShowDialog();
             this.Show();
         }
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+       
 
-        }
-      
         private void btnListarSocios_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -57,6 +59,20 @@ namespace ClubDeportivo
             this.Show();
         }
 
-        
+        private void btnListarVencimientos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ListarVencimientos listarVencimientos = new ListarVencimientos();
+            listarVencimientos.ShowDialog();
+            this.Show();
+        }
+
+        private void btnModificarRegistros_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ModificarRegistros modificarRegistros = new ModificarRegistros();
+            modificarRegistros.ShowDialog();
+            this.Show();
+        }
     }
 }

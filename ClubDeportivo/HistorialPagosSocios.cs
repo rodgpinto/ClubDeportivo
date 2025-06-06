@@ -15,6 +15,8 @@ namespace ClubDeportivo
         public HistorialPagosSocios(DataTable pagos)
         {
             InitializeComponent();
+
+            // Configurar el DataGridView para mostrar los datos de pagos
             dgvPagos.DataSource = pagos;
 
         }

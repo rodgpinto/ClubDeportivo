@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 namespace ClubDeportivo.Datos
 {
+
     internal class Conexion
     {
+        //Creamos la conexion a la base de datos
         private static Conexion? instancia = null;
 
         private Conexion() { }

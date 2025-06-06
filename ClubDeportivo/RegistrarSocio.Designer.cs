@@ -65,7 +65,6 @@
             cboFormaDePago = new ComboBox();
             label12 = new Label();
             lblFormaPago = new Label();
-            txtFechaVencimiento = new TextBox();
             label11 = new Label();
             label14 = new Label();
             pictureBox1 = new PictureBox();
@@ -73,8 +72,8 @@
             grpbDatos = new GroupBox();
             btnSubirFoto = new Button();
             grpbPago = new GroupBox();
+            dtpFechaVencimiento = new DateTimePicker();
             btnCarnet = new Button();
-            btnCerrar = new Button();
             cboTipo = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)picFoto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -414,7 +413,6 @@
             dtpFechaPago.Size = new Size(129, 25);
             dtpFechaPago.TabIndex = 10;
             dtpFechaPago.Value = new DateTime(2025, 5, 30, 12, 13, 25, 0);
-            dtpFechaPago.ValueChanged += dtpFechaPago_ValueChanged;
             // 
             // lbFechalVencimiento
             // 
@@ -467,17 +465,6 @@
             lblFormaPago.Size = new Size(116, 19);
             lblFormaPago.TabIndex = 38;
             lblFormaPago.Text = "Forma de pago:";
-            // 
-            // txtFechaVencimiento
-            // 
-            txtFechaVencimiento.BorderStyle = BorderStyle.FixedSingle;
-            txtFechaVencimiento.Cursor = Cursors.No;
-            txtFechaVencimiento.Location = new Point(169, 104);
-            txtFechaVencimiento.Name = "txtFechaVencimiento";
-            txtFechaVencimiento.ReadOnly = true;
-            txtFechaVencimiento.Size = new Size(128, 25);
-            txtFechaVencimiento.TabIndex = 0;
-            txtFechaVencimiento.TabStop = false;
             // 
             // label11
             // 
@@ -573,13 +560,13 @@
             // 
             // grpbPago
             // 
+            grpbPago.Controls.Add(dtpFechaVencimiento);
             grpbPago.Controls.Add(lblFormaPago);
             grpbPago.Controls.Add(lblCuota);
             grpbPago.Controls.Add(txtCuota);
             grpbPago.Controls.Add(label9);
             grpbPago.Controls.Add(label11);
             grpbPago.Controls.Add(lblFechaPago);
-            grpbPago.Controls.Add(txtFechaVencimiento);
             grpbPago.Controls.Add(dtpFechaPago);
             grpbPago.Controls.Add(lbFechalVencimiento);
             grpbPago.Controls.Add(label12);
@@ -592,6 +579,15 @@
             grpbPago.TabIndex = 9;
             grpbPago.TabStop = false;
             grpbPago.Text = "Pago";
+            // 
+            // dtpFechaVencimiento
+            // 
+            dtpFechaVencimiento.Cursor = Cursors.Hand;
+            dtpFechaVencimiento.Location = new Point(169, 104);
+            dtpFechaVencimiento.Name = "dtpFechaVencimiento";
+            dtpFechaVencimiento.Size = new Size(129, 25);
+            dtpFechaVencimiento.TabIndex = 41;
+            dtpFechaVencimiento.Value = new DateTime(2025, 5, 30, 12, 13, 25, 0);
             // 
             // btnCarnet
             // 
@@ -609,22 +605,6 @@
             btnCarnet.UseVisualStyleBackColor = false;
             btnCarnet.Click += btnCarnet_Click;
             // 
-            // btnCerrar
-            // 
-            btnCerrar.BackColor = Color.FromArgb(201, 241, 253);
-            btnCerrar.BackgroundImage = (Image)resources.GetObject("btnCerrar.BackgroundImage");
-            btnCerrar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnCerrar.Cursor = Cursors.Hand;
-            btnCerrar.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
-            btnCerrar.FlatAppearance.BorderSize = 0;
-            btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.Location = new Point(451, 12);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(33, 29);
-            btnCerrar.TabIndex = 52;
-            btnCerrar.UseVisualStyleBackColor = false;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
             // fRegistrarSocio
             // 
             AcceptButton = btnIngresarDato;
@@ -632,7 +612,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 241, 253);
             ClientSize = new Size(496, 724);
-            Controls.Add(btnCerrar);
             Controls.Add(btnCarnet);
             Controls.Add(grpbPago);
             Controls.Add(grpbDatos);
@@ -693,7 +672,6 @@
         private ComboBox cboFormaDePago;
         private Label label12;
         private Label lblFormaPago;
-        private TextBox txtFechaVencimiento;
         private Label label11;
         private Label label14;
         private PictureBox pictureBox1;
@@ -702,6 +680,6 @@
         private GroupBox grpbPago;
         private Button btnCarnet;
         private Button btnSubirFoto;
-        private Button btnCerrar;
+        private DateTimePicker dtpFechaVencimiento;
     }
 }

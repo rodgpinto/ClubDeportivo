@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fListarSocios));
             dtgvRegistros = new DataGridView();
             label1 = new Label();
-            btnCerrar = new Button();
             btnAtras = new Button();
             lblRegistrar = new Label();
             pictureBox1 = new PictureBox();
@@ -62,22 +61,6 @@
             label1.TabIndex = 11;
             label1.Text = "Socios Registrados";
             // 
-            // btnCerrar
-            // 
-            btnCerrar.BackColor = Color.FromArgb(201, 241, 253);
-            btnCerrar.BackgroundImage = (Image)resources.GetObject("btnCerrar.BackgroundImage");
-            btnCerrar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnCerrar.Cursor = Cursors.Hand;
-            btnCerrar.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
-            btnCerrar.FlatAppearance.BorderSize = 0;
-            btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.Location = new Point(920, 13);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(33, 29);
-            btnCerrar.TabIndex = 35;
-            btnCerrar.UseVisualStyleBackColor = false;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
             // btnAtras
             // 
             btnAtras.BackColor = Color.FromArgb(201, 241, 253);
@@ -87,7 +70,7 @@
             btnAtras.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
             btnAtras.FlatAppearance.BorderSize = 0;
             btnAtras.FlatStyle = FlatStyle.Flat;
-            btnAtras.Location = new Point(879, 13);
+            btnAtras.Location = new Point(925, 9);
             btnAtras.Name = "btnAtras";
             btnAtras.Size = new Size(33, 29);
             btnAtras.TabIndex = 34;
@@ -122,7 +105,6 @@
             ClientSize = new Size(970, 450);
             Controls.Add(lblRegistrar);
             Controls.Add(pictureBox1);
-            Controls.Add(btnCerrar);
             Controls.Add(btnAtras);
             Controls.Add(label1);
             Controls.Add(dtgvRegistros);
@@ -140,7 +122,6 @@
         #endregion
         private DataGridView dtgvRegistros;
         private Label label1;
-        private Button btnCerrar;
         private Button btnAtras;
         private Label lblRegistrar;
         private PictureBox pictureBox1;

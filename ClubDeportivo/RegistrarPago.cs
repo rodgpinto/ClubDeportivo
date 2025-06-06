@@ -22,9 +22,9 @@ namespace ClubDeportivo
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            this.Close();
-            fRegistrar Registrar = new fRegistrar();
-            Registrar.Show();
+            this.Hide();
+
+
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -38,6 +38,14 @@ namespace ClubDeportivo
             this.Hide();
             RegistrarPagoSocio registrarPagoSocio = new RegistrarPagoSocio();
             registrarPagoSocio.ShowDialog();
+            this.Show();
+        }
+
+        private void btnRegistrarPagoNoSocio_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegistrarPagoNoSocio registrarPagoNoSocio = new();
+            registrarPagoNoSocio.ShowDialog();
             this.Show();
         }
     }
