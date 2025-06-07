@@ -24,7 +24,7 @@ namespace ClubDeportivo.Datos
         // Implementamos el método ListarPersonas() de la clase Persona
         public DataTable ListarSocios()
         {
-            return ListarPersonas("socios ");
+            return ListarPersonas("ListarSocios");
         }
 
         // Método para obtener la foto del carnet de un socio por su ID

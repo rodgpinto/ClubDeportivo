@@ -121,3 +121,4 @@ C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado
 C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.ConsultarSocio.resources
 C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.ModificarNoSocio.resources
 C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.ConsultarNoSocio.resources
+C:\Users\Driscoll\Desktop\Programacion\Facultad\Desarrollo de Sistemas Orientado a Objetos\Form\ClubDeportivo\ClubDeportivo\obj\Debug\net8.0-windows\ClubDeportivo.ListarNoSocios.resources

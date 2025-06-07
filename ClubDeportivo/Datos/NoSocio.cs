@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,13 @@ namespace ClubDeportivo.Datos
 // Creamos el contructor 
         public NoSocio() : base()
         {
+        }
+
+        // Implementamos el método ListarPersonas() de la clase Persona
+
+        public DataTable ListarNoSocios()
+        {
+            return ListarPersonas("ListarNoSocios");
         }
 
 

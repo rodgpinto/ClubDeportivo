@@ -58,7 +58,7 @@ CREATE TABLE `nosocios` (
   PRIMARY KEY (`id_NoSocio`),
   KEY `FK_personaId` (`personaId`),
   CONSTRAINT `FK_personaId` FOREIGN KEY (`personaId`) REFERENCES `persona` (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,6 +67,7 @@ CREATE TABLE `nosocios` (
 
 LOCK TABLES `nosocios` WRITE;
 /*!40000 ALTER TABLE `nosocios` DISABLE KEYS */;
+INSERT INTO `nosocios` VALUES (2,8,1);
 /*!40000 ALTER TABLE `nosocios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,7 +89,7 @@ CREATE TABLE `pago_actividad` (
   PRIMARY KEY (`idPagoActividad`),
   KEY `FK_no_socio_id` (`id_NoSocio`),
   CONSTRAINT `FK_no_socio_id` FOREIGN KEY (`id_NoSocio`) REFERENCES `nosocios` (`id_NoSocio`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,6 +98,7 @@ CREATE TABLE `pago_actividad` (
 
 LOCK TABLES `pago_actividad` WRITE;
 /*!40000 ALTER TABLE `pago_actividad` DISABLE KEYS */;
+INSERT INTO `pago_actividad` VALUES (2,2,1,5.00,'Tarjeta','2025-06-07','5');
 /*!40000 ALTER TABLE `pago_actividad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +148,7 @@ CREATE TABLE `persona` (
   `direccion` varchar(100) DEFAULT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
   PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,7 +157,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (1,'Rodrigo Guillermo','Pinto',34680145,'Calle Falsa 123','1989-09-23'),(4,'Ragnar','Salchichon',25,'Calle Falsa 123','2025-06-05'),(5,'Dobby','Salchichon',1,'Calle Falsa 123','2025-06-05'),(7,'Kimura','Sawas',36978523,'Calle Falsa 123','2025-06-05');
+INSERT INTO `persona` VALUES (1,'Rodrigo Guillermo','Pinto',34680145,'Calle Falsa 123','1989-09-23'),(4,'Ragnar','Salchichon',25,'Calle Falsa','2025-06-07'),(5,'Dobby','Salchichon',1,'Calle Falsa 123','2025-06-05'),(7,'Kimura','Sawas',36978523,'Calle Falsa 123','2025-06-05'),(8,'Tito','Carlito',24,'2','2025-06-07');
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -594,6 +596,34 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ListarNoSocios` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ListarNoSocios`()
+BEGIN
+    SELECT 
+        ns.id_NoSocio AS id_no_socio,
+        p.nombre AS nombre,
+        p.apellido AS apellido,
+        p.dni AS dni,
+        p.direccion AS direccion,
+        p.fecha_nacimiento AS fecha_nacimiento,
+        IF(ns.ficha_inscripcion = TRUE, 'SI', 'NO') AS ficha_inscripcion
+    FROM nosocios ns
+    INNER JOIN persona p ON ns.personaId = p.codigo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ListarSocios` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -949,4 +979,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-05 22:38:08
+-- Dump completed on 2025-06-07 16:41:51

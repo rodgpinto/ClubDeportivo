@@ -40,6 +40,8 @@
             // 
             // dtgvRegistros
             // 
+            dtgvRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgvRegistros.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dtgvRegistros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvRegistros.Location = new Point(14, 59);
             dtgvRegistros.Name = "dtgvRegistros";

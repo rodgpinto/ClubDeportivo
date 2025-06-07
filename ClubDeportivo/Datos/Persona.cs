@@ -30,7 +30,7 @@ namespace ClubDeportivo.Datos
         public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
 
 
-        //Método para listar personas (lo utilizaremos en Socio)
+        //Método para listar personas (lo utilizaremos en Socio y No Socio)
         public static DataTable ListarPersonas(string mensaje)
         {
             DataTable tabla = new DataTable();
@@ -39,7 +39,7 @@ namespace ClubDeportivo.Datos
             try
             {
                 sqlCon = Conexion.getInstancia().CrearConexion();
-                MySqlCommand comando = new MySqlCommand("ListarSocios", sqlCon);
+                MySqlCommand comando = new MySqlCommand(mensaje, sqlCon);
                 comando.CommandType = CommandType.StoredProcedure;
 
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
@@ -47,7 +47,7 @@ namespace ClubDeportivo.Datos
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar: "+mensaje + ex.Message);
+                throw new Exception("Error al listar: " + ex.Message);
             }
             finally
             {

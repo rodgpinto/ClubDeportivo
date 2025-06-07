@@ -41,13 +41,20 @@ namespace ClubDeportivo
             Registrar.ShowDialog();
             this.Show();
         }
-       
+
 
         private void btnListarSocios_Click(object sender, EventArgs e)
         {
             this.Hide();
             fListarSocios ListarSocios = new fListarSocios();
             ListarSocios.ShowDialog();
+            this.Show();
+        }
+        private void btnListarNoSocios_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ListarNoSocios listarNoSocio = new ListarNoSocios();
+            listarNoSocio.ShowDialog();
             this.Show();
         }
 
@@ -74,5 +81,7 @@ namespace ClubDeportivo
             modificarRegistros.ShowDialog();
             this.Show();
         }
+
+      
     }
 }
