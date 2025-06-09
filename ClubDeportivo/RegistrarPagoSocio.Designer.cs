@@ -33,9 +33,10 @@
             pictureBox1 = new PictureBox();
             label4 = new Label();
             txtDNI = new TextBox();
-            label5 = new Label();
+            lblAvisoDNI = new Label();
             btnBuscar = new Button();
             grpbPago = new GroupBox();
+            dtpFechaVencimiento = new DateTimePicker();
             lblFormaPago = new Label();
             lblCuota = new Label();
             txtCuota = new TextBox();
@@ -54,7 +55,6 @@
             btnIngresarPago = new Button();
             btnLimpiar = new Button();
             btnConsultarPagos = new Button();
-            dtpFechaVencimiento = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             grpbPago.SuspendLayout();
             SuspendLayout();
@@ -95,19 +95,21 @@
             txtDNI.Cursor = Cursors.IBeam;
             txtDNI.Location = new Point(252, 123);
             txtDNI.Name = "txtDNI";
+            txtDNI.PlaceholderText = "1234";
             txtDNI.Size = new Size(128, 23);
             txtDNI.TabIndex = 0;
             // 
-            // label5
+            // lblAvisoDNI
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label5.ForeColor = Color.Red;
-            label5.Location = new Point(386, 127);
-            label5.Name = "label5";
-            label5.Size = new Size(15, 19);
-            label5.TabIndex = 57;
-            label5.Text = "*";
+            lblAvisoDNI.AutoSize = true;
+            lblAvisoDNI.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblAvisoDNI.ForeColor = Color.Red;
+            lblAvisoDNI.Location = new Point(386, 127);
+            lblAvisoDNI.Name = "lblAvisoDNI";
+            lblAvisoDNI.Size = new Size(15, 19);
+            lblAvisoDNI.TabIndex = 57;
+            lblAvisoDNI.Text = "*";
+            lblAvisoDNI.MouseLeave += lblAvisoDNI_MouseLeave;
             // 
             // btnBuscar
             // 
@@ -147,6 +149,15 @@
             grpbPago.TabStop = false;
             grpbPago.Text = "Pago";
             // 
+            // dtpFechaVencimiento
+            // 
+            dtpFechaVencimiento.Cursor = Cursors.Hand;
+            dtpFechaVencimiento.Location = new Point(168, 104);
+            dtpFechaVencimiento.Name = "dtpFechaVencimiento";
+            dtpFechaVencimiento.Size = new Size(129, 25);
+            dtpFechaVencimiento.TabIndex = 41;
+            dtpFechaVencimiento.Value = new DateTime(2025, 5, 30, 12, 13, 25, 0);
+            // 
             // lblFormaPago
             // 
             lblFormaPago.AutoSize = true;
@@ -173,6 +184,7 @@
             txtCuota.Cursor = Cursors.IBeam;
             txtCuota.Location = new Point(169, 30);
             txtCuota.Name = "txtCuota";
+            txtCuota.PlaceholderText = "5000";
             txtCuota.Size = new Size(128, 25);
             txtCuota.TabIndex = 3;
             // 
@@ -289,7 +301,7 @@
             // 
             // btnAtras
             // 
-            btnAtras.BackColor = Color.FromArgb(201, 241, 253);
+            btnAtras.BackColor = Color.FromArgb(236, 240, 241);
             btnAtras.BackgroundImage = (Image)resources.GetObject("btnAtras.BackgroundImage");
             btnAtras.BackgroundImageLayout = ImageLayout.Zoom;
             btnAtras.Cursor = Cursors.Hand;
@@ -305,7 +317,7 @@
             // 
             // btnIngresarPago
             // 
-            btnIngresarPago.BackColor = Color.FromArgb(54, 116, 181);
+            btnIngresarPago.BackColor = Color.FromArgb(231, 76, 60);
             btnIngresarPago.Cursor = Cursors.Hand;
             btnIngresarPago.FlatAppearance.BorderSize = 0;
             btnIngresarPago.FlatStyle = FlatStyle.Flat;
@@ -351,22 +363,13 @@
             btnConsultarPagos.UseVisualStyleBackColor = false;
             btnConsultarPagos.Click += btnConsultarPagos_Click;
             // 
-            // dtpFechaVencimiento
-            // 
-            dtpFechaVencimiento.Cursor = Cursors.Hand;
-            dtpFechaVencimiento.Location = new Point(168, 104);
-            dtpFechaVencimiento.Name = "dtpFechaVencimiento";
-            dtpFechaVencimiento.Size = new Size(129, 25);
-            dtpFechaVencimiento.TabIndex = 41;
-            dtpFechaVencimiento.Value = new DateTime(2025, 5, 30, 12, 13, 25, 0);
-            // 
             // RegistrarPagoSocio
             // 
             AcceptButton = btnBuscar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(201, 241, 253);
-            ClientSize = new Size(496, 560);
+            BackColor = Color.FromArgb(236, 240, 241);
+            ClientSize = new Size(496, 583);
             Controls.Add(btnConsultarPagos);
             Controls.Add(btnLimpiar);
             Controls.Add(btnIngresarPago);
@@ -376,7 +379,7 @@
             Controls.Add(lblIngresarDNI);
             Controls.Add(grpbPago);
             Controls.Add(btnBuscar);
-            Controls.Add(label5);
+            Controls.Add(lblAvisoDNI);
             Controls.Add(txtDNI);
             Controls.Add(label4);
             Controls.Add(lblRegistrar);
@@ -397,7 +400,7 @@
         private PictureBox pictureBox1;
         private Label label4;
         private TextBox txtDNI;
-        private Label label5;
+        private Label lblAvisoDNI;
         private Button btnBuscar;
         private GroupBox grpbPago;
         private Label lblFormaPago;

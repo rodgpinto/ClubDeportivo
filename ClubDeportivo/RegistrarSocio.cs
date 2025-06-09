@@ -83,6 +83,16 @@ namespace ClubDeportivo
                 MessageBoxIcon.Error);
                 return;
             }
+            else if (txtDocumento.Text.Contains(" ") || txtDocumento.Text.Contains("."))
+            {
+                MessageBox.Show("El DNI no debe contener espacios ni puntos.");
+                return;
+            }
+            else if (!int.TryParse(txtDocumento.Text, out _))
+            {
+                MessageBox.Show("El DNI debe tener 8 dígitos numéricos.");
+                return;
+            }
             else if (string.IsNullOrWhiteSpace(txtCuota.Text) || !decimal.TryParse(txtCuota.Text, out _))
             {
                 MessageBox.Show("El monto de la cuota debe ser un número válido.",
@@ -290,6 +300,12 @@ namespace ClubDeportivo
             }
         }
 
-
+        private void lblAvisoDNI_MouseLeave(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.Show("Ingresa el DNI, sin puntos y sin espacios",
+                          lblAvisoDNI,
+                          lblAvisoDNI.Width, 0, 2500); // ms 
+        }
     }
 }

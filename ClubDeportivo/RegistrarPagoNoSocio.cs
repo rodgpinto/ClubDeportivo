@@ -33,7 +33,7 @@ namespace ClubDeportivo
             dtpFechaPago.CustomFormat = "dd/MM/yyyy";
             dtpFechaPago.Value = DateTime.Now;
             // Establecemos la fecha de vencimiento como un día después de la fecha de pago
-            txtFechaVencimiento.Text =  dtpFechaPago.Value.AddDays(1).ToString("dd/MM/yyyy");
+            txtFechaVencimiento.Text = dtpFechaPago.Value.AddDays(1).ToString("dd/MM/yyyy");
         }
 
         // Evento que cierra el formulario y regresa al formulario anterior
@@ -51,6 +51,17 @@ namespace ClubDeportivo
             if (string.IsNullOrEmpty(dni))
             {
                 MessageBox.Show("Por favor, ingrese un DNI.");
+                return;
+            }
+
+            else if (dni.Contains(" ") || dni.Contains("."))
+            {
+                MessageBox.Show("El DNI no debe contener espacios ni puntos.");
+                return;
+            }
+            else if (!int.TryParse(dni, out _))
+            {
+                MessageBox.Show("El DNI debe tener 8 dígitos numéricos.");
                 return;
             }
 
@@ -92,7 +103,7 @@ namespace ClubDeportivo
         {
             // Validación de campos requeridos
             try
-            { 
+            {
                 if (!decimal.TryParse(txtCuota.Text, out decimal cuota) || cuota <= 0)
                 {
                     MessageBox.Show("Por favor, ingrese un monto válido.");
@@ -170,7 +181,7 @@ namespace ClubDeportivo
                     string actividad = cboActividad.Text.ToString();
                     string monto = txtCuota.Text;
                     // Creamos el comprobante de actividad y lo mostramos
-                    ComprobanteActividad comprobante = new ComprobanteActividad(nombreCompleto, dni,formaPago,fechaPago,vencimiento,monto,actividad);
+                    ComprobanteActividad comprobante = new ComprobanteActividad(nombreCompleto, dni, formaPago, fechaPago, vencimiento, monto, actividad);
                     comprobante.ShowDialog();
                 }
 
@@ -250,6 +261,14 @@ namespace ClubDeportivo
             btnIngresarPago.Enabled = false;
             btnLimpiar.Enabled = false;
             btnConsultarPagos.Enabled = false;
+        }
+
+        private void lblAvisoDNI_MouseLeave(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.Show("Ingresa el DNI, sin puntos y sin espacios",
+                          lblAvisoDNI,
+                          lblAvisoDNI.Width, 0, 2500); // ms 
         }
     }
 }

@@ -43,7 +43,7 @@ namespace ClubDeportivo
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
-         
+
         }
 
         // Evento que busca al socio por su DNI ingresado y habilita los controles de pago si el socio existe
@@ -54,6 +54,16 @@ namespace ClubDeportivo
             if (string.IsNullOrEmpty(dni))
             {
                 MessageBox.Show("Por favor, ingrese un DNI.");
+                return;
+            }
+            else if (dni.Contains(" ") || dni.Contains("."))
+            {
+                MessageBox.Show("El DNI no debe contener espacios ni puntos.");
+                return;
+            }
+            else if (!int.TryParse(dni, out _))
+            {
+                MessageBox.Show("El DNI debe tener 8 dígitos numéricos.");
                 return;
             }
 
@@ -225,6 +235,12 @@ namespace ClubDeportivo
             }
         }
 
-
+        private void lblAvisoDNI_MouseLeave(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.Show("Ingresa el DNI, sin puntos y sin espacios",
+                          lblAvisoDNI,
+                          lblAvisoDNI.Width, 0, 2500); // ms 
+        }
     }
 }

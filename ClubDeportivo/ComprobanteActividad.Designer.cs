@@ -79,7 +79,7 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.BackColor = Color.FromArgb(54, 116, 181);
+            btnCerrar.BackColor = Color.FromArgb(231, 76, 60);
             btnCerrar.Cursor = Cursors.Hand;
             btnCerrar.FlatStyle = FlatStyle.Flat;
             btnCerrar.Font = new Font("Segoe UI", 10F);
@@ -334,7 +334,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(201, 241, 253);
+            BackColor = Color.FromArgb(236, 240, 241);
             ClientSize = new Size(404, 404);
             Controls.Add(btnImprimir);
             Controls.Add(btnCerrar);

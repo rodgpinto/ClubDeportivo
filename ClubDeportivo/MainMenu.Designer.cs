@@ -35,12 +35,12 @@
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
+            btnListarNoSocios = new Button();
             btnModificarRegistros = new Button();
             btnListarSocios = new Button();
             btnRegistrar = new Button();
             btnRegistrarPago = new Button();
             btnListarVencimientos = new Button();
-            btnListarNoSocios = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -57,7 +57,7 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.BackColor = Color.FromArgb(201, 241, 253);
+            btnCerrar.BackColor = Color.FromArgb(236, 240, 241);
             btnCerrar.BackgroundImage = (Image)resources.GetObject("btnCerrar.BackgroundImage");
             btnCerrar.BackgroundImageLayout = ImageLayout.Zoom;
             btnCerrar.Cursor = Cursors.Hand;
@@ -120,6 +120,25 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.Size = new Size(447, 249);
             tableLayoutPanel1.TabIndex = 49;
+            // 
+            // btnListarNoSocios
+            // 
+            btnListarNoSocios.Anchor = AnchorStyles.None;
+            btnListarNoSocios.AutoSize = true;
+            btnListarNoSocios.BackColor = Color.FromArgb(54, 116, 181);
+            btnListarNoSocios.Cursor = Cursors.Hand;
+            btnListarNoSocios.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
+            btnListarNoSocios.FlatStyle = FlatStyle.Popup;
+            btnListarNoSocios.Font = new Font("Segoe UI", 10F);
+            btnListarNoSocios.ForeColor = SystemColors.ButtonHighlight;
+            btnListarNoSocios.ImeMode = ImeMode.NoControl;
+            btnListarNoSocios.Location = new Point(252, 90);
+            btnListarNoSocios.Name = "btnListarNoSocios";
+            btnListarNoSocios.Size = new Size(165, 69);
+            btnListarNoSocios.TabIndex = 48;
+            btnListarNoSocios.Text = "Listar no socios";
+            btnListarNoSocios.UseVisualStyleBackColor = false;
+            btnListarNoSocios.Click += btnListarNoSocios_Click;
             // 
             // btnModificarRegistros
             // 
@@ -216,30 +235,11 @@
             btnListarVencimientos.UseVisualStyleBackColor = false;
             btnListarVencimientos.Click += btnListarVencimientos_Click;
             // 
-            // btnListarNoSocios
-            // 
-            btnListarNoSocios.Anchor = AnchorStyles.None;
-            btnListarNoSocios.AutoSize = true;
-            btnListarNoSocios.BackColor = Color.FromArgb(54, 116, 181);
-            btnListarNoSocios.Cursor = Cursors.Hand;
-            btnListarNoSocios.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
-            btnListarNoSocios.FlatStyle = FlatStyle.Popup;
-            btnListarNoSocios.Font = new Font("Segoe UI", 10F);
-            btnListarNoSocios.ForeColor = SystemColors.ButtonHighlight;
-            btnListarNoSocios.ImeMode = ImeMode.NoControl;
-            btnListarNoSocios.Location = new Point(252, 90);
-            btnListarNoSocios.Name = "btnListarNoSocios";
-            btnListarNoSocios.Size = new Size(165, 69);
-            btnListarNoSocios.TabIndex = 48;
-            btnListarNoSocios.Text = "Listar no socios";
-            btnListarNoSocios.UseVisualStyleBackColor = false;
-            btnListarNoSocios.Click += btnListarNoSocios_Click;
-            // 
             // fMainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(201, 241, 253);
+            BackColor = Color.FromArgb(236, 240, 241);
             ClientSize = new Size(471, 354);
             Controls.Add(panel1);
             Controls.Add(lblRegistrar);

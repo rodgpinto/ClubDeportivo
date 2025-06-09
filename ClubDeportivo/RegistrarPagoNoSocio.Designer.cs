@@ -53,7 +53,7 @@
             label10 = new Label();
             cboFormaDePago = new ComboBox();
             btnBuscar = new Button();
-            label5 = new Label();
+            lblAvisoDNI = new Label();
             txtDNI = new TextBox();
             label4 = new Label();
             lblRegistrar = new Label();
@@ -96,7 +96,7 @@
             // 
             // btnIngresarPago
             // 
-            btnIngresarPago.BackColor = Color.FromArgb(54, 116, 181);
+            btnIngresarPago.BackColor = Color.FromArgb(231, 76, 60);
             btnIngresarPago.Cursor = Cursors.Hand;
             btnIngresarPago.FlatAppearance.BorderSize = 0;
             btnIngresarPago.FlatStyle = FlatStyle.Flat;
@@ -112,7 +112,7 @@
             // 
             // btnAtras
             // 
-            btnAtras.BackColor = Color.FromArgb(201, 241, 253);
+            btnAtras.BackColor = Color.FromArgb(236, 240, 241);
             btnAtras.BackgroundImage = (Image)resources.GetObject("btnAtras.BackgroundImage");
             btnAtras.BackgroundImageLayout = ImageLayout.Zoom;
             btnAtras.Cursor = Cursors.Hand;
@@ -349,16 +349,17 @@
             btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click;
             // 
-            // label5
+            // lblAvisoDNI
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label5.ForeColor = Color.Red;
-            label5.Location = new Point(385, 127);
-            label5.Name = "label5";
-            label5.Size = new Size(15, 19);
-            label5.TabIndex = 71;
-            label5.Text = "*";
+            lblAvisoDNI.AutoSize = true;
+            lblAvisoDNI.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblAvisoDNI.ForeColor = Color.Red;
+            lblAvisoDNI.Location = new Point(385, 127);
+            lblAvisoDNI.Name = "lblAvisoDNI";
+            lblAvisoDNI.Size = new Size(15, 19);
+            lblAvisoDNI.TabIndex = 71;
+            lblAvisoDNI.Text = "*";
+            lblAvisoDNI.MouseLeave += lblAvisoDNI_MouseLeave;
             // 
             // txtDNI
             // 
@@ -366,6 +367,7 @@
             txtDNI.Cursor = Cursors.IBeam;
             txtDNI.Location = new Point(251, 123);
             txtDNI.Name = "txtDNI";
+            txtDNI.PlaceholderText = "1234";
             txtDNI.Size = new Size(128, 23);
             txtDNI.TabIndex = 0;
             // 
@@ -403,8 +405,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(201, 241, 253);
-            ClientSize = new Size(496, 560);
+            BackColor = Color.FromArgb(236, 240, 241);
+            ClientSize = new Size(496, 582);
             Controls.Add(btnConsultarPagos);
             Controls.Add(btnLimpiar);
             Controls.Add(btnIngresarPago);
@@ -414,7 +416,7 @@
             Controls.Add(lblIngresarDNI);
             Controls.Add(grpbPago);
             Controls.Add(btnBuscar);
-            Controls.Add(label5);
+            Controls.Add(lblAvisoDNI);
             Controls.Add(txtDNI);
             Controls.Add(label4);
             Controls.Add(lblRegistrar);
@@ -454,7 +456,7 @@
         private Label label10;
         private ComboBox cboFormaDePago;
         private Button btnBuscar;
-        private Label label5;
+        private Label lblAvisoDNI;
         private TextBox txtDNI;
         private Label label4;
         private Label lblRegistrar;

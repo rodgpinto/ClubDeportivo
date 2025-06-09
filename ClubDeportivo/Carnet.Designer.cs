@@ -217,7 +217,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(201, 241, 253);
+            BackColor = Color.FromArgb(236, 240, 241);
             ClientSize = new Size(427, 226);
             Controls.Add(btnImprimir);
             Controls.Add(picFoto);

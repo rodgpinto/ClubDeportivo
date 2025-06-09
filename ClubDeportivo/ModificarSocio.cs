@@ -54,6 +54,17 @@ namespace ClubDeportivo
                 return;
             }
 
+            else if(dni.Contains(" ") || dni.Contains("."))
+            {
+                MessageBox.Show("El DNI no debe contener espacios ni puntos.");
+                return;
+            }
+            else if (!int.TryParse(dni, out _))
+            {
+                MessageBox.Show("El DNI debe tener 8 dígitos numéricos.");
+                return;
+            }
+
             Socio socio = new Socio();
             int? socioId = socio.ObtenerIdPorDNI(dni);
 
@@ -74,7 +85,7 @@ namespace ClubDeportivo
                 }
             }
             else
-            { 
+            {
                 // Si el socio existe, habilitar los controles y mostrar el ID del socio
                 lblSocioID2.Text = socioId.ToString();
                 MessageBox.Show("Socio encontrado. Puede continuar.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -218,6 +229,20 @@ namespace ClubDeportivo
                           lblAviso.Width, 0, 2500); // ms 
         }
 
+        private void lblAvisoDNI_Click(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.Show("Ingresa el DNI, sin puntos y sin espacios",
+                          lblAvisoDNI,
+                          lblAvisoDNI.Width, 0, 2500); // ms 
+        }
+        private void lblAvisoDNI_MouseLeave(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.Show("Ingresa el DNI, sin puntos y sin espacios",
+                          lblAvisoDNI,
+                          lblAvisoDNI.Width, 0, 2500); // ms 
+        }
 
         private byte[]? fotoBytes;
 
@@ -343,6 +368,8 @@ namespace ClubDeportivo
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+     
     }
 }
 

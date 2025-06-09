@@ -232,7 +232,7 @@ namespace ClubDeportivo
 
                     // Dibujar fondo celeste
                     canvas.SaveState();
-                    canvas.SetFillColorRgb(201 / 255f, 241 / 255f, 253 / 255f);
+                    canvas.SetFillColorRgb(236 / 255f, 240 / 255f, 241 / 255f);
                     canvas.Rectangle(0, 0, pageSize.GetWidth(), pageSize.GetHeight());
                     canvas.Fill();
                     canvas.RestoreState();

@@ -54,7 +54,7 @@
             // 
             // btnIngresar
             // 
-            btnIngresar.BackColor = Color.FromArgb(54, 116, 181);
+            btnIngresar.BackColor = Color.FromArgb(231, 76, 60);
             btnIngresar.Cursor = Cursors.Hand;
             btnIngresar.FlatAppearance.BorderColor = Color.FromArgb(54, 116, 181);
             resources.ApplyResources(btnIngresar, "btnIngresar");
@@ -81,7 +81,7 @@
             AcceptButton = btnIngresar;
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(201, 241, 253);
+            BackColor = Color.FromArgb(236, 240, 241);
             Controls.Add(pictureBoxLogin);
             Controls.Add(checkBox);
             Controls.Add(btnIngresar);

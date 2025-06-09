@@ -39,7 +39,7 @@
             txtDocumento = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            label5 = new Label();
+            lblAvisoDNI = new Label();
             label6 = new Label();
             btnIngresarDato = new Button();
             btnLimpiar = new Button();
@@ -97,6 +97,7 @@
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblNombre.ForeColor = SystemColors.ControlText;
             lblNombre.Location = new Point(5, 20);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(69, 19);
@@ -139,6 +140,7 @@
             txtNombre.Cursor = Cursors.IBeam;
             txtNombre.Location = new Point(169, 20);
             txtNombre.Name = "txtNombre";
+            txtNombre.PlaceholderText = "Joe";
             txtNombre.Size = new Size(128, 25);
             txtNombre.TabIndex = 1;
             // 
@@ -148,6 +150,7 @@
             txtApellido.Cursor = Cursors.IBeam;
             txtApellido.Location = new Point(169, 55);
             txtApellido.Name = "txtApellido";
+            txtApellido.PlaceholderText = "Doe";
             txtApellido.Size = new Size(128, 25);
             txtApellido.TabIndex = 2;
             // 
@@ -157,6 +160,7 @@
             txtDocumento.Cursor = Cursors.IBeam;
             txtDocumento.Location = new Point(169, 126);
             txtDocumento.Name = "txtDocumento";
+            txtDocumento.PlaceholderText = "1234";
             txtDocumento.Size = new Size(128, 25);
             txtDocumento.TabIndex = 4;
             // 
@@ -182,16 +186,17 @@
             label2.TabIndex = 9;
             label2.Text = "*";
             // 
-            // label5
+            // lblAvisoDNI
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label5.ForeColor = Color.Red;
-            label5.Location = new Point(303, 130);
-            label5.Name = "label5";
-            label5.Size = new Size(15, 19);
-            label5.TabIndex = 10;
-            label5.Text = "*";
+            lblAvisoDNI.AutoSize = true;
+            lblAvisoDNI.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblAvisoDNI.ForeColor = Color.Red;
+            lblAvisoDNI.Location = new Point(303, 130);
+            lblAvisoDNI.Name = "lblAvisoDNI";
+            lblAvisoDNI.Size = new Size(15, 19);
+            lblAvisoDNI.TabIndex = 10;
+            lblAvisoDNI.Text = "*";
+            lblAvisoDNI.MouseLeave += lblAvisoDNI_MouseLeave;
             // 
             // label6
             // 
@@ -206,7 +211,7 @@
             // 
             // btnIngresarDato
             // 
-            btnIngresarDato.BackColor = Color.FromArgb(54, 116, 181);
+            btnIngresarDato.BackColor = Color.FromArgb(231, 76, 60);
             btnIngresarDato.Cursor = Cursors.Hand;
             btnIngresarDato.FlatAppearance.BorderSize = 0;
             btnIngresarDato.FlatStyle = FlatStyle.Flat;
@@ -238,7 +243,7 @@
             // 
             // btnVolver
             // 
-            btnVolver.BackColor = Color.FromArgb(54, 116, 181);
+            btnVolver.BackColor = Color.FromArgb(231, 76, 60);
             btnVolver.Cursor = Cursors.Hand;
             btnVolver.FlatAppearance.BorderSize = 0;
             btnVolver.FlatStyle = FlatStyle.Flat;
@@ -286,6 +291,7 @@
             txtDireccion.Cursor = Cursors.IBeam;
             txtDireccion.Location = new Point(169, 195);
             txtDireccion.Name = "txtDireccion";
+            txtDireccion.PlaceholderText = "Calle Falsa 123";
             txtDireccion.Size = new Size(129, 25);
             txtDireccion.TabIndex = 6;
             // 
@@ -325,7 +331,7 @@
             // 
             chkFicha.AutoSize = true;
             chkFicha.Cursor = Cursors.Hand;
-            chkFicha.Location = new Point(148, 238);
+            chkFicha.Location = new Point(160, 238);
             chkFicha.Name = "chkFicha";
             chkFicha.Size = new Size(15, 14);
             chkFicha.TabIndex = 7;
@@ -336,7 +342,7 @@
             lblApto.AutoSize = true;
             lblApto.Cursor = Cursors.Hand;
             lblApto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblApto.Location = new Point(169, 233);
+            lblApto.Location = new Point(181, 233);
             lblApto.Name = "lblApto";
             lblApto.Size = new Size(96, 19);
             lblApto.TabIndex = 24;
@@ -359,7 +365,7 @@
             // 
             chkApto.AutoSize = true;
             chkApto.Cursor = Cursors.Hand;
-            chkApto.Location = new Point(282, 236);
+            chkApto.Location = new Point(283, 238);
             chkApto.Name = "chkApto";
             chkApto.Size = new Size(15, 14);
             chkApto.TabIndex = 8;
@@ -381,6 +387,7 @@
             txtCuota.Cursor = Cursors.IBeam;
             txtCuota.Location = new Point(169, 30);
             txtCuota.Name = "txtCuota";
+            txtCuota.PlaceholderText = "5000";
             txtCuota.Size = new Size(128, 25);
             txtCuota.TabIndex = 9;
             // 
@@ -502,6 +509,7 @@
             // 
             lblRegistrar.AutoSize = true;
             lblRegistrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblRegistrar.ForeColor = SystemColors.ControlText;
             lblRegistrar.Location = new Point(38, 11);
             lblRegistrar.Name = "lblRegistrar";
             lblRegistrar.Size = new Size(146, 21);
@@ -522,7 +530,7 @@
             grpbDatos.Controls.Add(cboTipo);
             grpbDatos.Controls.Add(label1);
             grpbDatos.Controls.Add(label2);
-            grpbDatos.Controls.Add(label5);
+            grpbDatos.Controls.Add(lblAvisoDNI);
             grpbDatos.Controls.Add(label6);
             grpbDatos.Controls.Add(lblFechaNacimiento);
             grpbDatos.Controls.Add(dtpFechaNacimiento);
@@ -610,7 +618,7 @@
             AcceptButton = btnIngresarDato;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(201, 241, 253);
+            BackColor = Color.FromArgb(236, 240, 241);
             ClientSize = new Size(496, 724);
             Controls.Add(btnCarnet);
             Controls.Add(grpbPago);
@@ -646,7 +654,7 @@
         private TextBox txtDocumento;
         private Label label1;
         private Label label2;
-        private Label label5;
+        private Label lblAvisoDNI;
         private Label label6;
         private Button btnIngresarDato;
         private Button btnLimpiar;

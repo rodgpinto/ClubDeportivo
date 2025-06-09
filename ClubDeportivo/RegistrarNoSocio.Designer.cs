@@ -41,7 +41,7 @@
             txtDocumento = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            label5 = new Label();
+            lblAvisoDNI = new Label();
             label6 = new Label();
             lblFechaNacimiento = new Label();
             dtpFechaNacimiento = new DateTimePicker();
@@ -72,10 +72,12 @@
             btnIngresarDato = new Button();
             btnLimpiar = new Button();
             btnVolver = new Button();
+            picFoto = new PictureBox();
             cboTipo = new ComboBox();
             grpbDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             grpbPago.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picFoto).BeginInit();
             SuspendLayout();
             // 
             // cboTipo
@@ -103,7 +105,7 @@
             grpbDatos.Controls.Add(cboTipo);
             grpbDatos.Controls.Add(label1);
             grpbDatos.Controls.Add(label2);
-            grpbDatos.Controls.Add(label5);
+            grpbDatos.Controls.Add(lblAvisoDNI);
             grpbDatos.Controls.Add(label6);
             grpbDatos.Controls.Add(lblFechaNacimiento);
             grpbDatos.Controls.Add(dtpFechaNacimiento);
@@ -114,7 +116,7 @@
             grpbDatos.Controls.Add(chkFicha);
             grpbDatos.Controls.Add(label8);
             grpbDatos.Font = new Font("Segoe UI", 10F);
-            grpbDatos.Location = new Point(77, 79);
+            grpbDatos.Location = new Point(77, 130);
             grpbDatos.Name = "grpbDatos";
             grpbDatos.Size = new Size(342, 274);
             grpbDatos.TabIndex = 1;
@@ -178,6 +180,7 @@
             txtNombre.Cursor = Cursors.IBeam;
             txtNombre.Location = new Point(169, 20);
             txtNombre.Name = "txtNombre";
+            txtNombre.PlaceholderText = "Joe";
             txtNombre.Size = new Size(128, 25);
             txtNombre.TabIndex = 2;
             // 
@@ -187,6 +190,7 @@
             txtApellido.Cursor = Cursors.IBeam;
             txtApellido.Location = new Point(169, 55);
             txtApellido.Name = "txtApellido";
+            txtApellido.PlaceholderText = "Doe";
             txtApellido.Size = new Size(128, 25);
             txtApellido.TabIndex = 3;
             // 
@@ -196,6 +200,7 @@
             txtDocumento.Cursor = Cursors.IBeam;
             txtDocumento.Location = new Point(169, 126);
             txtDocumento.Name = "txtDocumento";
+            txtDocumento.PlaceholderText = "1234";
             txtDocumento.Size = new Size(128, 25);
             txtDocumento.TabIndex = 5;
             // 
@@ -221,16 +226,17 @@
             label2.TabIndex = 9;
             label2.Text = "*";
             // 
-            // label5
+            // lblAvisoDNI
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label5.ForeColor = Color.Red;
-            label5.Location = new Point(303, 130);
-            label5.Name = "label5";
-            label5.Size = new Size(15, 19);
-            label5.TabIndex = 10;
-            label5.Text = "*";
+            lblAvisoDNI.AutoSize = true;
+            lblAvisoDNI.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblAvisoDNI.ForeColor = Color.Red;
+            lblAvisoDNI.Location = new Point(303, 130);
+            lblAvisoDNI.Name = "lblAvisoDNI";
+            lblAvisoDNI.Size = new Size(15, 19);
+            lblAvisoDNI.TabIndex = 10;
+            lblAvisoDNI.Text = "*";
+            lblAvisoDNI.MouseLeave += lblAvisoDNI_MouseLeave;
             // 
             // label6
             // 
@@ -278,6 +284,7 @@
             txtDireccion.Cursor = Cursors.IBeam;
             txtDireccion.Location = new Point(169, 195);
             txtDireccion.Name = "txtDireccion";
+            txtDireccion.PlaceholderText = "Calle Falsa 123";
             txtDireccion.Size = new Size(129, 25);
             txtDireccion.TabIndex = 7;
             // 
@@ -363,7 +370,7 @@
             grpbPago.Controls.Add(label10);
             grpbPago.Controls.Add(cboFormaDePago);
             grpbPago.Font = new Font("Segoe UI", 10F);
-            grpbPago.Location = new Point(77, 359);
+            grpbPago.Location = new Point(77, 410);
             grpbPago.Name = "grpbPago";
             grpbPago.Size = new Size(342, 226);
             grpbPago.TabIndex = 9;
@@ -437,6 +444,7 @@
             txtActividad.Cursor = Cursors.IBeam;
             txtActividad.Location = new Point(170, 73);
             txtActividad.Name = "txtActividad";
+            txtActividad.PlaceholderText = "5000";
             txtActividad.Size = new Size(128, 25);
             txtActividad.TabIndex = 11;
             // 
@@ -526,15 +534,15 @@
             // 
             // btnIngresarDato
             // 
-            btnIngresarDato.BackColor = Color.FromArgb(54, 116, 181);
+            btnIngresarDato.BackColor = Color.FromArgb(231, 76, 60);
             btnIngresarDato.Cursor = Cursors.Hand;
             btnIngresarDato.FlatAppearance.BorderSize = 0;
             btnIngresarDato.FlatStyle = FlatStyle.Flat;
             btnIngresarDato.Font = new Font("Segoe UI", 10F);
             btnIngresarDato.ForeColor = SystemColors.ButtonHighlight;
-            btnIngresarDato.Location = new Point(77, 591);
+            btnIngresarDato.Location = new Point(77, 683);
             btnIngresarDato.Name = "btnIngresarDato";
-            btnIngresarDato.Size = new Size(100, 29);
+            btnIngresarDato.Size = new Size(134, 29);
             btnIngresarDato.TabIndex = 48;
             btnIngresarDato.Text = "INGRESAR";
             btnIngresarDato.UseVisualStyleBackColor = false;
@@ -548,9 +556,9 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Segoe UI", 10F);
             btnLimpiar.ForeColor = SystemColors.ButtonHighlight;
-            btnLimpiar.Location = new Point(199, 591);
+            btnLimpiar.Location = new Point(285, 642);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(100, 29);
+            btnLimpiar.Size = new Size(134, 29);
             btnLimpiar.TabIndex = 49;
             btnLimpiar.Text = "LIMPIAR";
             btnLimpiar.UseVisualStyleBackColor = false;
@@ -558,26 +566,37 @@
             // 
             // btnVolver
             // 
-            btnVolver.BackColor = Color.FromArgb(54, 116, 181);
+            btnVolver.BackColor = Color.FromArgb(231, 76, 60);
             btnVolver.Cursor = Cursors.Hand;
             btnVolver.FlatAppearance.BorderSize = 0;
             btnVolver.FlatStyle = FlatStyle.Flat;
             btnVolver.Font = new Font("Segoe UI", 10F);
             btnVolver.ForeColor = SystemColors.ButtonHighlight;
-            btnVolver.Location = new Point(319, 591);
+            btnVolver.Location = new Point(285, 683);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(100, 29);
+            btnVolver.Size = new Size(134, 29);
             btnVolver.TabIndex = 50;
             btnVolver.Text = "VOLVER";
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
+            // picFoto
+            // 
+            picFoto.BackgroundImage = (Image)resources.GetObject("picFoto.BackgroundImage");
+            picFoto.BackgroundImageLayout = ImageLayout.Zoom;
+            picFoto.Location = new Point(213, 57);
+            picFoto.Name = "picFoto";
+            picFoto.Size = new Size(64, 67);
+            picFoto.TabIndex = 51;
+            picFoto.TabStop = false;
+            // 
             // RegistrarNoSocio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(201, 241, 253);
-            ClientSize = new Size(496, 724);
+            BackColor = Color.FromArgb(236, 240, 241);
+            ClientSize = new Size(496, 744);
+            Controls.Add(picFoto);
             Controls.Add(btnVolver);
             Controls.Add(btnLimpiar);
             Controls.Add(btnIngresarDato);
@@ -595,6 +614,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             grpbPago.ResumeLayout(false);
             grpbPago.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picFoto).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -612,7 +632,7 @@
         private TextBox txtDocumento;
         private Label label1;
         private Label label2;
-        private Label label5;
+        private Label lblAvisoDNI;
         private Label label6;
         private Label lblFechaNacimiento;
         private DateTimePicker dtpFechaNacimiento;
@@ -643,5 +663,6 @@
         private Button btnVolver;
         private Label label13;
         private DateTimePicker dtpFechaVencimiento;
+        private PictureBox picFoto;
     }
 }

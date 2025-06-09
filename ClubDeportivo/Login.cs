@@ -1,6 +1,11 @@
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
-using Org.BouncyCastle.Tls;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClubDeportivo.Datos;
 
@@ -8,15 +13,12 @@ namespace ClubDeportivo
 {
     public partial class fLogin : Form
     {
-
-
         public fLogin()
         {
             InitializeComponent();
         }
 
-        // Evento para mostrar/ocultar la contraseña
-
+        // Evento para mostrar/ocultar la contraseÃ±a
         private void txtPass_Enter(object sender, EventArgs e)
         {
             txtPass.UseSystemPasswordChar = true;
@@ -25,10 +27,9 @@ namespace ClubDeportivo
             {
                 txtPass.UseSystemPasswordChar = false;
             }
-
         }
 
-        // Evento para iniciar sesión al hacer clic en el botón "Ingresar", valida las credenciales ingresadas
+        // Evento para iniciar sesiÃ³n al hacer clic en el botÃ³n "Ingresar", valida las credenciales ingresadas
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             DataTable tablaLogin = new DataTable();
@@ -44,13 +45,10 @@ namespace ClubDeportivo
                 MainMenu.rol = Convert.ToString(tablaLogin.Rows[0][0]);
                 
                 MainMenu.ShowDialog();
-
-
             }
             else
             {
-                MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                MessageBox.Show("Usuario o contraseÃ±a incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

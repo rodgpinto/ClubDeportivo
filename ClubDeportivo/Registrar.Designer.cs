@@ -93,7 +93,7 @@
             // 
             // btnAtras
             // 
-            btnAtras.BackColor = Color.FromArgb(201, 241, 253);
+            btnAtras.BackColor = Color.FromArgb(236, 240, 241);
             btnAtras.BackgroundImage = (Image)resources.GetObject("btnAtras.BackgroundImage");
             btnAtras.BackgroundImageLayout = ImageLayout.Zoom;
             btnAtras.Cursor = Cursors.Hand;
@@ -111,7 +111,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(201, 241, 253);
+            BackColor = Color.FromArgb(236, 240, 241);
             ClientSize = new Size(340, 257);
             Controls.Add(btnAtras);
             Controls.Add(pictureBox1);

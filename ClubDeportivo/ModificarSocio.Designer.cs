@@ -36,7 +36,7 @@
             btnConsultar = new Button();
             lblIngresarDNI = new Label();
             btnBuscar = new Button();
-            label5 = new Label();
+            lblAvisoDNI = new Label();
             txtDNI = new TextBox();
             lblDocumento = new Label();
             grpbDatos = new GroupBox();
@@ -61,6 +61,7 @@
             btnEliminarSocio = new Button();
             toolTip1 = new ToolTip(components);
             lblAviso = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             grpbDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picFoto).BeginInit();
@@ -68,7 +69,7 @@
             // 
             // btnAtras
             // 
-            btnAtras.BackColor = Color.FromArgb(201, 241, 253);
+            btnAtras.BackColor = Color.FromArgb(236, 240, 241);
             btnAtras.BackgroundImage = (Image)resources.GetObject("btnAtras.BackgroundImage");
             btnAtras.BackgroundImageLayout = ImageLayout.Zoom;
             btnAtras.Cursor = Cursors.Hand;
@@ -144,16 +145,18 @@
             btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click;
             // 
-            // label5
+            // lblAvisoDNI
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label5.ForeColor = Color.Red;
-            label5.Location = new Point(417, 124);
-            label5.Name = "label5";
-            label5.Size = new Size(15, 19);
-            label5.TabIndex = 74;
-            label5.Text = "*";
+            lblAvisoDNI.AutoSize = true;
+            lblAvisoDNI.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblAvisoDNI.ForeColor = Color.Red;
+            lblAvisoDNI.Location = new Point(417, 124);
+            lblAvisoDNI.Name = "lblAvisoDNI";
+            lblAvisoDNI.Size = new Size(15, 19);
+            lblAvisoDNI.TabIndex = 74;
+            lblAvisoDNI.Text = "*";
+            lblAvisoDNI.Click += lblAvisoDNI_Click;
+            lblAvisoDNI.MouseLeave += lblAvisoDNI_MouseLeave;
             // 
             // txtDNI
             // 
@@ -162,6 +165,7 @@
             txtDNI.Font = new Font("Segoe UI", 10F);
             txtDNI.Location = new Point(279, 120);
             txtDNI.Name = "txtDNI";
+            txtDNI.PlaceholderText = "1234";
             txtDNI.Size = new Size(134, 25);
             txtDNI.TabIndex = 70;
             // 
@@ -259,6 +263,7 @@
             txtNombre.Cursor = Cursors.IBeam;
             txtNombre.Location = new Point(174, 18);
             txtNombre.Name = "txtNombre";
+            txtNombre.PlaceholderText = "Joe";
             txtNombre.Size = new Size(134, 25);
             txtNombre.TabIndex = 1;
             // 
@@ -268,6 +273,7 @@
             txtApellido.Cursor = Cursors.IBeam;
             txtApellido.Location = new Point(174, 55);
             txtApellido.Name = "txtApellido";
+            txtApellido.PlaceholderText = "Doe";
             txtApellido.Size = new Size(134, 25);
             txtApellido.TabIndex = 2;
             // 
@@ -277,6 +283,7 @@
             txtDNI2.Cursor = Cursors.IBeam;
             txtDNI2.Location = new Point(174, 89);
             txtDNI2.Name = "txtDNI2";
+            txtDNI2.PlaceholderText = "1234";
             txtDNI2.Size = new Size(134, 25);
             txtDNI2.TabIndex = 4;
             // 
@@ -335,7 +342,7 @@
             // 
             // btnVolver
             // 
-            btnVolver.BackColor = Color.FromArgb(54, 116, 181);
+            btnVolver.BackColor = Color.FromArgb(231, 76, 60);
             btnVolver.Cursor = Cursors.Hand;
             btnVolver.FlatAppearance.BorderSize = 0;
             btnVolver.FlatStyle = FlatStyle.Flat;
@@ -367,7 +374,7 @@
             // 
             // btnIngresar
             // 
-            btnIngresar.BackColor = Color.FromArgb(54, 116, 181);
+            btnIngresar.BackColor = Color.FromArgb(231, 76, 60);
             btnIngresar.Cursor = Cursors.Hand;
             btnIngresar.FlatAppearance.BorderSize = 0;
             btnIngresar.FlatStyle = FlatStyle.Flat;
@@ -433,14 +440,27 @@
             lblAviso.Text = "?";
             lblAviso.Click += lblAviso_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(419, 326);
+            label1.Name = "label1";
+            label1.Size = new Size(15, 19);
+            label1.TabIndex = 87;
+            label1.Text = "*";
+            label1.MouseLeave += lblAvisoDNI_Click;
+            // 
             // ModificarSocio
             // 
             AcceptButton = btnBuscar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(201, 241, 253);
+            BackColor = Color.FromArgb(236, 240, 241);
             CancelButton = btnAtras;
             ClientSize = new Size(538, 613);
+            Controls.Add(label1);
             Controls.Add(lblAviso);
             Controls.Add(btnEliminarSocio);
             Controls.Add(lblSocioID2);
@@ -453,7 +473,7 @@
             Controls.Add(btnConsultar);
             Controls.Add(lblIngresarDNI);
             Controls.Add(btnBuscar);
-            Controls.Add(label5);
+            Controls.Add(lblAvisoDNI);
             Controls.Add(txtDNI);
             Controls.Add(lblDocumento);
             Controls.Add(lblModificarSocio);
@@ -492,7 +512,7 @@
         
         private Label lblIngresarDNI;
         private Button btnBuscar;
-        private Label label5;
+        private Label lblAvisoDNI;
         private TextBox txtDNI;
         private Label lblDocumento;
         private GroupBox grpbDatos;
@@ -510,5 +530,6 @@
         private Button btnEliminarSocio;
         private ToolTip toolTip1;
         private Label lblAviso;
+        private Label label1;
     }
 }
