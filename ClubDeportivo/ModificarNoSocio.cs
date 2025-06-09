@@ -48,6 +48,16 @@ namespace ClubDeportivo
                 MessageBox.Show("Por favor, ingrese un DNI.");
                 return;
             }
+            else if (dni.Contains(" ") || dni.Contains("."))
+            {
+                MessageBox.Show("El DNI no debe contener espacios ni puntos.");
+                return;
+            }
+            else if (!int.TryParse(dni, out _))
+            {
+                MessageBox.Show("El DNI debe tener 8 dígitos numéricos.");
+                return;
+            }
 
             NoSocio noSocio = new NoSocio();
             int? noSocioId = noSocio.ObtenerIdPorDNI(dni);
