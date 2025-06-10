@@ -66,7 +66,7 @@
             txtID.Location = new Point(168, 16);
             txtID.Name = "txtID";
             txtID.ReadOnly = true;
-            txtID.Size = new Size(145, 29);
+            txtID.Size = new Size(190, 29);
             txtID.TabIndex = 1;
             // 
             // txtNombre
@@ -75,7 +75,7 @@
             txtNombre.Location = new Point(168, 57);
             txtNombre.Name = "txtNombre";
             txtNombre.ReadOnly = true;
-            txtNombre.Size = new Size(145, 29);
+            txtNombre.Size = new Size(190, 29);
             txtNombre.TabIndex = 3;
             // 
             // lblNombre
@@ -95,7 +95,7 @@
             txtApellido.Location = new Point(168, 98);
             txtApellido.Name = "txtApellido";
             txtApellido.ReadOnly = true;
-            txtApellido.Size = new Size(145, 29);
+            txtApellido.Size = new Size(190, 29);
             txtApellido.TabIndex = 5;
             // 
             // lblApellido
@@ -115,7 +115,7 @@
             txtDNI.Location = new Point(168, 139);
             txtDNI.Name = "txtDNI";
             txtDNI.ReadOnly = true;
-            txtDNI.Size = new Size(145, 29);
+            txtDNI.Size = new Size(190, 29);
             txtDNI.TabIndex = 7;
             // 
             // lblDNI
@@ -135,7 +135,7 @@
             txtDireccion.Location = new Point(168, 183);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.ReadOnly = true;
-            txtDireccion.Size = new Size(145, 29);
+            txtDireccion.Size = new Size(190, 29);
             txtDireccion.TabIndex = 9;
             // 
             // lblDireccion
@@ -152,16 +152,16 @@
             // dtpFechaNacimiento
             // 
             dtpFechaNacimiento.Font = new Font("Segoe UI", 12F);
-            dtpFechaNacimiento.Location = new Point(168, 218);
+            dtpFechaNacimiento.Location = new Point(168, 228);
             dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            dtpFechaNacimiento.Size = new Size(145, 29);
+            dtpFechaNacimiento.Size = new Size(190, 29);
             dtpFechaNacimiento.TabIndex = 10;
             // 
             // lblFechaNacimiento
             // 
             lblFechaNacimiento.AutoSize = true;
             lblFechaNacimiento.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblFechaNacimiento.Location = new Point(6, 224);
+            lblFechaNacimiento.Location = new Point(6, 235);
             lblFechaNacimiento.Name = "lblFechaNacimiento";
             lblFechaNacimiento.Padding = new Padding(0, 0, 0, 20);
             lblFechaNacimiento.Size = new Size(156, 40);
@@ -184,7 +184,7 @@
             groupBox1.Controls.Add(lblNombre);
             groupBox1.Location = new Point(12, 68);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(323, 290);
+            groupBox1.Size = new Size(364, 290);
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos Socio";
@@ -230,7 +230,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
-            ClientSize = new Size(351, 384);
+            ClientSize = new Size(388, 384);
             Controls.Add(lblConsultarSocio);
             Controls.Add(pictureBox1);
             Controls.Add(btnAtras);

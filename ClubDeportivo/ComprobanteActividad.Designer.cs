@@ -69,7 +69,7 @@
             btnImprimir.FlatStyle = FlatStyle.Flat;
             btnImprimir.Font = new Font("Segoe UI", 10F);
             btnImprimir.ForeColor = SystemColors.ButtonHighlight;
-            btnImprimir.Location = new Point(222, 351);
+            btnImprimir.Location = new Point(253, 346);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(84, 31);
             btnImprimir.TabIndex = 11;
@@ -84,7 +84,7 @@
             btnCerrar.FlatStyle = FlatStyle.Flat;
             btnCerrar.Font = new Font("Segoe UI", 10F);
             btnCerrar.ForeColor = SystemColors.ButtonHighlight;
-            btnCerrar.Location = new Point(96, 351);
+            btnCerrar.Location = new Point(127, 346);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(75, 31);
             btnCerrar.TabIndex = 10;
@@ -112,7 +112,7 @@
             panelDatos.Controls.Add(lblNombreCompleto);
             panelDatos.Location = new Point(12, 127);
             panelDatos.Name = "panelDatos";
-            panelDatos.Size = new Size(380, 196);
+            panelDatos.Size = new Size(440, 196);
             panelDatos.TabIndex = 9;
             // 
             // lblActividad2
@@ -255,9 +255,9 @@
             panelDerecho.BorderStyle = BorderStyle.FixedSingle;
             panelDerecho.Controls.Add(lblFechaActual);
             panelDerecho.Controls.Add(lblFecha);
-            panelDerecho.Location = new Point(205, 46);
+            panelDerecho.Location = new Point(236, 46);
             panelDerecho.Name = "panelDerecho";
-            panelDerecho.Size = new Size(187, 75);
+            panelDerecho.Size = new Size(216, 75);
             panelDerecho.TabIndex = 8;
             // 
             // lblFechaActual
@@ -287,14 +287,14 @@
             panelIzquierdo.Controls.Add(lblClubDeportivo);
             panelIzquierdo.Location = new Point(12, 46);
             panelIzquierdo.Name = "panelIzquierdo";
-            panelIzquierdo.Size = new Size(187, 75);
+            panelIzquierdo.Size = new Size(218, 75);
             panelIzquierdo.TabIndex = 7;
             // 
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(120, 2);
+            pictureBox1.Location = new Point(130, 2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(66, 69);
             pictureBox1.TabIndex = 1;
@@ -316,7 +316,7 @@
             panelSuperior.Controls.Add(lblComprobante);
             panelSuperior.Location = new Point(12, 11);
             panelSuperior.Name = "panelSuperior";
-            panelSuperior.Size = new Size(380, 32);
+            panelSuperior.Size = new Size(440, 32);
             panelSuperior.TabIndex = 6;
             // 
             // lblComprobante
@@ -335,7 +335,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
-            ClientSize = new Size(404, 404);
+            ClientSize = new Size(464, 404);
             Controls.Add(btnImprimir);
             Controls.Add(btnCerrar);
             Controls.Add(panelDatos);

@@ -160,7 +160,7 @@ namespace ClubDeportivo
                                     : DateTime.MinValue;
 
                                 // Mostrar formulario nuevo con los datos
-                                ConsultarSocio consultaForm = new ConsultarSocio(id, nombre, apellido, dniLeido, direccion, fechaNacimiento);
+                                ConsultarNoSocio consultaForm = new ConsultarNoSocio(id, nombre, apellido, dniLeido, direccion, fechaNacimiento);
                                 this.Hide();
                                 consultaForm.ShowDialog();
                                 this.Show();

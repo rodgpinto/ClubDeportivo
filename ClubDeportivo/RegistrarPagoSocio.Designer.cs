@@ -57,6 +57,7 @@
             btnConsultarPagos = new Button();
             label15 = new Label();
             label5 = new Label();
+            btnVolver = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             grpbPago.SuspendLayout();
             SuspendLayout();
@@ -325,7 +326,7 @@
             btnIngresarPago.FlatStyle = FlatStyle.Flat;
             btnIngresarPago.Font = new Font("Segoe UI", 10F);
             btnIngresarPago.ForeColor = SystemColors.ButtonHighlight;
-            btnIngresarPago.Location = new Point(83, 479);
+            btnIngresarPago.Location = new Point(89, 514);
             btnIngresarPago.Name = "btnIngresarPago";
             btnIngresarPago.Size = new Size(128, 29);
             btnIngresarPago.TabIndex = 6;
@@ -370,7 +371,7 @@
             label15.AutoSize = true;
             label15.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.Red;
-            label15.Location = new Point(240, 533);
+            label15.Location = new Point(240, 569);
             label15.Name = "label15";
             label15.Size = new Size(21, 16);
             label15.TabIndex = 80;
@@ -380,11 +381,27 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            label5.Location = new Point(83, 535);
+            label5.Location = new Point(83, 571);
             label5.Name = "label5";
             label5.Size = new Size(154, 13);
             label5.TabIndex = 79;
             label5.Text = "CAMPOS OBLIGATORIOS";
+            // 
+            // btnVolver
+            // 
+            btnVolver.BackColor = Color.FromArgb(231, 76, 60);
+            btnVolver.Cursor = Cursors.Hand;
+            btnVolver.FlatAppearance.BorderSize = 0;
+            btnVolver.FlatStyle = FlatStyle.Flat;
+            btnVolver.Font = new Font("Segoe UI", 10F);
+            btnVolver.ForeColor = SystemColors.ButtonHighlight;
+            btnVolver.Location = new Point(297, 514);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(128, 29);
+            btnVolver.TabIndex = 100;
+            btnVolver.Text = "VOLVER";
+            btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.Click += btnAtras_Click;
             // 
             // RegistrarPagoSocio
             // 
@@ -392,7 +409,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
-            ClientSize = new Size(496, 583);
+            ClientSize = new Size(496, 636);
+            Controls.Add(btnVolver);
             Controls.Add(label15);
             Controls.Add(label5);
             Controls.Add(btnConsultarPagos);
@@ -449,5 +467,6 @@
         private DateTimePicker dtpFechaVencimiento;
         private Label label15;
         private Label label5;
+        private Button btnVolver;
     }
 }

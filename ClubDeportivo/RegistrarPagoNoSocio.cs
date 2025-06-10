@@ -183,9 +183,13 @@ namespace ClubDeportivo
                     // Creamos el comprobante de actividad y lo mostramos
                     ComprobanteActividad comprobante = new ComprobanteActividad(nombreCompleto, dni, formaPago, fechaPago, vencimiento, monto, actividad);
                     comprobante.ShowDialog();
+
+                    MessageBox.Show("Pago registrado correctamente.");
+                    btnLimpiar.PerformClick();
                 }
 
-                MessageBox.Show("Pago registrado correctamente.");
+              
+
             }
             catch (Exception ex)
             {

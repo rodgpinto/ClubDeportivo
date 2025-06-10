@@ -66,7 +66,7 @@
             panelSuperior.Controls.Add(lblComprobante);
             panelSuperior.Location = new Point(12, 0);
             panelSuperior.Name = "panelSuperior";
-            panelSuperior.Size = new Size(380, 32);
+            panelSuperior.Size = new Size(476, 32);
             panelSuperior.TabIndex = 0;
             // 
             // lblComprobante
@@ -74,7 +74,7 @@
             lblComprobante.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblComprobante.AutoSize = true;
             lblComprobante.Font = new Font("Segoe UI", 10F);
-            lblComprobante.Location = new Point(108, 8);
+            lblComprobante.Location = new Point(163, 8);
             lblComprobante.Name = "lblComprobante";
             lblComprobante.Size = new Size(172, 19);
             lblComprobante.TabIndex = 0;
@@ -87,14 +87,14 @@
             panelIzquierdo.Controls.Add(lblClubDeportivo);
             panelIzquierdo.Location = new Point(12, 35);
             panelIzquierdo.Name = "panelIzquierdo";
-            panelIzquierdo.Size = new Size(187, 75);
+            panelIzquierdo.Size = new Size(234, 75);
             panelIzquierdo.TabIndex = 1;
             // 
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(120, 2);
+            pictureBox1.Location = new Point(163, 2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(66, 69);
             pictureBox1.TabIndex = 1;
@@ -115,9 +115,9 @@
             panelDerecho.BorderStyle = BorderStyle.FixedSingle;
             panelDerecho.Controls.Add(lblFechaActual);
             panelDerecho.Controls.Add(lblFecha);
-            panelDerecho.Location = new Point(205, 35);
+            panelDerecho.Location = new Point(254, 35);
             panelDerecho.Name = "panelDerecho";
-            panelDerecho.Size = new Size(187, 75);
+            panelDerecho.Size = new Size(234, 75);
             panelDerecho.TabIndex = 2;
             // 
             // lblFechaActual
@@ -158,7 +158,7 @@
             panelDatos.Controls.Add(lblNombreCompleto);
             panelDatos.Location = new Point(12, 116);
             panelDatos.Name = "panelDatos";
-            panelDatos.Size = new Size(380, 177);
+            panelDatos.Size = new Size(476, 177);
             panelDatos.TabIndex = 3;
             // 
             // lblDni2
@@ -285,7 +285,7 @@
             btnCerrar.FlatStyle = FlatStyle.Flat;
             btnCerrar.Font = new Font("Segoe UI", 10F);
             btnCerrar.ForeColor = SystemColors.ButtonHighlight;
-            btnCerrar.Location = new Point(96, 313);
+            btnCerrar.Location = new Point(154, 314);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(75, 31);
             btnCerrar.TabIndex = 4;
@@ -300,7 +300,7 @@
             btnImprimir.FlatStyle = FlatStyle.Flat;
             btnImprimir.Font = new Font("Segoe UI", 10F);
             btnImprimir.ForeColor = SystemColors.ButtonHighlight;
-            btnImprimir.Location = new Point(222, 313);
+            btnImprimir.Location = new Point(280, 314);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(84, 31);
             btnImprimir.TabIndex = 5;
@@ -313,7 +313,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
-            ClientSize = new Size(404, 366);
+            ClientSize = new Size(500, 366);
             Controls.Add(btnImprimir);
             Controls.Add(btnCerrar);
             Controls.Add(panelDatos);

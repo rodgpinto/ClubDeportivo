@@ -161,6 +161,9 @@ namespace ClubDeportivo
                     fComprobantePago comprobante = new fComprobantePago(nombreCompleto, dni, formaPago, fechaPago, vencimiento, monto);
                     comprobante.ShowDialog();
 
+                    MessageBox.Show("Pago registrado correctamente.");
+
+                    btnLimpiar.PerformClick(); 
 
                 }
             }
