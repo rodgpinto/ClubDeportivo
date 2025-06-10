@@ -41,6 +41,14 @@ namespace ClubDeportivo.Datos
                 T_clave = Microsoft.VisualBasic.Interaction.InputBox
                 ("Ingrese clave", "DATOS DE INSTALACIÓN MySQL");
 
+                if(T_servidor == "" || T_puerto == "" ||
+                   T_usuario == "" || T_clave == "")
+                {
+                    MessageBox.Show("Debe completar todos los campos", "AVISO DEL SISTEMA",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    continue; 
+                }
+
                 mensaje = (int)MessageBox.Show("Su ingreso: SERVIDOR = " +
                         T_servidor + ", PUERTO= " +
                         T_puerto + ", USUARIO: " +
