@@ -31,7 +31,7 @@ CREATE TABLE `carnet` (
   PRIMARY KEY (`id`),
   KEY `socioId` (`socioId`),
   CONSTRAINT `carnet_ibfk_1` FOREIGN KEY (`socioId`) REFERENCES `socios` (`id_socio`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +120,7 @@ CREATE TABLE `pago_cuota` (
   PRIMARY KEY (`idPagoCuota`),
   KEY `FK_socio_id` (`socio_id`),
   CONSTRAINT `FK_socio_id` FOREIGN KEY (`socio_id`) REFERENCES `socios` (`id_socio`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +148,7 @@ CREATE TABLE `persona` (
   `direccion` varchar(100) DEFAULT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
   PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,7 +157,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (1,'Rodrigo Guillermo','Pinto',34680145,'Calle Falsa 123','1989-09-23'),(4,'Ragnar','Salchichon',25,'Calle Falsa','2025-06-07'),(5,'Dobby','Salchichon',1,'Calle Falsa 123','2025-06-05'),(7,'Kimura','Sawas',36978523,'Calle Falsa 123','2025-06-05'),(8,'Tito','Carlito',24,'2','2025-06-07');
+INSERT INTO `persona` VALUES (1,'Rodrigo Guillermo','Pinto',34680145,'Calle Falsa 123','1989-09-23'),(4,'Ragnar','Salchichon',25,'Calle Falsa','2025-06-07'),(5,'Dobby','Salchichon',1,'Calle Falsa 123','2025-06-05'),(7,'Kimura','Sawas',29,'Calle Falsa 123','2025-06-09'),(8,'Tito','Carlito',24,'2','2025-06-07');
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +203,7 @@ CREATE TABLE `socios` (
   PRIMARY KEY (`id_socio`),
   KEY `FK_persona_id` (`persona_id`),
   CONSTRAINT `FK_persona_id` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -979,4 +979,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-07 16:41:51
+-- Dump completed on 2025-06-09 23:14:13
