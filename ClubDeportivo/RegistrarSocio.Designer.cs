@@ -74,6 +74,8 @@
             grpbPago = new GroupBox();
             dtpFechaVencimiento = new DateTimePicker();
             btnCarnet = new Button();
+            label15 = new Label();
+            label5 = new Label();
             cboTipo = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)picFoto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -613,6 +615,27 @@
             btnCarnet.UseVisualStyleBackColor = false;
             btnCarnet.Click += btnCarnet_Click;
             // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.ForeColor = Color.Red;
+            label15.Location = new Point(251, 691);
+            label15.Name = "label15";
+            label15.Size = new Size(21, 16);
+            label15.TabIndex = 80;
+            label15.Text = " * ";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            label5.Location = new Point(94, 693);
+            label5.Name = "label5";
+            label5.Size = new Size(154, 13);
+            label5.TabIndex = 79;
+            label5.Text = "CAMPOS OBLIGATORIOS";
+            // 
             // fRegistrarSocio
             // 
             AcceptButton = btnIngresarDato;
@@ -620,6 +643,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
             ClientSize = new Size(496, 724);
+            Controls.Add(label15);
+            Controls.Add(label5);
             Controls.Add(btnCarnet);
             Controls.Add(grpbPago);
             Controls.Add(grpbDatos);
@@ -689,5 +714,7 @@
         private Button btnCarnet;
         private Button btnSubirFoto;
         private DateTimePicker dtpFechaVencimiento;
+        private Label label15;
+        private Label label5;
     }
 }

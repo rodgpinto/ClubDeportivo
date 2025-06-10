@@ -73,6 +73,8 @@
             btnLimpiar = new Button();
             btnVolver = new Button();
             picFoto = new PictureBox();
+            label15 = new Label();
+            label5 = new Label();
             cboTipo = new ComboBox();
             grpbDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -590,12 +592,35 @@
             picFoto.TabIndex = 51;
             picFoto.TabStop = false;
             // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.ForeColor = Color.Red;
+            label15.Location = new Point(234, 728);
+            label15.Name = "label15";
+            label15.Size = new Size(21, 16);
+            label15.TabIndex = 80;
+            label15.Text = " * ";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            label5.Location = new Point(77, 730);
+            label5.Name = "label5";
+            label5.Size = new Size(154, 13);
+            label5.TabIndex = 79;
+            label5.Text = "CAMPOS OBLIGATORIOS";
+            // 
             // RegistrarNoSocio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
-            ClientSize = new Size(496, 744);
+            ClientSize = new Size(496, 761);
+            Controls.Add(label15);
+            Controls.Add(label5);
             Controls.Add(picFoto);
             Controls.Add(btnVolver);
             Controls.Add(btnLimpiar);
@@ -664,5 +689,7 @@
         private Label label13;
         private DateTimePicker dtpFechaVencimiento;
         private PictureBox picFoto;
+        private Label label15;
+        private Label label5;
     }
 }

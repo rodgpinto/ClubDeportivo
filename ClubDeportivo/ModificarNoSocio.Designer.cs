@@ -356,9 +356,9 @@
             lblModificarSocio.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblModificarSocio.Location = new Point(38, 6);
             lblModificarSocio.Name = "lblModificarSocio";
-            lblModificarSocio.Size = new Size(150, 21);
+            lblModificarSocio.Size = new Size(179, 21);
             lblModificarSocio.TabIndex = 89;
-            lblModificarSocio.Text = "MODIFICAR SOCIO";
+            lblModificarSocio.Text = "MODIFICAR NO SOCIO";
             // 
             // pictureBox1
             // 

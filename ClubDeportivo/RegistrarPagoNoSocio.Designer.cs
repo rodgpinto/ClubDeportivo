@@ -58,6 +58,8 @@
             label4 = new Label();
             lblRegistrar = new Label();
             pictureBox1 = new PictureBox();
+            label15 = new Label();
+            label5 = new Label();
             grpbPago.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -401,12 +403,35 @@
             pictureBox1.TabIndex = 67;
             pictureBox1.TabStop = false;
             // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.ForeColor = Color.Red;
+            label15.Location = new Point(239, 558);
+            label15.Name = "label15";
+            label15.Size = new Size(21, 16);
+            label15.TabIndex = 78;
+            label15.Text = " * ";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            label5.Location = new Point(82, 560);
+            label5.Name = "label5";
+            label5.Size = new Size(154, 13);
+            label5.TabIndex = 77;
+            label5.Text = "CAMPOS OBLIGATORIOS";
+            // 
             // RegistrarPagoNoSocio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
             ClientSize = new Size(496, 582);
+            Controls.Add(label15);
+            Controls.Add(label5);
             Controls.Add(btnConsultarPagos);
             Controls.Add(btnLimpiar);
             Controls.Add(btnIngresarPago);
@@ -463,5 +488,7 @@
         private PictureBox pictureBox1;
         private ComboBox cboActividad;
         private Label label2;
+        private Label label15;
+        private Label label5;
     }
 }
