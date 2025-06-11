@@ -6,11 +6,12 @@ namespace ClubDeportivo.Datos
 {
     internal class Conexion
     {
+        // Atributos para almacenar los datos de conexión
         private string baseDatos = "clubdeportivo";
         private string servidor = "localhost";
         private string puerto = "3306";
         private string usuario = "root";
-        private string clave = "12345";
+        private string clave = "1234";
         private static Conexion? instancia = null;
 
         private Conexion()
@@ -26,11 +27,11 @@ namespace ClubDeportivo.Datos
                     conexion.Close();
                     break; // Si la conexión tiene éxito, sale del bucle
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // Si hay una excepción, pide al usuario que ingrese los datos nuevamente
                     MessageBox.Show($"Error al conectar. " +
-                                $"\nPor favor, ingrese los datos de conexión nuevamente.", 
+                                $"\nPor favor, ingrese los datos de conexión manualmente.", 
                                     "Error de conexión", 
                                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 IngresarDatos();
