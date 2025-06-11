@@ -69,7 +69,7 @@
             btnRegistrarPagoNoSocio.Location = new Point(111, 183);
             btnRegistrarPagoNoSocio.Name = "btnRegistrarPagoNoSocio";
             btnRegistrarPagoNoSocio.Size = new Size(109, 49);
-            btnRegistrarPagoNoSocio.TabIndex = 27;
+            btnRegistrarPagoNoSocio.TabIndex = 2;
             btnRegistrarPagoNoSocio.Text = "Registrar Pago No Socio";
             btnRegistrarPagoNoSocio.UseVisualStyleBackColor = false;
             btnRegistrarPagoNoSocio.Click += btnRegistrarPagoNoSocio_Click;
@@ -86,7 +86,7 @@
             btnRegistrarPagoSocio.Location = new Point(111, 80);
             btnRegistrarPagoSocio.Name = "btnRegistrarPagoSocio";
             btnRegistrarPagoSocio.Size = new Size(109, 52);
-            btnRegistrarPagoSocio.TabIndex = 26;
+            btnRegistrarPagoSocio.TabIndex = 1;
             btnRegistrarPagoSocio.Text = "Registrar Pago Socio";
             btnRegistrarPagoSocio.UseVisualStyleBackColor = false;
             btnRegistrarPagoSocio.Click += btnRegistrarPagoSocio_Click;
@@ -103,7 +103,7 @@
             btnAtras.Location = new Point(295, 12);
             btnAtras.Name = "btnAtras";
             btnAtras.Size = new Size(33, 29);
-            btnAtras.TabIndex = 32;
+            btnAtras.TabIndex = 3;
             btnAtras.UseVisualStyleBackColor = false;
             btnAtras.Click += btnAtras_Click;
             // 
@@ -112,6 +112,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
+            CancelButton = btnAtras;
             ClientSize = new Size(340, 257);
             Controls.Add(btnAtras);
             Controls.Add(pictureBox1);

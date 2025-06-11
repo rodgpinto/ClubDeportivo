@@ -44,6 +44,7 @@
             lblFechaNacimiento = new Label();
             picFoto = new PictureBox();
             btnImprimir = new Button();
+            btnSalir = new Button();
             panelSuperior.SuspendLayout();
             grpbDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picFoto).BeginInit();
@@ -213,12 +214,30 @@
             btnImprimir.UseVisualStyleBackColor = false;
             btnImprimir.Click += btnImprimir_Click;
             // 
+            // btnSalir
+            // 
+            btnSalir.BackColor = Color.FromArgb(231, 76, 60);
+            btnSalir.Cursor = Cursors.Hand;
+            btnSalir.FlatStyle = FlatStyle.Flat;
+            btnSalir.Font = new Font("Segoe UI", 10F);
+            btnSalir.ForeColor = SystemColors.ButtonHighlight;
+            btnSalir.Location = new Point(12, 183);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(84, 31);
+            btnSalir.TabIndex = 10;
+            btnSalir.Text = "SALIR";
+            btnSalir.UseVisualStyleBackColor = false;
+            btnSalir.Click += btnSalir_Click;
+            // 
             // Carnet
             // 
+            AcceptButton = btnImprimir;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
+            CancelButton = btnSalir;
             ClientSize = new Size(427, 226);
+            Controls.Add(btnSalir);
             Controls.Add(btnImprimir);
             Controls.Add(picFoto);
             Controls.Add(grpbDatos);
@@ -252,5 +271,6 @@
         private Label lblIdSocio2;
         private Label lblIdSocio;
         private Button btnImprimir;
+        private Button btnSalir;
     }
 }

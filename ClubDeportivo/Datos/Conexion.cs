@@ -11,13 +11,13 @@ namespace ClubDeportivo.Datos
         private string servidor = "localhost";
         private string puerto = "3306";
         private string usuario = "root";
-        private string clave = "1234";
+        private string clave = "12345";
         private static Conexion? instancia = null;
-
+        private bool condicion = true;
         private Conexion()
         {
             // Intenta conectar usando los valores predefinidos
-            while (true)
+            while (condicion)
             {
                 try
                 {
@@ -29,12 +29,22 @@ namespace ClubDeportivo.Datos
                 }
                 catch (Exception)
                 {
-                    // Si hay una excepción, pide al usuario que ingrese los datos nuevamente
-                    MessageBox.Show($"Error al conectar. " +
-                                $"\nPor favor, ingrese los datos de conexión manualmente.", 
-                                    "Error de conexión", 
-                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                IngresarDatos();
+                    // Si hay alguna diferencia, pide al usuario que ingrese los datos nuevamente
+                    DialogResult result = MessageBox.Show($"Error al conectar. " +
+                                 $"\n¿Desea ingresar los datos de conexión manualmente?",
+                                     "Error de conexión",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (result == DialogResult.Yes)
+                    {
+                        // invoca el método para ingresar los datos de conexión
+                        IngresarDatos();
+                    }
+                    else
+                    {   // Si el usuario no quiere ingresar los datos, lanza una excepción
+                        throw new Exception("El usuario canceló la configuración de conexión.");
+
+                    }
+
                 }
             }
         }
@@ -51,10 +61,20 @@ namespace ClubDeportivo.Datos
         // Método estático para obtener la instancia de la conexión
         public static Conexion getInstancia()
         {
+            //Si instancia es null intenta establecer conexión
             if (instancia == null)
-            {
-                instancia = new Conexion();
-            }
+                try
+                {
+
+                    instancia = new Conexion();
+
+                }
+                catch (Exception)
+                {   // Si no se puede establecer la conexión, muestra un mensaje de error y cierra la aplicación
+                    MessageBox.Show($"El programa se cerrará.", "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    Application.Exit();
+                    return null;
+                }
             return instancia;
         }
 

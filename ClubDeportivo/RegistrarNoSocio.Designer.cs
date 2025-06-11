@@ -615,9 +615,11 @@
             // 
             // RegistrarNoSocio
             // 
+            AcceptButton = btnIngresarDato;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
+            CancelButton = btnVolver;
             ClientSize = new Size(496, 761);
             Controls.Add(label15);
             Controls.Add(label5);

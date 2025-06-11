@@ -86,7 +86,7 @@
             btnEliminarNoSocio.Location = new Point(282, 184);
             btnEliminarNoSocio.Name = "btnEliminarNoSocio";
             btnEliminarNoSocio.Size = new Size(134, 29);
-            btnEliminarNoSocio.TabIndex = 103;
+            btnEliminarNoSocio.TabIndex = 4;
             btnEliminarNoSocio.Text = "ELIMINAR";
             btnEliminarNoSocio.UseVisualStyleBackColor = false;
             btnEliminarNoSocio.Click += btnEliminarNoSocio_Click;
@@ -120,7 +120,7 @@
             btnVolver.Location = new Point(282, 479);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(134, 29);
-            btnVolver.TabIndex = 99;
+            btnVolver.TabIndex = 13;
             btnVolver.Text = "VOLVER";
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
@@ -136,7 +136,7 @@
             btnLimpiar.Location = new Point(108, 444);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(134, 29);
-            btnLimpiar.TabIndex = 98;
+            btnLimpiar.TabIndex = 12;
             btnLimpiar.Text = "LIMPIAR";
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
@@ -152,7 +152,7 @@
             btnIngresar.Location = new Point(108, 479);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(134, 29);
-            btnIngresar.TabIndex = 97;
+            btnIngresar.TabIndex = 11;
             btnIngresar.Text = "INGRESAR";
             btnIngresar.UseVisualStyleBackColor = false;
             btnIngresar.Click += btnIngresar_Click;
@@ -173,7 +173,7 @@
             grpbDatos.Location = new Point(108, 233);
             grpbDatos.Name = "grpbDatos";
             grpbDatos.Size = new Size(308, 205);
-            grpbDatos.TabIndex = 96;
+            grpbDatos.TabIndex = 5;
             grpbDatos.TabStop = false;
             grpbDatos.Text = "Datos";
             // 
@@ -215,7 +215,7 @@
             txtNombre.Name = "txtNombre";
             txtNombre.PlaceholderText = "Joe";
             txtNombre.Size = new Size(134, 25);
-            txtNombre.TabIndex = 1;
+            txtNombre.TabIndex = 6;
             // 
             // txtApellido
             // 
@@ -225,7 +225,7 @@
             txtApellido.Name = "txtApellido";
             txtApellido.PlaceholderText = "Doe";
             txtApellido.Size = new Size(134, 25);
-            txtApellido.TabIndex = 2;
+            txtApellido.TabIndex = 7;
             // 
             // txtDNI2
             // 
@@ -235,7 +235,7 @@
             txtDNI2.Name = "txtDNI2";
             txtDNI2.PlaceholderText = "1234";
             txtDNI2.Size = new Size(134, 25);
-            txtDNI2.TabIndex = 4;
+            txtDNI2.TabIndex = 8;
             // 
             // lblFechaNacimiento
             // 
@@ -253,7 +253,7 @@
             dtpFechaNacimiento.Location = new Point(174, 123);
             dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             dtpFechaNacimiento.Size = new Size(134, 25);
-            dtpFechaNacimiento.TabIndex = 5;
+            dtpFechaNacimiento.TabIndex = 9;
             // 
             // lblDireccion
             // 
@@ -273,7 +273,7 @@
             txtDireccion.Name = "txtDireccion";
             txtDireccion.PlaceholderText = "Calle Falsa 123";
             txtDireccion.Size = new Size(134, 25);
-            txtDireccion.TabIndex = 6;
+            txtDireccion.TabIndex = 10;
             // 
             // btnConsultar
             // 
@@ -286,7 +286,7 @@
             btnConsultar.Location = new Point(108, 184);
             btnConsultar.Name = "btnConsultar";
             btnConsultar.Size = new Size(134, 29);
-            btnConsultar.TabIndex = 92;
+            btnConsultar.TabIndex = 3;
             btnConsultar.Text = "CONSULTAR";
             btnConsultar.UseVisualStyleBackColor = false;
             btnConsultar.Click += btnConsultar_Click;
@@ -312,7 +312,7 @@
             btnBuscar.Location = new Point(282, 149);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(134, 29);
-            btnBuscar.TabIndex = 91;
+            btnBuscar.TabIndex = 2;
             btnBuscar.Text = "BUSCAR";
             btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click;
@@ -338,7 +338,7 @@
             txtDNI.Name = "txtDNI";
             txtDNI.PlaceholderText = "1234";
             txtDNI.Size = new Size(134, 25);
-            txtDNI.TabIndex = 90;
+            txtDNI.TabIndex = 1;
             // 
             // lblDocumento
             // 
@@ -382,7 +382,7 @@
             btnAtras.Location = new Point(493, 4);
             btnAtras.Name = "btnAtras";
             btnAtras.Size = new Size(33, 29);
-            btnAtras.TabIndex = 87;
+            btnAtras.TabIndex = 14;
             btnAtras.UseVisualStyleBackColor = false;
             btnAtras.Click += btnAtras_Click;
             // 
@@ -404,6 +404,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
+            CancelButton = btnVolver;
             ClientSize = new Size(538, 560);
             Controls.Add(label1);
             Controls.Add(lblAviso);

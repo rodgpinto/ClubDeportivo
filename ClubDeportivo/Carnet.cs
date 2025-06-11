@@ -240,7 +240,7 @@ namespace ClubDeportivo
 
                     // Título
                     PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
-                 
+
                     Paragraph titulo = new Paragraph("CLUB DEPORTIVO")
                        .SetTextAlignment(TextAlignment.CENTER)
                        .SetFontSize(16)
@@ -292,7 +292,9 @@ namespace ClubDeportivo
             }
         }
 
-
-
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

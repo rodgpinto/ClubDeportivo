@@ -310,9 +310,11 @@
             // 
             // fComprobantePago
             // 
+            AcceptButton = btnImprimir;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
+            CancelButton = btnCerrar;
             ClientSize = new Size(500, 366);
             Controls.Add(btnImprimir);
             Controls.Add(btnCerrar);

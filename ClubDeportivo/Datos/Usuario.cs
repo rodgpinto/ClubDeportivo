@@ -15,14 +15,28 @@ namespace ClubDeportivo.Datos
         // Constructor de la clase Usuario
         public DataTable Login(string Usuario, string Pass)
         {
-            MySqlDataReader resultado;
             DataTable tabla = new DataTable();
-            MySqlConnection sqlCon = new MySqlConnection();
+            MySqlConnection sqlCon;
+
+            try
+            // Creamos la conexión a la base de datos
+            {
+                //Si getInstancia devuelve null, no hay conexión establecida y se cierra el programa
+                Conexion? conexion = Conexion.getInstancia();
+                if (conexion == null)
+                {
+                    return tabla;
+                }
+                sqlCon = Conexion.getInstancia().CrearConexion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error de conexión: " + ex.Message, "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return tabla;
+            }
 
             try
             {
-                // Creamos la conexión a la base de datos Utilizamos el Store 'Procedure IngresoLogin'
-                sqlCon = Conexion.getInstancia().CrearConexion();
                 MySqlCommand comando = new MySqlCommand("IngresoLogin", sqlCon);
                 comando.CommandType = CommandType.StoredProcedure;
 
@@ -30,22 +44,23 @@ namespace ClubDeportivo.Datos
                 comando.Parameters.Add("Pass", MySqlDbType.VarChar).Value = Pass;
 
                 sqlCon.Open();
-                resultado = comando.ExecuteReader();
+                MySqlDataReader resultado = comando.ExecuteReader();
                 tabla.Load(resultado);
-                return tabla;
             }
             catch (Exception ex)
             {
                 throw new Exception("Error al intentar iniciar sesión: " + ex.Message);
             }
-            // cerramos la conexión
             finally
-            {
+            {            // cerramos la conexión
+
                 if (sqlCon.State == ConnectionState.Open)
                 {
                     sqlCon.Close();
                 }
             }
+
+            return tabla;
         }
     }
 }

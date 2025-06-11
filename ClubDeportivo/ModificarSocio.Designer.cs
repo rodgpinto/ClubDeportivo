@@ -79,7 +79,7 @@
             btnAtras.Location = new Point(493, 9);
             btnAtras.Name = "btnAtras";
             btnAtras.Size = new Size(33, 29);
-            btnAtras.TabIndex = 53;
+            btnAtras.TabIndex = 15;
             btnAtras.UseVisualStyleBackColor = false;
             btnAtras.Click += btnAtras_Click;
             // 
@@ -114,7 +114,7 @@
             btnConsultar.Location = new Point(105, 186);
             btnConsultar.Name = "btnConsultar";
             btnConsultar.Size = new Size(134, 29);
-            btnConsultar.TabIndex = 72;
+            btnConsultar.TabIndex = 3;
             btnConsultar.Text = "CONSULTAR";
             btnConsultar.UseVisualStyleBackColor = false;
             btnConsultar.Click += btnConsultarSocio_Click;
@@ -140,7 +140,7 @@
             btnBuscar.Location = new Point(279, 151);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(134, 29);
-            btnBuscar.TabIndex = 71;
+            btnBuscar.TabIndex = 2;
             btnBuscar.Text = "BUSCAR";
             btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click;
@@ -167,7 +167,7 @@
             txtDNI.Name = "txtDNI";
             txtDNI.PlaceholderText = "1234";
             txtDNI.Size = new Size(134, 25);
-            txtDNI.TabIndex = 70;
+            txtDNI.TabIndex = 1;
             // 
             // lblDocumento
             // 
@@ -197,7 +197,7 @@
             grpbDatos.Location = new Point(105, 235);
             grpbDatos.Name = "grpbDatos";
             grpbDatos.Size = new Size(308, 271);
-            grpbDatos.TabIndex = 78;
+            grpbDatos.TabIndex = 5;
             grpbDatos.TabStop = false;
             grpbDatos.Text = "Datos";
             // 
@@ -222,7 +222,7 @@
             btnSubirFoto.Location = new Point(174, 219);
             btnSubirFoto.Name = "btnSubirFoto";
             btnSubirFoto.Size = new Size(134, 29);
-            btnSubirFoto.TabIndex = 46;
+            btnSubirFoto.TabIndex = 11;
             btnSubirFoto.Text = "SUBIR FOTO";
             btnSubirFoto.UseVisualStyleBackColor = false;
             btnSubirFoto.Click += btnSubirFoto_Click;
@@ -265,7 +265,7 @@
             txtNombre.Name = "txtNombre";
             txtNombre.PlaceholderText = "Joe";
             txtNombre.Size = new Size(134, 25);
-            txtNombre.TabIndex = 1;
+            txtNombre.TabIndex = 6;
             // 
             // txtApellido
             // 
@@ -275,7 +275,7 @@
             txtApellido.Name = "txtApellido";
             txtApellido.PlaceholderText = "Doe";
             txtApellido.Size = new Size(134, 25);
-            txtApellido.TabIndex = 2;
+            txtApellido.TabIndex = 7;
             // 
             // txtDNI2
             // 
@@ -285,7 +285,7 @@
             txtDNI2.Name = "txtDNI2";
             txtDNI2.PlaceholderText = "1234";
             txtDNI2.Size = new Size(134, 25);
-            txtDNI2.TabIndex = 4;
+            txtDNI2.TabIndex = 8;
             // 
             // lblFechaNacimiento
             // 
@@ -303,7 +303,7 @@
             dtpFechaNacimiento.Location = new Point(174, 123);
             dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             dtpFechaNacimiento.Size = new Size(134, 25);
-            dtpFechaNacimiento.TabIndex = 5;
+            dtpFechaNacimiento.TabIndex = 9;
             // 
             // lblDireccion
             // 
@@ -321,8 +321,9 @@
             txtDireccion.Cursor = Cursors.IBeam;
             txtDireccion.Location = new Point(174, 158);
             txtDireccion.Name = "txtDireccion";
+            txtDireccion.PlaceholderText = "Calle Falsa 123";
             txtDireccion.Size = new Size(134, 25);
-            txtDireccion.TabIndex = 6;
+            txtDireccion.TabIndex = 10;
             // 
             // btnCarnet
             // 
@@ -335,7 +336,7 @@
             btnCarnet.Location = new Point(105, 512);
             btnCarnet.Name = "btnCarnet";
             btnCarnet.Size = new Size(134, 29);
-            btnCarnet.TabIndex = 82;
+            btnCarnet.TabIndex = 12;
             btnCarnet.Text = "MOSTRAR CARNET";
             btnCarnet.UseVisualStyleBackColor = false;
             btnCarnet.Click += btnCarnet_Click;
@@ -351,7 +352,7 @@
             btnVolver.Location = new Point(279, 547);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(134, 29);
-            btnVolver.TabIndex = 81;
+            btnVolver.TabIndex = 14;
             btnVolver.Text = "VOLVER";
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
@@ -367,7 +368,7 @@
             btnLimpiar.Location = new Point(279, 512);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(134, 29);
-            btnLimpiar.TabIndex = 80;
+            btnLimpiar.TabIndex = 13;
             btnLimpiar.Text = "LIMPIAR";
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
@@ -383,7 +384,7 @@
             btnIngresar.Location = new Point(105, 547);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(134, 29);
-            btnIngresar.TabIndex = 79;
+            btnIngresar.TabIndex = 11;
             btnIngresar.Text = "INGRESAR";
             btnIngresar.UseVisualStyleBackColor = false;
             btnIngresar.Click += btnIngresar_Click;
@@ -417,7 +418,7 @@
             btnEliminarSocio.Location = new Point(279, 186);
             btnEliminarSocio.Name = "btnEliminarSocio";
             btnEliminarSocio.Size = new Size(134, 29);
-            btnEliminarSocio.TabIndex = 85;
+            btnEliminarSocio.TabIndex = 4;
             btnEliminarSocio.Text = "ELIMINAR SOCIO";
             btnEliminarSocio.UseVisualStyleBackColor = false;
             btnEliminarSocio.Click += btnEliminarSocio_Click;

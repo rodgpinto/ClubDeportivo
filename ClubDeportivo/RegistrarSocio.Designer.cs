@@ -222,7 +222,7 @@
             btnIngresarDato.Location = new Point(94, 648);
             btnIngresarDato.Name = "btnIngresarDato";
             btnIngresarDato.Size = new Size(134, 29);
-            btnIngresarDato.TabIndex = 12;
+            btnIngresarDato.TabIndex = 15;
             btnIngresarDato.Text = "INGRESAR";
             btnIngresarDato.UseVisualStyleBackColor = false;
             btnIngresarDato.Click += btnIngresarDato_Click;
@@ -238,7 +238,7 @@
             btnLimpiar.Location = new Point(302, 613);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(134, 29);
-            btnLimpiar.TabIndex = 13;
+            btnLimpiar.TabIndex = 17;
             btnLimpiar.Text = "LIMPIAR";
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
@@ -254,7 +254,7 @@
             btnVolver.Location = new Point(302, 648);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(134, 29);
-            btnVolver.TabIndex = 14;
+            btnVolver.TabIndex = 18;
             btnVolver.Text = "VOLVER";
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
@@ -391,7 +391,7 @@
             txtCuota.Name = "txtCuota";
             txtCuota.PlaceholderText = "5000";
             txtCuota.Size = new Size(128, 25);
-            txtCuota.TabIndex = 9;
+            txtCuota.TabIndex = 11;
             // 
             // label9
             // 
@@ -420,7 +420,7 @@
             dtpFechaPago.Location = new Point(169, 66);
             dtpFechaPago.Name = "dtpFechaPago";
             dtpFechaPago.Size = new Size(129, 25);
-            dtpFechaPago.TabIndex = 10;
+            dtpFechaPago.TabIndex = 12;
             dtpFechaPago.Value = new DateTime(2025, 5, 30, 12, 13, 25, 0);
             // 
             // lbFechalVencimiento
@@ -452,7 +452,7 @@
             cboFormaDePago.Location = new Point(169, 142);
             cboFormaDePago.Name = "cboFormaDePago";
             cboFormaDePago.Size = new Size(128, 25);
-            cboFormaDePago.TabIndex = 11;
+            cboFormaDePago.TabIndex = 14;
             // 
             // label12
             // 
@@ -548,7 +548,7 @@
             grpbDatos.Location = new Point(94, 115);
             grpbDatos.Name = "grpbDatos";
             grpbDatos.Size = new Size(342, 306);
-            grpbDatos.TabIndex = 1;
+            grpbDatos.TabIndex = 0;
             grpbDatos.TabStop = false;
             grpbDatos.Text = "Datos";
             // 
@@ -563,7 +563,7 @@
             btnSubirFoto.Location = new Point(103, 271);
             btnSubirFoto.Name = "btnSubirFoto";
             btnSubirFoto.Size = new Size(134, 29);
-            btnSubirFoto.TabIndex = 46;
+            btnSubirFoto.TabIndex = 9;
             btnSubirFoto.Text = "SUBIR FOTO";
             btnSubirFoto.UseVisualStyleBackColor = false;
             btnSubirFoto.Click += btnSubirFoto_Click;
@@ -586,7 +586,7 @@
             grpbPago.Location = new Point(94, 427);
             grpbPago.Name = "grpbPago";
             grpbPago.Size = new Size(342, 180);
-            grpbPago.TabIndex = 9;
+            grpbPago.TabIndex = 10;
             grpbPago.TabStop = false;
             grpbPago.Text = "Pago";
             // 
@@ -596,7 +596,7 @@
             dtpFechaVencimiento.Location = new Point(169, 104);
             dtpFechaVencimiento.Name = "dtpFechaVencimiento";
             dtpFechaVencimiento.Size = new Size(129, 25);
-            dtpFechaVencimiento.TabIndex = 41;
+            dtpFechaVencimiento.TabIndex = 13;
             dtpFechaVencimiento.Value = new DateTime(2025, 5, 30, 12, 13, 25, 0);
             // 
             // btnCarnet
@@ -610,7 +610,7 @@
             btnCarnet.Location = new Point(94, 613);
             btnCarnet.Name = "btnCarnet";
             btnCarnet.Size = new Size(134, 29);
-            btnCarnet.TabIndex = 45;
+            btnCarnet.TabIndex = 16;
             btnCarnet.Text = "MOSTRAR CARNET";
             btnCarnet.UseVisualStyleBackColor = false;
             btnCarnet.Click += btnCarnet_Click;
@@ -642,6 +642,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
+            CancelButton = btnVolver;
             ClientSize = new Size(496, 724);
             Controls.Add(label15);
             Controls.Add(label5);

@@ -76,7 +76,7 @@
             btnConsultarPagos.Location = new Point(251, 187);
             btnConsultarPagos.Name = "btnConsultarPagos";
             btnConsultarPagos.Size = new Size(128, 29);
-            btnConsultarPagos.TabIndex = 2;
+            btnConsultarPagos.TabIndex = 3;
             btnConsultarPagos.Text = "CONSULTAR";
             btnConsultarPagos.UseVisualStyleBackColor = false;
             btnConsultarPagos.Click += btnConsultarPagos_Click;
@@ -92,7 +92,7 @@
             btnLimpiar.Location = new Point(296, 508);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(128, 29);
-            btnLimpiar.TabIndex = 7;
+            btnLimpiar.TabIndex = 11;
             btnLimpiar.Text = "LIMPIAR";
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
@@ -108,7 +108,7 @@
             btnIngresarPago.Location = new Point(87, 546);
             btnIngresarPago.Name = "btnIngresarPago";
             btnIngresarPago.Size = new Size(128, 29);
-            btnIngresarPago.TabIndex = 6;
+            btnIngresarPago.TabIndex = 10;
             btnIngresarPago.Text = "INGRESAR";
             btnIngresarPago.UseVisualStyleBackColor = false;
             btnIngresarPago.Click += btnIngresarPago_Click;
@@ -125,7 +125,7 @@
             btnAtras.Location = new Point(451, 11);
             btnAtras.Name = "btnAtras";
             btnAtras.Size = new Size(33, 29);
-            btnAtras.TabIndex = 8;
+            btnAtras.TabIndex = 13;
             btnAtras.UseVisualStyleBackColor = false;
             btnAtras.Click += btnAtras_Click;
             // 
@@ -178,7 +178,7 @@
             grpbPago.Location = new Point(82, 284);
             grpbPago.Name = "grpbPago";
             grpbPago.Size = new Size(342, 218);
-            grpbPago.TabIndex = 73;
+            grpbPago.TabIndex = 4;
             grpbPago.TabStop = false;
             grpbPago.Text = "Pago";
             // 
@@ -201,7 +201,7 @@
             cboActividad.Location = new Point(170, 27);
             cboActividad.Name = "cboActividad";
             cboActividad.Size = new Size(128, 25);
-            cboActividad.TabIndex = 3;
+            cboActividad.TabIndex = 5;
             // 
             // label1
             // 
@@ -239,8 +239,9 @@
             txtCuota.Cursor = Cursors.IBeam;
             txtCuota.Location = new Point(169, 61);
             txtCuota.Name = "txtCuota";
+            txtCuota.PlaceholderText = "5000";
             txtCuota.Size = new Size(128, 25);
-            txtCuota.TabIndex = 4;
+            txtCuota.TabIndex = 6;
             // 
             // label9
             // 
@@ -282,7 +283,7 @@
             txtFechaVencimiento.Name = "txtFechaVencimiento";
             txtFechaVencimiento.ReadOnly = true;
             txtFechaVencimiento.Size = new Size(128, 25);
-            txtFechaVencimiento.TabIndex = 0;
+            txtFechaVencimiento.TabIndex = 8;
             txtFechaVencimiento.TabStop = false;
             // 
             // dtpFechaPago
@@ -291,7 +292,7 @@
             dtpFechaPago.Location = new Point(169, 97);
             dtpFechaPago.Name = "dtpFechaPago";
             dtpFechaPago.Size = new Size(129, 25);
-            dtpFechaPago.TabIndex = 10;
+            dtpFechaPago.TabIndex = 7;
             dtpFechaPago.Value = new DateTime(2025, 5, 30, 12, 13, 25, 0);
             // 
             // lbFechalVencimiento
@@ -334,7 +335,7 @@
             cboFormaDePago.Location = new Point(169, 173);
             cboFormaDePago.Name = "cboFormaDePago";
             cboFormaDePago.Size = new Size(128, 25);
-            cboFormaDePago.TabIndex = 5;
+            cboFormaDePago.TabIndex = 9;
             // 
             // btnBuscar
             // 
@@ -347,7 +348,7 @@
             btnBuscar.Location = new Point(251, 152);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(128, 29);
-            btnBuscar.TabIndex = 1;
+            btnBuscar.TabIndex = 2;
             btnBuscar.Text = "BUSCAR";
             btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click;
@@ -368,11 +369,12 @@
             // 
             txtDNI.BorderStyle = BorderStyle.FixedSingle;
             txtDNI.Cursor = Cursors.IBeam;
+            txtDNI.Font = new Font("Segoe UI", 10F);
             txtDNI.Location = new Point(251, 123);
             txtDNI.Name = "txtDNI";
             txtDNI.PlaceholderText = "1234";
-            txtDNI.Size = new Size(128, 23);
-            txtDNI.TabIndex = 0;
+            txtDNI.Size = new Size(128, 25);
+            txtDNI.TabIndex = 1;
             // 
             // label4
             // 
@@ -436,16 +438,18 @@
             btnVolver.Location = new Point(296, 546);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(128, 29);
-            btnVolver.TabIndex = 100;
+            btnVolver.TabIndex = 12;
             btnVolver.Text = "VOLVER";
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnAtras_Click;
             // 
             // RegistrarPagoNoSocio
             // 
+            AcceptButton = btnBuscar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
+            CancelButton = btnVolver;
             ClientSize = new Size(496, 653);
             Controls.Add(btnVolver);
             Controls.Add(label15);

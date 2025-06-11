@@ -40,20 +40,20 @@
             btnListarVencimientos = new Button();
             btnRegistrarPago = new Button();
             panel1 = new Panel();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            pictureBox6 = new PictureBox();
             pictureBox7 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // lblIngreso
@@ -77,7 +77,7 @@
             btnCerrar.Location = new Point(506, 12);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(33, 29);
-            btnCerrar.TabIndex = 34;
+            btnCerrar.TabIndex = 7;
             btnCerrar.UseVisualStyleBackColor = false;
             btnCerrar.Click += btnCerrar_Click;
             // 
@@ -115,7 +115,7 @@
             btnListarNoSocios.Location = new Point(333, 107);
             btnListarNoSocios.Name = "btnListarNoSocios";
             btnListarNoSocios.Size = new Size(165, 67);
-            btnListarNoSocios.TabIndex = 48;
+            btnListarNoSocios.TabIndex = 4;
             btnListarNoSocios.Text = "Listar no socios";
             btnListarNoSocios.UseVisualStyleBackColor = false;
             btnListarNoSocios.Click += btnListarNoSocios_Click;
@@ -134,7 +134,7 @@
             btnModificarRegistros.Location = new Point(57, 213);
             btnModificarRegistros.Name = "btnModificarRegistros";
             btnModificarRegistros.Size = new Size(161, 69);
-            btnModificarRegistros.TabIndex = 47;
+            btnModificarRegistros.TabIndex = 5;
             btnModificarRegistros.Text = "Modificar registros";
             btnModificarRegistros.UseVisualStyleBackColor = false;
             btnModificarRegistros.Click += btnModificarRegistros_Click;
@@ -152,7 +152,7 @@
             btnListarSocios.Location = new Point(57, 107);
             btnListarSocios.Name = "btnListarSocios";
             btnListarSocios.Size = new Size(165, 67);
-            btnListarSocios.TabIndex = 5;
+            btnListarSocios.TabIndex = 3;
             btnListarSocios.Text = "Listar socios";
             btnListarSocios.UseVisualStyleBackColor = false;
             btnListarSocios.Click += btnListarSocios_Click;
@@ -171,7 +171,7 @@
             btnRegistrar.Location = new Point(57, 3);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(165, 67);
-            btnRegistrar.TabIndex = 3;
+            btnRegistrar.TabIndex = 1;
             btnRegistrar.Text = "Registrar";
             btnRegistrar.UseVisualStyleBackColor = false;
             btnRegistrar.Click += btnRegistrar_Click;
@@ -209,7 +209,7 @@
             btnRegistrarPago.Location = new Point(333, 3);
             btnRegistrarPago.Name = "btnRegistrarPago";
             btnRegistrarPago.Size = new Size(165, 67);
-            btnRegistrarPago.TabIndex = 4;
+            btnRegistrarPago.TabIndex = 2;
             btnRegistrarPago.Text = "Registrar pago";
             btnRegistrarPago.UseVisualStyleBackColor = false;
             btnRegistrarPago.Click += btnRegistrarPago_Click;
@@ -231,57 +231,7 @@
             panel1.Location = new Point(12, 93);
             panel1.Name = "panel1";
             panel1.Size = new Size(527, 299);
-            panel1.TabIndex = 47;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
-            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(3, 116);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(44, 49);
-            pictureBox2.TabIndex = 48;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
-            pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Location = new Point(283, 116);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(44, 49);
-            pictureBox3.TabIndex = 49;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.BackgroundImage = (Image)resources.GetObject("pictureBox4.BackgroundImage");
-            pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox4.Location = new Point(3, 224);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(44, 49);
-            pictureBox4.TabIndex = 50;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.BackgroundImage = (Image)resources.GetObject("pictureBox5.BackgroundImage");
-            pictureBox5.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox5.Location = new Point(283, 12);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(44, 49);
-            pictureBox5.TabIndex = 51;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.BackgroundImage = (Image)resources.GetObject("pictureBox6.BackgroundImage");
-            pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox6.Location = new Point(283, 224);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(44, 49);
-            pictureBox6.TabIndex = 52;
-            pictureBox6.TabStop = false;
+            panel1.TabIndex = 0;
             // 
             // pictureBox7
             // 
@@ -293,11 +243,62 @@
             pictureBox7.TabIndex = 53;
             pictureBox7.TabStop = false;
             // 
+            // pictureBox6
+            // 
+            pictureBox6.BackgroundImage = (Image)resources.GetObject("pictureBox6.BackgroundImage");
+            pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox6.Location = new Point(283, 224);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(44, 49);
+            pictureBox6.TabIndex = 52;
+            pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackgroundImage = (Image)resources.GetObject("pictureBox5.BackgroundImage");
+            pictureBox5.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox5.Location = new Point(283, 12);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(44, 49);
+            pictureBox5.TabIndex = 51;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackgroundImage = (Image)resources.GetObject("pictureBox4.BackgroundImage");
+            pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox4.Location = new Point(3, 224);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(44, 49);
+            pictureBox4.TabIndex = 50;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
+            pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox3.Location = new Point(283, 116);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(44, 49);
+            pictureBox3.TabIndex = 49;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
+            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox2.Location = new Point(3, 116);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(44, 49);
+            pictureBox2.TabIndex = 48;
+            pictureBox2.TabStop = false;
+            // 
             // fMainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
+            CancelButton = btnCerrar;
             ClientSize = new Size(551, 442);
             Controls.Add(panel1);
             Controls.Add(lblRegistrar);
@@ -313,12 +314,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
