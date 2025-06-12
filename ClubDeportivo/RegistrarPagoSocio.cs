@@ -36,6 +36,8 @@ namespace ClubDeportivo
             dtpFechaVencimiento.Value = DateTime.Now.AddMonths(1);
 
 
+
+
         }
 
 
@@ -100,7 +102,6 @@ namespace ClubDeportivo
         }
 
 
-
         // Evento que valida los datos ingresados y registra el pago de la cuota del socio
         private void btnIngresarPago_Click(object sender, EventArgs e)
         {
@@ -127,7 +128,16 @@ namespace ClubDeportivo
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.AddWithValue("@socioId", lblSocioID2.Text);
-                        cmd.Parameters.AddWithValue("@precio", Convert.ToDecimal(txtCuota.Text));
+                        if (cboFormaDePago.SelectedIndex == 0)
+                        {
+                            decimal descuento = Convert.ToDecimal(txtCuota.Text) * 0.9m;
+                            cmd.Parameters.AddWithValue("@precio", descuento);
+
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@precio", Convert.ToDecimal(txtCuota.Text));
+                        }
                         cmd.Parameters.AddWithValue("@formaDePago", cboFormaDePago.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@fechaVencimiento", dtpFechaVencimiento.Value);
                         cmd.Parameters.AddWithValue("@fechaDePago", dtpFechaPago.Value.Date);
@@ -157,13 +167,22 @@ namespace ClubDeportivo
                     string fechaPago = dtpFechaPago.Value.ToString("dd/MM/yyyy");
                     string vencimiento = dtpFechaVencimiento.Value.ToString("dd/MM/yyyy"); ;
                     string monto = txtCuota.Text;
+
+                    if (cboFormaDePago.SelectedIndex == 0)
+                    {
+
+                        decimal descuento = Convert.ToDecimal(txtCuota.Text) * 0.9m;
+                        monto = Convert.ToString(descuento);
+                    }
+
+
                     // Mostrar el comprobante de pago en un nuevo formulario
                     fComprobantePago comprobante = new fComprobantePago(nombreCompleto, dni, formaPago, fechaPago, vencimiento, monto);
                     comprobante.ShowDialog();
 
                     MessageBox.Show("Pago registrado correctamente.");
 
-                    btnLimpiar.PerformClick(); 
+                    btnLimpiar.PerformClick();
 
                 }
             }
@@ -244,6 +263,17 @@ namespace ClubDeportivo
             toolTip1.Show("Ingresa el DNI, sin puntos y sin espacios",
                           lblAvisoDNI,
                           lblAvisoDNI.Width, 0, 2500); // ms 
+        }
+
+        private void cboFormaDePago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboFormaDePago.SelectedIndex == 0)
+            {
+                ToolTip toolTip2 = new ToolTip();
+                toolTip2.Show("Se aplica un 10% de descuento",
+                              lblDescuento,
+                              lblDescuento.Width, 0, 2500);
+            }
         }
     }
 }

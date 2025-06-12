@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient; // Importa este namespace para usar MessageBox
-
+using MySql.Data.MySqlClient; 
 namespace ClubDeportivo.Datos
 {
     internal class Conexion
@@ -11,7 +10,7 @@ namespace ClubDeportivo.Datos
         private string servidor = "localhost";
         private string puerto = "3306";
         private string usuario = "root";
-        private string clave = "12345";
+        private string clave = "1234";
         private static Conexion? instancia = null;
         private bool condicion = true;
         private Conexion()
@@ -52,10 +51,10 @@ namespace ClubDeportivo.Datos
         // Método para ingresar datos de conexión por medio de cuadros de diálogo
         private void IngresarDatos()
         {
-            this.servidor = Microsoft.VisualBasic.Interaction.InputBox("Ingrese servidor", "DATOS DE INSTALACIÓN MySQL");
-            this.puerto = Microsoft.VisualBasic.Interaction.InputBox("Ingrese puerto", "DATOS DE INSTALACIÓN MySQL");
-            this.usuario = Microsoft.VisualBasic.Interaction.InputBox("Ingrese usuario", "DATOS DE INSTALACIÓN MySQL");
-            this.clave = Microsoft.VisualBasic.Interaction.InputBox("Ingrese clave", "DATOS DE INSTALACIÓN MySQL");
+            this.servidor = Microsoft.VisualBasic.Interaction.InputBox("Ingrese servidor", "DATOS DE CONEXIÓN MySQL", servidor);
+            this.puerto = Microsoft.VisualBasic.Interaction.InputBox("Ingrese puerto", "DATOS DE INSTALACIÓN MySQL", puerto);
+            this.usuario = Microsoft.VisualBasic.Interaction.InputBox("Ingrese usuario", "DATOS DE CONEXIÓN MySQL", usuario);
+            this.clave = Microsoft.VisualBasic.Interaction.InputBox("Ingrese clave", "DATOS DE CONEXIÓN MySQL", clave);
         }
 
         // Método estático para obtener la instancia de la conexión

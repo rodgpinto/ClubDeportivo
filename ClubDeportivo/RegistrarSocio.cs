@@ -166,7 +166,16 @@ namespace ClubDeportivo
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("socioId", socioId);
-                        cmd.Parameters.AddWithValue("precio", txtCuota.Text);
+                        if (cboFormaDePago.SelectedIndex == 0)
+                        {
+                            decimal descuento = Convert.ToDecimal(txtCuota.Text) * 0.9m;
+                            cmd.Parameters.AddWithValue("@precio", descuento);
+
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@precio", Convert.ToDecimal(txtCuota.Text));
+                        }
                         cmd.Parameters.AddWithValue("formaDePago", cboFormaDePago.Text);
                         cmd.Parameters.AddWithValue("fechaDePago", dtpFechaPago.Value);
                         cmd.Parameters.AddWithValue("fechaVencimiento", dtpFechaVencimiento.Value);
@@ -194,6 +203,12 @@ namespace ClubDeportivo
                     string fechaPago = dtpFechaPago.Value.ToString("dd/MM/yyyy");
                     string vencimiento = dtpFechaVencimiento.Value.ToString("dd/MM/yyyy");
                     string monto = txtCuota.Text;
+                    if (cboFormaDePago.SelectedIndex == 0)
+                    {
+
+                        decimal descuento = Convert.ToDecimal(txtCuota.Text) * 0.9m;
+                        monto = Convert.ToString(descuento);
+                    }
 
                     MessageBox.Show("¡Socio registrado correctamente!");
 
@@ -306,6 +321,17 @@ namespace ClubDeportivo
             toolTip1.Show("Ingresa el DNI, sin puntos y sin espacios",
                           lblAvisoDNI,
                           lblAvisoDNI.Width, 0, 2500); // ms 
+        }
+
+        private void cboFormaDePago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboFormaDePago.SelectedIndex == 0)
+            {
+                ToolTip toolTip2 = new ToolTip();
+                toolTip2.Show("Se aplica un 10% de descuento",
+                              lblDescuento,
+                              lblDescuento.Width, 0, 2500);
+            }
         }
     }
 }

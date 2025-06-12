@@ -12,7 +12,6 @@ namespace ClubDeportivo.Datos
     internal class NoSocio : Persona
             {
 
-// Creamos el contructor 
         public NoSocio() : base()
         {
         }

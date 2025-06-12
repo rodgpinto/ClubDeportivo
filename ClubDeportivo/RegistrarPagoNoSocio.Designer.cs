@@ -49,7 +49,7 @@
             txtFechaVencimiento = new TextBox();
             dtpFechaPago = new DateTimePicker();
             lbFechalVencimiento = new Label();
-            label12 = new Label();
+            lblDescuento = new Label();
             label10 = new Label();
             cboFormaDePago = new ComboBox();
             btnBuscar = new Button();
@@ -171,7 +171,7 @@
             grpbPago.Controls.Add(txtFechaVencimiento);
             grpbPago.Controls.Add(dtpFechaPago);
             grpbPago.Controls.Add(lbFechalVencimiento);
-            grpbPago.Controls.Add(label12);
+            grpbPago.Controls.Add(lblDescuento);
             grpbPago.Controls.Add(label10);
             grpbPago.Controls.Add(cboFormaDePago);
             grpbPago.Font = new Font("Segoe UI", 10F);
@@ -305,16 +305,16 @@
             lbFechalVencimiento.TabIndex = 32;
             lbFechalVencimiento.Text = "Fecha de vencimiento:";
             // 
-            // label12
+            // lblDescuento
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label12.ForeColor = Color.Red;
-            label12.Location = new Point(303, 179);
-            label12.Name = "label12";
-            label12.Size = new Size(15, 19);
-            label12.TabIndex = 37;
-            label12.Text = "*";
+            lblDescuento.AutoSize = true;
+            lblDescuento.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblDescuento.ForeColor = Color.Red;
+            lblDescuento.Location = new Point(303, 179);
+            lblDescuento.Name = "lblDescuento";
+            lblDescuento.Size = new Size(15, 19);
+            lblDescuento.TabIndex = 37;
+            lblDescuento.Text = "*";
             // 
             // label10
             // 
@@ -331,11 +331,12 @@
             // 
             cboFormaDePago.Cursor = Cursors.Hand;
             cboFormaDePago.FormattingEnabled = true;
-            cboFormaDePago.Items.AddRange(new object[] { "Efectivo", "Tarjeta" });
+            cboFormaDePago.Items.AddRange(new object[] { "Efectivo", "Tarjeta, 3 cuotas", "Tarjeta, 6 cuotas" });
             cboFormaDePago.Location = new Point(169, 173);
             cboFormaDePago.Name = "cboFormaDePago";
             cboFormaDePago.Size = new Size(128, 25);
             cboFormaDePago.TabIndex = 9;
+            cboFormaDePago.SelectedIndexChanged += cboFormaDePago_SelectedIndexChanged;
             // 
             // btnBuscar
             // 
@@ -499,7 +500,7 @@
         private TextBox txtFechaVencimiento;
         private DateTimePicker dtpFechaPago;
         private Label lbFechalVencimiento;
-        private Label label12;
+        private Label lblDescuento;
         private Label label10;
         private ComboBox cboFormaDePago;
         private Button btnBuscar;

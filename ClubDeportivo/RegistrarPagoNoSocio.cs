@@ -74,7 +74,7 @@ namespace ClubDeportivo
                 //  Si no se encuentra el No Socio, mostramos un mensaje y preguntamos si desea registrarlo
                 DialogResult resultado = MessageBox.Show(
                     "El No Socio no existe. ¿Desea registrarlo ahora?",
-                    "Socio no encontrado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    "No se encontro al NoSocio", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 grpbPago.Enabled = false;
 
                 // Si el usuario acepta, cerramos el formulario actual y abrimos el formulario de registro de No Socio
@@ -89,7 +89,7 @@ namespace ClubDeportivo
             {
                 // Si se encuentra el No Socio, habilitamos el grupo de pago y los botones
                 lblNoSocioID2.Text = noSocioId.ToString();
-                MessageBox.Show("No Socio encontrado. Puede continuar con el pago.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se encontro al NoSocio. Puede continuar con el pago.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 grpbPago.Enabled = true;
                 btnIngresarPago.Enabled = true;
                 btnLimpiar.Enabled = true;
@@ -141,7 +141,16 @@ namespace ClubDeportivo
                     {
                         cmd.Parameters.AddWithValue("@id_NoSocio", idNoSocio);
                         cmd.Parameters.AddWithValue("@pagado", true);
-                        cmd.Parameters.AddWithValue("@precio", cuota);
+                        if (cboFormaDePago.SelectedIndex == 0)
+                        {
+                            decimal descuento = Convert.ToDecimal(txtCuota.Text) * 0.9m;
+                            cmd.Parameters.AddWithValue("@precio", descuento);
+
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@precio", Convert.ToDecimal(txtCuota.Text));
+                        }
                         cmd.Parameters.AddWithValue("@formaDePago", cboFormaDePago.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@fechaDePago", dtpFechaPago.Value.Date);
                         cmd.Parameters.AddWithValue("@actividad", cboActividad.SelectedItem.ToString());
@@ -180,6 +189,12 @@ namespace ClubDeportivo
                     string vencimiento = dtpFechaPago.Value.AddDays(1).ToString("dd/MM/yyyy");
                     string actividad = cboActividad.Text.ToString();
                     string monto = txtCuota.Text;
+                    if (cboFormaDePago.SelectedIndex == 0)
+                    {
+
+                        decimal descuento = Convert.ToDecimal(txtCuota.Text) * 0.9m;
+                        monto = Convert.ToString(descuento);
+                    }
                     // Creamos el comprobante de actividad y lo mostramos
                     ComprobanteActividad comprobante = new ComprobanteActividad(nombreCompleto, dni, formaPago, fechaPago, vencimiento, monto, actividad);
                     comprobante.ShowDialog();
@@ -273,6 +288,16 @@ namespace ClubDeportivo
             toolTip1.Show("Ingresa el DNI, sin puntos y sin espacios",
                           lblAvisoDNI,
                           lblAvisoDNI.Width, 0, 2500); // ms 
+        }
+        private void cboFormaDePago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboFormaDePago.SelectedIndex == 0)
+            {
+                ToolTip toolTip2 = new ToolTip();
+                toolTip2.Show("Se aplica un 10% de descuento",
+                              lblDescuento,
+                              lblDescuento.Width, 0, 2500);
+            }
         }
     }
 }

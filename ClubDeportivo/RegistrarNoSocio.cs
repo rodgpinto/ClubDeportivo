@@ -74,7 +74,7 @@ namespace ClubDeportivo
                 MessageBox.Show("El DNI no debe contener espacios ni puntos.");
                 return;
             }
-            else if ( !int.TryParse(txtDocumento.Text, out _))
+            else if (!int.TryParse(txtDocumento.Text, out _))
             {
                 MessageBox.Show("El DNI debe tener 8 dígitos numéricos.");
                 return;
@@ -146,7 +146,16 @@ namespace ClubDeportivo
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@p_id_NoSocio", noSocioId);
                         cmd.Parameters.AddWithValue("@p_pagado", true);
-                        cmd.Parameters.AddWithValue("@p_precio", txtActividad.Text);
+                        if (cboFormaDePago.SelectedIndex == 0)
+                        {
+                            decimal descuento = Convert.ToDecimal(txtActividad.Text) * 0.9m;
+                            cmd.Parameters.AddWithValue("@p_precio", descuento);
+
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@p_precio", Convert.ToDecimal(txtActividad.Text));
+                        }
                         cmd.Parameters.AddWithValue("@p_formaDePago", cboFormaDePago.Text);
                         cmd.Parameters.AddWithValue("@p_fechaDePago", dtpFechaPago.Value);
                         cmd.Parameters.AddWithValue("@p_actividad", cboActividad.Text);
@@ -160,6 +169,11 @@ namespace ClubDeportivo
                     string fechaPago = dtpFechaPago.Value.ToString("dd/MM/yyyy");
                     string vencimiento = dtpFechaVencimiento.Value.ToString("dd/MM/yyyy");
                     string monto = txtActividad.Text;
+                    {
+
+                        decimal descuento = Convert.ToDecimal(txtActividad.Text) * 0.9m;
+                        monto = Convert.ToString(descuento);
+                    }
                     string actividad = cboActividad.Text;
 
                     MessageBox.Show("¡Registro Exitoso!");
@@ -206,6 +220,17 @@ namespace ClubDeportivo
             toolTip1.Show("Ingresa el DNI, sin puntos y sin espacios",
                           lblAvisoDNI,
                           lblAvisoDNI.Width, 0, 2500); // ms 
+        }
+
+        private void cboFormaDePago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboFormaDePago.SelectedIndex == 0)
+            {
+                ToolTip toolTip2 = new ToolTip();
+                toolTip2.Show("Se aplica un 10% de descuento",
+                              lblDescuento,
+                              lblDescuento.Width, 0, 2500);
+            }
         }
     }
 }
