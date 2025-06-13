@@ -147,10 +147,19 @@ namespace ClubDeportivo
                             cmd.Parameters.AddWithValue("@precio", descuento);
 
                         }
-                        else
+                        
+                        else if(cboFormaDePago.SelectedIndex == 1)
                         {
-                            cmd.Parameters.AddWithValue("@precio", Convert.ToDecimal(txtCuota.Text));
+
+                            cuota = Convert.ToInt32(txtCuota.Text) / 3;
+                            cmd.Parameters.AddWithValue("@precio", cuota);
+
+                        } else if (cboFormaDePago.SelectedIndex == 2)
+                        {
+                            cuota = Convert.ToInt32(txtCuota.Text) / 6;
+                            cmd.Parameters.AddWithValue("@precio", cuota);
                         }
+         
                         cmd.Parameters.AddWithValue("@formaDePago", cboFormaDePago.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@fechaDePago", dtpFechaPago.Value.Date);
                         cmd.Parameters.AddWithValue("@actividad", cboActividad.SelectedItem.ToString());

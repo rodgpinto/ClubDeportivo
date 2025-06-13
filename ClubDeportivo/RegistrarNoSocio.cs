@@ -152,6 +152,16 @@ namespace ClubDeportivo
                             cmd.Parameters.AddWithValue("@p_precio", descuento);
 
                         }
+                        else if (cboFormaDePago.SelectedIndex == 1)
+                        {
+                            int cuota = Convert.ToInt32(txtActividad.Text) / 3;
+                            cmd.Parameters.AddWithValue("@p_precio", cuota);
+                        }
+                        else if (cboFormaDePago.SelectedIndex == 2)
+                        {
+                            int cuota = Convert.ToInt32(txtActividad.Text) / 6;
+                            cmd.Parameters.AddWithValue("@p_precio", cuota);
+                        }
                         else
                         {
                             cmd.Parameters.AddWithValue("@p_precio", Convert.ToDecimal(txtActividad.Text));
@@ -169,10 +179,24 @@ namespace ClubDeportivo
                     string fechaPago = dtpFechaPago.Value.ToString("dd/MM/yyyy");
                     string vencimiento = dtpFechaVencimiento.Value.ToString("dd/MM/yyyy");
                     string monto = txtActividad.Text;
+                    if (cboFormaDePago.SelectedIndex == 0)
                     {
 
                         decimal descuento = Convert.ToDecimal(txtActividad.Text) * 0.9m;
                         monto = Convert.ToString(descuento);
+                    }
+                    else if (cboFormaDePago.SelectedIndex == 1)
+                    {
+                        int cuota = Convert.ToInt32(txtActividad.Text) / 3;
+                        monto = Convert.ToString(cuota);
+
+
+                    }
+                    else if (cboFormaDePago.SelectedIndex == 2)
+                    {
+                        int cuota = Convert.ToInt32(txtActividad.Text) / 6;
+                        monto = Convert.ToString(cuota);
+
                     }
                     string actividad = cboActividad.Text;
 

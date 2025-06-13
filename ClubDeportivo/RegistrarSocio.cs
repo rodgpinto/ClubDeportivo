@@ -172,6 +172,16 @@ namespace ClubDeportivo
                             cmd.Parameters.AddWithValue("@precio", descuento);
 
                         }
+                        else if (cboFormaDePago.SelectedIndex == 1)
+                        {
+                            int cuota = Convert.ToInt32(txtCuota.Text) / 3;
+                            cmd.Parameters.AddWithValue("@precio", cuota);
+                        }
+                        else if (cboFormaDePago.SelectedIndex == 2)
+                        {
+                            int cuota = Convert.ToInt32(txtCuota.Text) / 6;
+                            cmd.Parameters.AddWithValue("@precio", cuota);
+                        }
                         else
                         {
                             cmd.Parameters.AddWithValue("@precio", Convert.ToDecimal(txtCuota.Text));
@@ -208,6 +218,18 @@ namespace ClubDeportivo
 
                         decimal descuento = Convert.ToDecimal(txtCuota.Text) * 0.9m;
                         monto = Convert.ToString(descuento);
+                    }else if(cboFormaDePago.SelectedIndex == 1)
+                    {
+                        int cuota = Convert.ToInt32(txtCuota.Text) / 3;
+                        monto = Convert.ToString(cuota);
+
+
+                    }
+                    else if (cboFormaDePago.SelectedIndex == 2)
+                    {
+                        int cuota = Convert.ToInt32(txtCuota.Text) / 6;
+                        monto = Convert.ToString(cuota);
+
                     }
 
                     MessageBox.Show("¡Socio registrado correctamente!");

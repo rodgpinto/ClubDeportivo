@@ -134,146 +134,168 @@ namespace ClubDeportivo
                             cmd.Parameters.AddWithValue("@precio", descuento);
 
                         }
-                        else
+
+                        else if (cboFormaDePago.SelectedIndex == 1)
                         {
-                            cmd.Parameters.AddWithValue("@precio", Convert.ToDecimal(txtCuota.Text));
+                             cuota = Convert.ToInt32(txtCuota.Text) / 3;
+                            cmd.Parameters.AddWithValue("@precio", cuota);
+
+
                         }
-                        cmd.Parameters.AddWithValue("@formaDePago", cboFormaDePago.SelectedItem.ToString());
-                        cmd.Parameters.AddWithValue("@fechaVencimiento", dtpFechaVencimiento.Value);
-                        cmd.Parameters.AddWithValue("@fechaDePago", dtpFechaPago.Value.Date);
-
-                        cmd.ExecuteNonQuery();
-                    }
-                    MessageBox.Show("Pago registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    string nombre = "", apellido = "";
-
-                    using (MySqlCommand cmdNombre = new MySqlCommand("SELECT p.nombre, p.apellido FROM persona p INNER JOIN socios s ON p.codigo = s.persona_id WHERE s.id_Socio = @id", conexion))
-                    {
-                        cmdNombre.Parameters.AddWithValue("@id", lblSocioID2.Text);
-
-                        using (MySqlDataReader reader = cmdNombre.ExecuteReader())
+                        else if (cboFormaDePago.SelectedIndex == 2)
                         {
-                            if (reader.Read())
-                            {
-                                nombre = reader.GetString("nombre");
-                                apellido = reader.GetString("apellido");
-                            }
+                             cuota = Convert.ToInt32(txtCuota.Text) / 6;
+                            cmd.Parameters.AddWithValue("@precio", cuota);
+
+                        }
+                    
+                    cmd.Parameters.AddWithValue("@formaDePago", cboFormaDePago.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@fechaVencimiento", dtpFechaVencimiento.Value);
+                    cmd.Parameters.AddWithValue("@fechaDePago", dtpFechaPago.Value.Date);
+
+                    cmd.ExecuteNonQuery();
+                }
+                MessageBox.Show("Pago registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string nombre = "", apellido = "";
+
+                using (MySqlCommand cmdNombre = new MySqlCommand("SELECT p.nombre, p.apellido FROM persona p INNER JOIN socios s ON p.codigo = s.persona_id WHERE s.id_Socio = @id", conexion))
+                {
+                    cmdNombre.Parameters.AddWithValue("@id", lblSocioID2.Text);
+
+                    using (MySqlDataReader reader = cmdNombre.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            nombre = reader.GetString("nombre");
+                            apellido = reader.GetString("apellido");
                         }
                     }
-                    // Generar el comprobante de pago
-                    string nombreCompleto = nombre + " " + apellido;
-                    string dni = txtDNI.Text;
-                    string formaPago = cboFormaDePago.Text;
-                    string fechaPago = dtpFechaPago.Value.ToString("dd/MM/yyyy");
-                    string vencimiento = dtpFechaVencimiento.Value.ToString("dd/MM/yyyy"); ;
-                    string monto = txtCuota.Text;
+                }
+                // Generar el comprobante de pago
+                string nombreCompleto = nombre + " " + apellido;
+                string dni = txtDNI.Text;
+                string formaPago = cboFormaDePago.Text;
+                string fechaPago = dtpFechaPago.Value.ToString("dd/MM/yyyy");
+                string vencimiento = dtpFechaVencimiento.Value.ToString("dd/MM/yyyy"); ;
+                string monto = txtCuota.Text;
 
-                    if (cboFormaDePago.SelectedIndex == 0)
+                if (cboFormaDePago.SelectedIndex == 0)
+                {
+
+                    decimal descuento = Convert.ToDecimal(txtCuota.Text) * 0.9m;
+                    monto = Convert.ToString(descuento);
+                }
+                    else if (cboFormaDePago.SelectedIndex == 1)
                     {
+                        cuota = Convert.ToInt32(txtCuota.Text) / 3;
+                        monto = Convert.ToString(cuota);
 
-                        decimal descuento = Convert.ToDecimal(txtCuota.Text) * 0.9m;
-                        monto = Convert.ToString(descuento);
+                    }
+                    else if (cboFormaDePago.SelectedIndex == 2)
+                    {
+                        cuota = Convert.ToInt32(txtCuota.Text) / 6;
+                        monto = Convert.ToString(cuota);
                     }
 
 
                     // Mostrar el comprobante de pago en un nuevo formulario
                     fComprobantePago comprobante = new fComprobantePago(nombreCompleto, dni, formaPago, fechaPago, vencimiento, monto);
-                    comprobante.ShowDialog();
+                comprobante.ShowDialog();
 
-                    MessageBox.Show("Pago registrado correctamente.");
+                MessageBox.Show("Pago registrado correctamente.");
 
-                    btnLimpiar.PerformClick();
+                btnLimpiar.PerformClick();
 
-                }
+            }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+}
+
+
+// Evento que limpia los campos del formulario y deshabilita los controles de pago
+private void btnLimpiar_Click(object sender, EventArgs e)
+{
+    txtDNI.Text = "";
+    lblSocioID2.Text = "";
+    dtpFechaPago.Value = DateTime.Now;
+    txtCuota.Text = "";
+    cboFormaDePago.SelectedIndex = -1;
+    txtDNI.Focus();
+    grpbPago.Enabled = false;
+    btnIngresarPago.Enabled = false;
+    btnLimpiar.Enabled = false;
+    btnConsultarPagos.Enabled = false;
+}
+
+// Evento que consulta los pagos realizados por el socio ingresado y muestra el historial en un nuevo formulario
+private void btnConsultarPagos_Click(object sender, EventArgs e)
+{
+    string dni = txtDNI.Text.Trim();
+
+    if (string.IsNullOrEmpty(dni))
+    {
+        MessageBox.Show("Por favor, ingrese un DNI.");
+        return;
+    }
+
+    try
+    {
+        Socio socio = new Socio();
+        int? socioId = socio.ObtenerIdPorDNI(dni);
+
+        if (socioId == null)
+        {
+            MessageBox.Show("El socio no existe en el sistema.");
+            return;
         }
 
-
-        // Evento que limpia los campos del formulario y deshabilita los controles de pago
-        private void btnLimpiar_Click(object sender, EventArgs e)
+        using (MySqlConnection conexion = Conexion.getInstancia().CrearConexion())
         {
-            txtDNI.Text = "";
-            lblSocioID2.Text = "";
-            dtpFechaPago.Value = DateTime.Now;
-            txtCuota.Text = "";
-            cboFormaDePago.SelectedIndex = -1;
-            txtDNI.Focus();
-            grpbPago.Enabled = false;
-            btnIngresarPago.Enabled = false;
-            btnLimpiar.Enabled = false;
-            btnConsultarPagos.Enabled = false;
-        }
+            conexion.Open();
 
-        // Evento que consulta los pagos realizados por el socio ingresado y muestra el historial en un nuevo formulario
-        private void btnConsultarPagos_Click(object sender, EventArgs e)
-        {
-            string dni = txtDNI.Text.Trim();
-
-            if (string.IsNullOrEmpty(dni))
+            using (MySqlCommand cmd = new MySqlCommand("VerPagosPorSocio", conexion))
             {
-                MessageBox.Show("Por favor, ingrese un DNI.");
-                return;
-            }
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_socioId", socioId);
 
-            try
-            {
-                Socio socio = new Socio();
-                int? socioId = socio.ObtenerIdPorDNI(dni);
-
-                if (socioId == null)
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                 {
-                    MessageBox.Show("El socio no existe en el sistema.");
-                    return;
-                }
+                    DataTable tablaPagos = new DataTable();
+                    adapter.Fill(tablaPagos);
 
-                using (MySqlConnection conexion = Conexion.getInstancia().CrearConexion())
-                {
-                    conexion.Open();
-
-                    using (MySqlCommand cmd = new MySqlCommand("VerPagosPorSocio", conexion))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@p_socioId", socioId);
-
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                        {
-                            DataTable tablaPagos = new DataTable();
-                            adapter.Fill(tablaPagos);
-
-                            // Mostrar en el nuevo formulario
-                            HistorialPagosSocios historial = new HistorialPagosSocios(tablaPagos);
-                            historial.ShowDialog();
-                        }
-                    }
+                    // Mostrar en el nuevo formulario
+                    HistorialPagosSocios historial = new HistorialPagosSocios(tablaPagos);
+                    historial.ShowDialog();
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al consultar pagos: " + ex.Message);
-            }
         }
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("Error al consultar pagos: " + ex.Message);
+    }
+}
 
-        private void lblAvisoDNI_MouseLeave(object sender, EventArgs e)
-        {
-            ToolTip toolTip1 = new ToolTip();
-            toolTip1.Show("Ingresa el DNI, sin puntos y sin espacios",
-                          lblAvisoDNI,
-                          lblAvisoDNI.Width, 0, 2500); // ms 
-        }
+private void lblAvisoDNI_MouseLeave(object sender, EventArgs e)
+{
+    ToolTip toolTip1 = new ToolTip();
+    toolTip1.Show("Ingresa el DNI, sin puntos y sin espacios",
+                  lblAvisoDNI,
+                  lblAvisoDNI.Width, 0, 2500); // ms 
+}
 
-        private void cboFormaDePago_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboFormaDePago.SelectedIndex == 0)
-            {
-                ToolTip toolTip2 = new ToolTip();
-                toolTip2.Show("Se aplica un 10% de descuento",
-                              lblDescuento,
-                              lblDescuento.Width, 0, 2500);
-            }
-        }
+private void cboFormaDePago_SelectedIndexChanged(object sender, EventArgs e)
+{
+    if (cboFormaDePago.SelectedIndex == 0)
+    {
+        ToolTip toolTip2 = new ToolTip();
+        toolTip2.Show("Se aplica un 10% de descuento",
+                      lblDescuento,
+                      lblDescuento.Width, 0, 2500);
+    }
+}
     }
 }
