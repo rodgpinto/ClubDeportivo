@@ -238,6 +238,16 @@ namespace ClubDeportivo
             string? nombre = string.IsNullOrWhiteSpace(txtNombre.Text) ? null : txtNombre.Text.Trim();
             string? apellido = string.IsNullOrWhiteSpace(txtApellido.Text) ? null : txtApellido.Text.Trim();
             string? dni = string.IsNullOrWhiteSpace(txtDNI2.Text) ? null : txtDNI2.Text.Trim();
+            if (string.IsNullOrWhiteSpace(dni) || dni.Contains("."))
+            {
+                MessageBox.Show("El DNI no debe contener espacios ni puntos.");
+                return;
+            }
+            else if (!int.TryParse(dni, out _))
+            {
+                MessageBox.Show("El DNI debe tener 8 dígitos numéricos.");
+                return;
+            }
             string? direccion = string.IsNullOrWhiteSpace(txtDireccion.Text) ? null : txtDireccion.Text.Trim();
             DateTime? fechaNacimiento = dtpFechaNacimiento.Checked ? dtpFechaNacimiento.Value : (DateTime?)null;
 

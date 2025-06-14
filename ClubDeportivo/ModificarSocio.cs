@@ -118,6 +118,16 @@ namespace ClubDeportivo
                 MessageBox.Show("Por favor, ingrese un DNI.");
                 return;
             }
+            else if (dni.Contains(" ") || dni.Contains("."))
+            {
+                MessageBox.Show("El DNI no debe contener espacios ni puntos.");
+                return;
+            }
+            else if (!int.TryParse(dni, out _))
+            {
+                MessageBox.Show("El DNI debe tener 8 dígitos numéricos.");
+                return;
+            }
 
             try
             {
@@ -280,11 +290,23 @@ namespace ClubDeportivo
         // Evento para cargar los datos de los campos utilizados
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+
+        
             int idSocio = Convert.ToInt32(lblSocioID2.Text);
 
             string? nombre = string.IsNullOrWhiteSpace(txtNombre.Text) ? null : txtNombre.Text.Trim();
             string? apellido = string.IsNullOrWhiteSpace(txtApellido.Text) ? null : txtApellido.Text.Trim();
             string? dni = string.IsNullOrWhiteSpace(txtDNI2.Text) ? null : txtDNI2.Text.Trim();
+            if (string.IsNullOrWhiteSpace(dni) || dni.Contains("."))
+            {
+                MessageBox.Show("El DNI no debe contener espacios ni puntos.");
+                return;
+            }
+            else if (!int.TryParse(dni, out _))
+            {
+                MessageBox.Show("El DNI debe tener 8 dígitos numéricos.");
+                return;
+            }
             string? direccion = string.IsNullOrWhiteSpace(txtDireccion.Text) ? null : txtDireccion.Text.Trim();
             DateTime? fechaNacimiento = dtpFechaNacimiento.Checked ? dtpFechaNacimiento.Value : (DateTime?)null;
 
