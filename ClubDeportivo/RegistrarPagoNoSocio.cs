@@ -34,6 +34,37 @@ namespace ClubDeportivo
             dtpFechaPago.Value = DateTime.Now;
             // Establecemos la fecha de vencimiento como un día después de la fecha de pago
             txtFechaVencimiento.Text = dtpFechaPago.Value.AddDays(1).ToString("dd/MM/yyyy");
+
+
+            List<string> actividades = new List<string>
+            {
+                "Boxeo",
+                "Clases de TRX",
+                "CrossFit",
+                "Musculación",
+                "Pilates",
+                "Spinning",
+                "Yoga",
+                "Zumba"
+            };
+
+            //cboActividad.DataSource = actividades;
+
+            foreach (var act in actividades)
+            {
+                cboActividad.Items.Add(act);
+            }
+
+            List<string> formasDePago = new List<string>
+            {
+                "Efectivo",
+                "Tarjeta (3 cuotas)",
+                "Tarjeta (6 cuotas)",
+            };
+            foreach (var pago in formasDePago)
+            {
+                cboFormaDePago.Items.Add(pago);
+            }
         }
 
         // Evento que cierra el formulario y regresa al formulario anterior
@@ -104,10 +135,18 @@ namespace ClubDeportivo
             // Validación de campos requeridos
             try
             {
-                if (!decimal.TryParse(txtCuota.Text, out decimal cuota) || cuota <= 0)
+                if (!decimal.TryParse(txtCuota.Text, out decimal cuota))
                 {
                     MessageBox.Show("Por favor, ingrese un monto válido.");
                     return;
+                }
+                else if (cuota <= 0)
+                {
+                    MessageBox.Show("El monto de la cuota debe ser un número mayor a 0.",
+                    "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                    return;
+
                 }
 
                 if (cboFormaDePago.SelectedItem == null)

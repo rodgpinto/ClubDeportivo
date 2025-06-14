@@ -36,7 +36,16 @@ namespace ClubDeportivo
             dtpFechaVencimiento.Value = DateTime.Now.AddMonths(1);
 
 
-
+            List<string> formasDePago = new List<string>
+            {
+                "Efectivo",
+                "Tarjeta (3 cuotas)",
+                "Tarjeta (6 cuotas)",
+            };
+            foreach (var pago in formasDePago)
+            {
+                cboFormaDePago.Items.Add(pago);
+            }
 
         }
 
@@ -107,10 +116,20 @@ namespace ClubDeportivo
         {
             try
             {
+                
+
                 if (!decimal.TryParse(txtCuota.Text, out decimal cuota) || cuota <= 0)
                 {
                     MessageBox.Show("Por favor, ingrese un monto de cuota válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
+                }
+                else if (cuota <= 0)
+                {
+                    MessageBox.Show("El monto de la cuota debe ser un número mayor a 0.",
+                    "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                    return;
+
                 }
                 if (cboFormaDePago.SelectedItem == null)
                 {
@@ -183,17 +202,23 @@ namespace ClubDeportivo
                 {
 
                     decimal descuento = Convert.ToDecimal(txtCuota.Text) * 0.9m;
-                    monto = Convert.ToString(descuento);
+                        descuento.ToString("0.00");
+                        cuota = Math.Round(descuento, 2);
+
+                        monto = Convert.ToString(descuento);
                 }
                     else if (cboFormaDePago.SelectedIndex == 1)
                     {
-                        cuota = Convert.ToInt32(txtCuota.Text) / 3;
+                        cuota = Convert.ToDecimal(txtCuota.Text) / 3;
+                        cuota = Math.Round(cuota, 2);
+
                         monto = Convert.ToString(cuota);
 
                     }
                     else if (cboFormaDePago.SelectedIndex == 2)
                     {
-                        cuota = Convert.ToInt32(txtCuota.Text) / 6;
+                        cuota = Convert.ToDecimal(txtCuota.Text) / 6;
+                        cuota = Math.Round(cuota, 2);
                         monto = Convert.ToString(cuota);
                     }
 

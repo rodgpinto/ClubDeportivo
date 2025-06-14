@@ -30,7 +30,40 @@ namespace ClubDeportivo
             dtpFechaVencimiento.Format = DateTimePickerFormat.Custom;
             dtpFechaVencimiento.CustomFormat = "dd/MM/yyyy";
             dtpFechaVencimiento.Value = DateTime.Now.AddDays(1);
+
+            List<string> actividades = new List<string>
+            {
+                "Boxeo",
+                "Clases de TRX",
+                "CrossFit",
+                "Musculación",
+                "Pilates",
+                "Spinning",
+                "Yoga",
+                "Zumba"
+            };
+
+            //cboActividad.DataSource = actividades;
+
+            foreach (var act in actividades)
+            {
+                cboActividad.Items.Add(act);
+            }
+
+            List<string> formasDePago = new List<string>
+            {
+                "Efectivo",
+                "Tarjeta (3 cuotas)",
+                "Tarjeta (6 cuotas)",
+            };
+            foreach (var pago in formasDePago)
+            {
+                cboFormaDePago.Items.Add(pago);
+            }
         }
+
+
+
 
         // Evento que da check a la casilla de verificación al hacer clic en la etiqueta "lblFichaInscripcion"
         private void lblFichaInscripcion_Click(object sender, EventArgs e)
@@ -42,7 +75,13 @@ namespace ClubDeportivo
 
         // Evento que valida los datos ingresados y registra al no socio en la base de datos
         private void btnIngresarDato_Click(object sender, EventArgs e)
+
         {
+
+          
+
+            decimal cuota = Convert.ToDecimal(txtActividad.Text);
+
             // Validación de campos requeridos
             if (txtNombre.Text == "" || txtApellido.Text == "" || txtDocumento.Text == ""
                 || txtDireccion.Text == "" || txtActividad.Text == ""
@@ -85,6 +124,14 @@ namespace ClubDeportivo
                 "AVISO DEL SISTEMA", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
                 return;
+            }
+            else if (cuota <= 0)
+            {
+                MessageBox.Show("El monto de la cuota debe ser un número mayor a 0.",
+                "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+
             }
             else if (cboFormaDePago.SelectedIndex == -1)
             {
@@ -154,12 +201,12 @@ namespace ClubDeportivo
                         }
                         else if (cboFormaDePago.SelectedIndex == 1)
                         {
-                            int cuota = Convert.ToInt32(txtActividad.Text) / 3;
+                            cuota = Convert.ToDecimal(txtActividad.Text) / 3;
                             cmd.Parameters.AddWithValue("@p_precio", cuota);
                         }
                         else if (cboFormaDePago.SelectedIndex == 2)
                         {
-                            int cuota = Convert.ToInt32(txtActividad.Text) / 6;
+                            cuota = Convert.ToDecimal(txtActividad.Text) / 6;
                             cmd.Parameters.AddWithValue("@p_precio", cuota);
                         }
                         else
@@ -187,14 +234,14 @@ namespace ClubDeportivo
                     }
                     else if (cboFormaDePago.SelectedIndex == 1)
                     {
-                        int cuota = Convert.ToInt32(txtActividad.Text) / 3;
+                        cuota = Convert.ToDecimal(txtActividad.Text) / 3;
                         monto = Convert.ToString(cuota);
 
 
                     }
                     else if (cboFormaDePago.SelectedIndex == 2)
                     {
-                        int cuota = Convert.ToInt32(txtActividad.Text) / 6;
+                        cuota = Convert.ToDecimal(txtActividad.Text) / 6;
                         monto = Convert.ToString(cuota);
 
                     }

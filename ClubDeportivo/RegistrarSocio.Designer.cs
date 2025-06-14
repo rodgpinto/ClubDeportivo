@@ -87,13 +87,13 @@
             // 
             cboTipo.Cursor = Cursors.Hand;
             cboTipo.DisplayMember = "0";
+            cboTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTipo.FormattingEnabled = true;
             cboTipo.Items.AddRange(new object[] { "DNI", "Pasaporte", "Extranjero" });
             cboTipo.Location = new Point(169, 92);
             cboTipo.Name = "cboTipo";
             cboTipo.Size = new Size(128, 25);
             cboTipo.TabIndex = 3;
-            cboTipo.Text = "DNI";
             // 
             // lblNombre
             // 
@@ -446,9 +446,11 @@
             // 
             // cboFormaDePago
             // 
+            cboFormaDePago.AutoCompleteMode = AutoCompleteMode.Append;
+            cboFormaDePago.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboFormaDePago.Cursor = Cursors.Hand;
+            cboFormaDePago.DropDownStyle = ComboBoxStyle.DropDownList;
             cboFormaDePago.FormattingEnabled = true;
-            cboFormaDePago.Items.AddRange(new object[] { "Efectivo", "Tarjeta, 3 cuotas", "Tarjeta, 6 cuotas" });
             cboFormaDePago.Location = new Point(169, 142);
             cboFormaDePago.Name = "cboFormaDePago";
             cboFormaDePago.Size = new Size(128, 25);

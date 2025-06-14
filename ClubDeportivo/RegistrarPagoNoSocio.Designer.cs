@@ -195,9 +195,11 @@
             // 
             // cboActividad
             // 
+            cboActividad.AutoCompleteMode = AutoCompleteMode.Append;
+            cboActividad.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboActividad.Cursor = Cursors.Hand;
+            cboActividad.DropDownStyle = ComboBoxStyle.DropDownList;
             cboActividad.FormattingEnabled = true;
-            cboActividad.Items.AddRange(new object[] { "Boxeo", "Clases de TRX", "CrossFit", "Musculación", "Pilates", "Spinning", "Yoga", "Zumba" });
             cboActividad.Location = new Point(170, 27);
             cboActividad.Name = "cboActividad";
             cboActividad.Size = new Size(128, 25);
@@ -329,9 +331,11 @@
             // 
             // cboFormaDePago
             // 
+            cboFormaDePago.AutoCompleteMode = AutoCompleteMode.Append;
+            cboFormaDePago.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboFormaDePago.Cursor = Cursors.Hand;
+            cboFormaDePago.DropDownStyle = ComboBoxStyle.DropDownList;
             cboFormaDePago.FormattingEnabled = true;
-            cboFormaDePago.Items.AddRange(new object[] { "Efectivo", "Tarjeta, 3 cuotas", "Tarjeta, 6 cuotas" });
             cboFormaDePago.Location = new Point(169, 173);
             cboFormaDePago.Name = "cboFormaDePago";
             cboFormaDePago.Size = new Size(128, 25);

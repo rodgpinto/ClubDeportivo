@@ -34,7 +34,19 @@ namespace ClubDeportivo
             dtpFechaVencimiento.Value = DateTime.Now.AddMonths(1);
             btnCarnet.Visible = false;
 
+
+            List<string> formasDePago = new List<string>
+            {
+                "Efectivo",
+                "Tarjeta (3 cuotas)",
+                "Tarjeta (6 cuotas)",
+            };
+            foreach (var pago in formasDePago)
+            {
+                cboFormaDePago.Items.Add(pago);
+            }
         }
+
 
         private byte[]? fotoBytes;
 
@@ -59,6 +71,8 @@ namespace ClubDeportivo
         // Evento que valida los datos ingresados y registra al socio en la base de datos
         private void btnIngresarDato_Click(object sender, EventArgs e)
         {
+            decimal cuota = Convert.ToDecimal(txtCuota.Text);
+
             // Validación de campos requeridos
             if (txtNombre.Text == "" || txtApellido.Text == "" || txtDocumento.Text == ""
                 || txtDireccion.Text == "" || txtCuota.Text == ""
@@ -76,6 +90,8 @@ namespace ClubDeportivo
                 MessageBoxIcon.Error);
                 return;
             }
+
+
             else if (!int.TryParse(txtDocumento.Text, out _))
             {
                 MessageBox.Show("El DNI debe ser un número válido.",
@@ -99,6 +115,14 @@ namespace ClubDeportivo
                 "AVISO DEL SISTEMA", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
                 return;
+            }
+            else if (cuota <= 0)
+            {
+                MessageBox.Show("El monto de la cuota debe ser un número mayor a 0.",
+                "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+
             }
             else if (cboFormaDePago.SelectedIndex == -1)
             {
@@ -166,6 +190,8 @@ namespace ClubDeportivo
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("socioId", socioId);
+
+
                         if (cboFormaDePago.SelectedIndex == 0)
                         {
                             decimal descuento = Convert.ToDecimal(txtCuota.Text) * 0.9m;
@@ -174,12 +200,12 @@ namespace ClubDeportivo
                         }
                         else if (cboFormaDePago.SelectedIndex == 1)
                         {
-                            int cuota = Convert.ToInt32(txtCuota.Text) / 3;
+                            cuota = Convert.ToDecimal(txtCuota.Text) / 3;
                             cmd.Parameters.AddWithValue("@precio", cuota);
                         }
                         else if (cboFormaDePago.SelectedIndex == 2)
                         {
-                            int cuota = Convert.ToInt32(txtCuota.Text) / 6;
+                            cuota = Convert.ToDecimal(txtCuota.Text) / 6;
                             cmd.Parameters.AddWithValue("@precio", cuota);
                         }
                         else
@@ -217,17 +243,24 @@ namespace ClubDeportivo
                     {
 
                         decimal descuento = Convert.ToDecimal(txtCuota.Text) * 0.9m;
+                        descuento = Math.Round(cuota, 2);
+
                         monto = Convert.ToString(descuento);
-                    }else if(cboFormaDePago.SelectedIndex == 1)
+                    }
+                    else if (cboFormaDePago.SelectedIndex == 1)
                     {
-                        int cuota = Convert.ToInt32(txtCuota.Text) / 3;
+                        cuota = Convert.ToDecimal(txtCuota.Text) / 3;
+                        cuota = Math.Round(cuota, 2);
+
                         monto = Convert.ToString(cuota);
 
 
                     }
                     else if (cboFormaDePago.SelectedIndex == 2)
                     {
-                        int cuota = Convert.ToInt32(txtCuota.Text) / 6;
+                        cuota = Convert.ToDecimal(txtCuota.Text) / 6;
+                        cuota = Math.Round(cuota, 2);
+
                         monto = Convert.ToString(cuota);
 
                     }
